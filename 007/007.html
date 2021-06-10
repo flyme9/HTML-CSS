@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表格</title>
+	</head>
+	<body>
+		<!-- 表格组成：行 列 单元格 -->
+		<!-- 宽高  边宽大小 边宽颜色 对齐方式  单元格间距 单元格于内容空隙-->
+		<table width="200px" height="100px" border="1px" bordercolor="red" align="center" cellspacing="0"
+			cellpadding="30px">
+			<!-- 行 -->
+			<tr valign="bottom" rowspan="3">
+				<!-- 列——表头 -->
+				<!-- 列合并 -->
+				<th colspan="3">Header</th>
+			</tr>
+			<tr>
+				<!-- 列——内容 -->
+				<td>Data</td>
+				<td>Data</td>
+				<td>Data</td>
+			</tr>
+		</table>
+		<hr>
+		<table width="200" height="100" border="1" cellspacing="0" cellpadding="10">
+			<tr>
+				<!-- 行合并 -->
+				<td rowspan="3">1</td>
+				<td colspan="2">2</td>
+				<!-- <td>3</td> -->
+			</tr>
+			<tr>
+				<!-- <td>4</td> -->
+				<td colspan="2" rowspan="2">5</td>
+				<!-- <td>6</td> -->
+			</tr>
+			<tr>
+				<!-- <td>7</td> -->
+				<!-- <td colspan="2">8</td> -->
+				<!-- <td>9</td> -->
+			</tr>
+		</table>
+		<hr>
+		<!-- rules=“group”组分割线生效，需要进行列分组时用colgroup，col不支持-->
+		<table width="800px" height="200px" border="1px" cellspacing="0" cellpadding="0" rules=" groups">
+			<caption>表格标题</caption>
+			<!-- 列分组 -->
+			<colgroup span="1"></colgroup>
+			<colgroup span="3"></colgroup>
+			<!-- 行分组 -->
+			<thead bgcolor="aqua">
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+				</tr>
+			</thead>
+
+			<tbody bgcolor="aquamarine">
+				<tr>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+			</tbody>
+			<tfoot bgcolor="bisque">
+				<tr>
+					<td>2</td>
+					<td>2</td>
+					<td>2</td>
+					<td>2</td>
+				</tr>
+			</tfoot>
+		</table>
+		<table border="" cellspacing="" cellpadding="">
+			<tr><th>Header</th></tr>
+			<tr><td>Data</td></tr>
+		</table>
+	</body>
+</html>

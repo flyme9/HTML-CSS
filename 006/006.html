@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表单</title>
+	</head>
+	<body>
+		<!-- 表单 action 设置数据传递目标  method表单提交的方法 get和post  get是从服务器获取数据,地址栏可见,安全性低  post传送数据,地址栏不可见安全性高-->
+		<form action="http://baidu.com" method="post">
+			<!-- 表单控件 -->
+			<!-- 1.输入框 -->
+			<!-- type 类型  name 名字,提交时知道是谁提交的  value 值,显示内容 placeholder 设置提示信息-->
+			<!-- 文本框 -->
+			<input type="text" name="" id="" value="" placeholder="手机号"/>
+			<!-- 密码框 -->
+			<input type="password" name="" id="" value="" placeholder="密码"/>
+			<!-- 提交按钮 -->
+			<input type="submit" name="提交" id="" value="提交" />
+			<!-- 重置按钮 -->
+			<input type="reset" name="重置" id="" value="重置" />
+			<!-- 按钮 -->
+			<button>提交</button>
+			<!-- 单选按钮 -->
+			<!-- name 必须添加,并且相同  value 提交获取信息-->
+			性别 男<input type="radio" name="sex" id="" value="男" /> 女<input type="radio" name="sex" id="" value="女" />
+			<!-- 多选 -->
+			<!-- checked 已经选择 disabled 只能看,不能选-->
+			爱好 篮球<input type="checkbox" name="like" id="" value="篮球" checked="checked"/>足球<input type="checkbox" name="like" id="" value="足球" />羽毛球<input type="checkbox" name="like" id="" value="羽毛球" disabled="disabled"/>
+		</form>
+
+		
+	</body>
+</html>
