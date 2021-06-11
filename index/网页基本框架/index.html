@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>这是一个网页框架</title>
+		<style>
+			html,body{
+				margin: 0;
+				background: white;
+			}
+			*{
+				/* 边距设置为0 */
+				margin: 0;
+			}
+			#header{
+				text-align: center;
+				width: 100%;height: 675px;line-height: 50px;
+				background-color: aquamarine;
+			}
+			.head{
+				/* 字体大小         左边框                               文本样式          颜色         边距        间距 */
+				font-size: 18px;border-left:1px solid  #000000 ; text-decoration: none;color: black;margin:0;padding: 0 15px ;
+			}
+			.button{
+				font-size: 18px;text-decoration: none;color: black;padding: 0 15px ;
+			}
+			#navigation{
+				margin-left: 20%;margin-right: 20%;
+				text-align: center;background-color: white;
+				width: 100%;height: 235px;line-height: auto;
+			}
+			#navigation .A{
+				width:15%;height: 235px; background: red;
+				float: left;
+			}
+			#navigation .B{
+				width:15%;height: 235px; background: yellow;
+				float: left;
+			}			
+			#navigation .C{
+				width:15%;height: 235px; background: blue;
+				float: left;
+			}
+			#navigation .D{
+				width:15%;height: 235px; background: green;
+				float: left;
+			}
+			#phone{
+				font-size: 18px;
+				text-align: center;height:100px;line-height: 140px;
+				background: whitesmoke;
+			}
+			#img{
+				width: 100%;height: 460px;
+				background: #000000;
+			}
+			#product-1{
+				margin: 0 0 0 20%;
+				width: 30%;height: 450px;
+				background: red;
+				float: left;
+			}
+			#product-2{
+				margin: 0 20% 0 0;
+				width: 30%;height: 450px;
+				background: blue;
+				float: left;
+			}
+			#show-1{
+				margin: 0 0 0 20%;
+				width: 15%;height: 450px;
+				float: left;
+				background-color: yellow;
+			}
+			#show-2{
+				margin: 0;
+				width: 15%;height: 450px;
+				float: left;
+				background-color: aqua;
+				border-left:solid 0.5px  #000000 ;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<form action="https://meizu.com" method="get">
+				<a href="index.html" class="head"style="border: none;">手机</a>
+				<a href="Lipro.html" class="head">Lipro</a>
+				<a href="#" class="head">声学</a>
+				<a href="#" class="head">配件</a>
+				<a href="#" class="head">生活</a>
+				<a href="#" class="head">Flyme</a>
+				<a href="#" class="head">服务</a>
+				<a href="#" class="head">专卖店</a>
+				<a href="#" class="head">社区</a>
+				<a href="#" class="head">企业服务</a>
+				<a href="#" class="head">app下载</a>
+				<input class="button" " type="text" name="搜索" value="魅族18" />
+				<input class="button" " type="submit" name="" id="" value="搜索" />
+			</form>
+		</div>
+		<div id="navigation">
+			<div class="A"></div>
+			<div class="B"></div>
+			<div class="C"></div>
+			<div class="D"></div>
+		</div>
+		<div id="phone">手机</div>
+		<div id="img"></div>
+		<div id="product-1"></div>
+		<div id="product-2"></div>
+		<div id="show-1"></div>
+		<div id="show-2"></div>
+		<div id="show-2"></div>
+		<div id="show-2"></div>
+	</body>
+</html>

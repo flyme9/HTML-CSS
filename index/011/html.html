@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+			}
+			#header{
+				height: 40px;
+				width: 100%;
+				background-color: #e83828;
+			}
+			#header .head{
+				width: 1005px;height: 40px;
+				background-color: #d1d3d6;
+				margin: auto;
+			}
+			#banner{
+				height: 500px;
+				background-color: slateblue;
+			}
+			#category{
+				width: 1005px;height: 200px;
+				background-color: #ff3596;
+				margin: auto;
+			}
+			#category .itme{
+				width: 125px;height: 165px;
+				padding-left: 25px;
+				padding-right: 25px;
+				padding-bottom:25px ;
+				padding-top: 10px;
+				border-right: 1px dashed black;
+				float: left;
+			}
+			#category .itme.first{
+				padding-left: 0;
+			}
+			#category .itme.last{
+				padding-right: 0;
+				border: 0;
+			}
+			#case .title-text{
+				width: 1005px;margin: auto;
+				padding-top: 20px;
+				padding-bottom: 10px;
+				font-size: 45px;
+			}
+			#case .itme-wrapper{
+				width: 1005px;margin: auto;overflow: auto;
+			}
+			#case .itme-wrapper .itme{
+				width: 320px;
+				height: 330px;
+				background-color: #9acd32;
+				float: left;
+			}
+			#case .itme-wrapper .itme .mg{
+				margin-right: 20px;
+				margin-left: 20px;
+			}
+			#case p{
+				width: 1005px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 15px;
+				height: 40px;line-height: 40px;
+				text-align: center;
+				font-size: 30px;
+				color: dimgray;
+			}
+		</style>
+	</head>
+	<body>
+		<!--  -->
+		<div id="header">
+			<div class="head"></div>
+		</div>
+		<div id="banner"></div>
+		<div id="category">
+			<div class="itme first"></div>
+			<div class="itme"></div>
+			<div class="itme"></div>
+			<div class="itme"></div>
+			<div class="itme"></div>
+			<div class="itme last"></div>
+		</div>
+		<div id="case">
+			<div class="title-text">
+				case
+			</div>
+			<div class="itme-wrapper">
+				<div class="itme"></div>
+				
+				<div class="itme mg">123</div>
+				<div class="itme"></div>
+			</div>
+		</div>
+	</body>
+</html>
