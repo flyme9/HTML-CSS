@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 内部样式 */
+			/* 标签选择器 */
+			div{
+				font-size: 20px;
+				color: red;
+			}
+			
+			/* class（类）选择器 */
+			.myy{
+				color: #00008B;
+			}
+			.my{
+				color: #00FFFF;
+			}
+			
+			/* Id选择器 */
+			#fyy{
+				color: antiquewhite;
+				font-size: 30px;
+			}
+			
+			/* 通配符 */
+			*{
+				color: red;
+			}
+			
+			/* 群组选择器 */
+			.my,.myy{
+				color: #00008B;
+			}
+			/* 层次选择器 */
+			/* 后代选择器 */
+		</style>
+	</head>
+	<body>
+		<div>喜羊羊</div>
+		<div>美羊羊</div>
+		<div id="fyy">沸羊羊</div>
+		<div class="myy my">慢羊羊</div>
+		<!-- id属性值只能有1个，class属性值可以有多个 -->
+		<p>喜羊羊</p>
+		<p class="myy my">美羊羊</p>
+		<p>沸羊羊</p>
+		<p>慢羊羊</p>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			div {
+				font-size: 50px;
+				float: left;
+			}
+
+			.box-1 {
+				background-color: #7FFFD4;
+				/* 单独设置 */
+				padding-bottom: 50px;
+				padding-top: 50px;
+				padding-left: 50px;
+				padding-right: 50px;
+			}
+
+			.box-2 {
+				background-color: #800080;
+				background-color: #DEB887;
+				/* 简写 */
+				padding: 10px 20px 30px 40px;
+				/* 上 右 下 左 */
+				padding: 10px 20px 30px;
+				/* 上 左右 下 */
+				padding: 20px 100px;
+				/* 上下 左右 */
+				padding: 20px;
+				/* 上下左右 */
+			}
+
+			.box-3 {
+				background-color: #800080;
+				width: 100px;
+				height: 100px;
+				/* 给内上间距时，div会被撑大，要解决这个问题，减去这个内间距即可 */
+				padding-left: 50px;
+				padding-top: 50px;
+			}
+
+			.box-4 {
+				width: 150px;
+				height: 150px;
+				
+				background-color: #008000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box-1">1</div>
+		<div class="box-2">2</div>
+		<div class="box-3">3</div>
+		<div class="box-4">4</div>
+	</body>
+</html>

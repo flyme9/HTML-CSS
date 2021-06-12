@@ -1,0 +1,148 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* 第一部分 */
+.box-1 {
+	width: 1102px;
+	height: 100px;
+	background-color: #f29044;
+	margin: auto;
+}
+
+.box-1-left {
+	width: 205px;
+	height: 54px;
+	background-color: #36b559;
+	float: left;
+	margin-top: 23px;
+}
+
+.box-1-right {
+	width: 297px;
+	height: 52px;
+	background-color: #3754b3;
+	float: right;
+	margin-top: 25px;
+}
+
+/* 第二部分 */
+.box-2 {
+	width: 100%;
+	height: 60px;
+	background-color: #2f2f2f;
+}
+
+.box-2-center {
+	width: 1102px;
+	height: 60px;
+	margin: 0 auto;
+	background-color: #00FFFF;
+}
+
+/* 第三部分 */
+.box-3 {
+	width: 100%;
+	height: 430px;
+	background-color: #0000FF;
+}
+
+.box-4 {
+	width: 1102px;
+	height: 280px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+.box-4-left {
+	width: 348px;
+	height: 250px;
+	background-color: #00FFFF;
+	float: left;
+	margin-right: 22px;
+}
+
+.box-4-middle {
+	width: 492px;
+	height: 250px;
+	background-color: #00008B;
+	float: left;
+}
+
+.box-4-right {
+	width: 240px;
+	height: 250px;
+	background-color: #00FFFF;
+	float: left;
+}
+
+/* 第五部分 */
+.box-5 {
+	width: 100%;
+	height: 288px;
+	background-color: #f5f5f5;
+	overflow: hidden;
+	/* padding-top: 47px; */
+}
+
+.box-5-while {
+	width: 1002px;
+	height: 157px;
+	background-color: orange;
+	margin: 0 auto;
+	margin-top: 47px;
+	padding: 20px 32px 20px 20px;
+}
+
+.box-5-while-left {
+	width: 275px;
+	height: 157px;
+	background-color: #3754B3;
+	float: left;
+}
+
+.box-5-while-right {
+	width: 700px;
+	height: 157px;
+	background-color: #7FFFD4;
+	float: right;
+}
+
+/* 第六部分 */
+.box-6 {
+	width: 1102px;
+	height: 418px;
+	background-color: cadetblue;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.box-6-top {
+	width: 1102px;
+	height: 70px;
+	background-color: yellow;
+	margin-top: 15px;
+}
+
+.box-6-bottom {
+	width: 1102px;
+	height: 290px;
+	background-color: #00FFFF;
+	margin-top: 13px;
+}
+.box-6-bottom div{
+	width: 262px;
+	height: 290px;
+	background-color: #eff4f5;
+	float: left;
+	margin-left: 18px;
+}
+.box-6-bottom .first{
+	margin-left: 0;
+}
+/* 第七部分 */
+.box-7{
+	height: 125px;
+	background-color: #000000;
+}

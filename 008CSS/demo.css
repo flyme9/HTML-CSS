@@ -1,0 +1,9 @@
+/* 在CSS文件中不需要style标签 */
+div{
+	font-size: 18px;
+	color: darkblue;
+}
+p{
+	font-size: 18px;
+	color: black;
+}

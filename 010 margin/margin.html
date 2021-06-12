@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				font-size: 50px;
+			}
+
+			.box-1 {
+				background-color: orange;
+				margin-top: 20px;
+				margin-right: 30px;
+				margin-bottom: 40px;
+				margin-left: 50px;
+				/* 单独控制 */
+			}
+
+			.box-2 {
+				background-color: burlywood;
+			}
+
+			.box-3 {
+				background-color: #800080;
+				/* 给一个值，上下左右都是20px */
+				margin: 20px;
+				/* 给两个值，上下为0 左右为20px */
+				margin: 0 20px;
+				/* 给三个值，上为10px 左右为30px 下为20px*/
+				margin: 10px 30px 20px;
+				/* 给四个值，上 右 下 左*/
+				margin: 20px 30px 40px 50px;
+			}
+
+			.box-4 {
+				background-color: #87CEEB;
+			}
+
+			.box-5 {
+				background-color: #0000FF;
+				margin-top: -20px;
+				/* 给负数就是在正数的基础上反向进行移动 */
+			}
+
+			.box-6 {
+				background-color: #00ffff;
+			}
+
+			.box-7 {
+				width: 300px;
+				height: 300px;
+				margin: auto;
+				/* margin:auto 表示上下左右间距都是auto */
+				/* margin:auto 属性值为auto时，暂时只支持左右，上下无效 */
+				background-color: orange;
+			}
+
+			.box-8 {
+
+				background-color: #000000;
+			}
+
+			.fuqin {
+				width: 300px;
+				height: 300px;
+				background-color: #0000FF;
+				/* border-top: 1px solid transparent; */
+				/* border-top 上边框 solid 实线 transparent 透明色 */
+				overflow: hidden;
+				/* 溢出隐藏 */
+				/* margin-top传递问题：
+				 默认情况下给子元素添加了margin-top后，浏览器在解析的时候会把这个上间距也传递给父元素，导致父元素也会下来
+				  解决方案：
+				  1.给最近父元素添加border-top
+				  2.给父元素添加overflow：hidden；（溢出隐藏）*/
+			}
+
+			.erzi {
+				width: 100px;
+				height: 100px;
+				background-color: #00FFFF;
+				margin-top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box-1">111</div>
+		<div class="box-2">222</div>
+		<div class="box-3">333</div>
+		<div class="box-4">444</div>
+
+		<div class="box-5">555</div>
+		<div class="box-6">666</div>
+		<div class="box-7">777</div>
+		<div class="box-8">888</div>
+		<div class="fuqin">
+			<div class="erzi">子元素</div>
+		</div>
+		<div class=""></div>
+	</body>
+</html>
