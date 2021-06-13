@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: orange;
+				margin: 20px;
+			}
+			.box1{
+				border-width: 4px;
+				border-color:red;
+				/* solid 实线 dotted 圆点虚线 dashed 方块虚线 double 双实线* groove 槽线 hidden 隐形线 */
+				border-style:solid;
+			}
+			/* 单边框 */
+			.box2{
+				border-top: 8px solid red;
+				border-bottom: 8px dotted #008000;
+				border-left: 8px dashed #00FFFF;
+				border-right: 8px double #3754B3;
+			}
+			/* 容器宽高为0时，边框呈现的样式 */
+			.box3{
+				width: 0;
+				height: 0;
+				border-top: 8px solid red;
+				border-bottom: 8px dotted #008000;
+				border-left: 8px dashed #00FFFF;
+				border-right: 8px double #3754B3;
+			}
+			/* 使用边框书写三角形 */
+			.box4{
+				width: 0;
+				height: 0;
+				border: 10px solid transparent;
+				border-top:10px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">1</div>
+		<div class="box2">2</div>
+		<div class="box3"></div>
+		<div class="box4"></div>
+		<div class="box5">5</div>
+		<div class="box6">6</div>
+		<div class="box7">7</div>
+		<div class="box8">8</div>
+		<div class="box9">9</div>
+		<div class="box10">10</div>
+		<div class="box11">11</div>
+	</body>
+</html>
