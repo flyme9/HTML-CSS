@@ -1,0 +1,281 @@
+/* 清除间距 */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* 去除列表的符号样式 */
+ul,
+ol {
+	list-style: none;
+}
+
+/* 清除超链接下划线 */
+a {
+	text-decoration: none;
+}
+
+/* 清除图片向下撑大3px */
+img {
+	vertical-align: top;
+}
+
+/* 版心 */
+.center {
+	width: 1202px;
+	margin: 0 auto;
+}
+
+/* 顶部区域 */
+.top {
+	width: 100%;
+	height: 36px;
+	background: #f6f6f6;
+	border-bottom: 1px solid #fefefe;
+}
+
+.top .center {
+	height: 36px;
+	/* background: red; */
+}
+
+.top .center p {
+	font-size: 12px;
+	color: #00008B;
+	line-height: 36px;
+	float: left;
+}
+
+.top .center img {
+	margin: 5px 0 0 0px;
+	float: right;
+}
+
+/* logo区域 */
+.logo {
+	/* background-color: #0000FF; */
+	height: 90px;
+}
+
+.logopic {
+	margin: 18px 0 0 0;
+	float: left;
+}
+
+.textpic {
+	margin: 25px 0 0 0;
+	float: right;
+}
+
+/* 导航栏 */
+.navigation {
+	width: 100%;
+	height: 50px;
+	background: #008dd5;
+}
+
+.navigation ul {
+	height: 50px;
+
+}
+
+.navigation ul li {
+	margin: 0 34px 0 0;
+	line-height: 50px;
+	float: left;
+}
+
+.navigation a {
+	color: white;
+}
+
+/* banner区域 */
+
+/* 列表区域 */
+.listbox {
+	height: 247px;
+	text-align: center;
+	/* background-color: #008000; */
+}
+
+.listbox div {
+	width: 25%;
+	height: 247px;
+	float: left;
+	/* 清除自带行间距 */
+	line-height: 1;
+	/* background-color: #008DD5; */
+}
+
+.listbox div img {
+	margin: 56px 0 21px 0;
+}
+
+.listbox div p {
+	font-size: 15px;
+	color: #77767b;
+	margin: 0 0 11px 0;
+}
+
+.listbox div h4 {
+	font-size: 19px;
+	color: #0d0105;
+}
+
+/* 就业信息 */
+.jobbox {
+	width: 100%;
+	height: 258px;
+	background: #f5f5f5;
+	border-top: 1px solid #f1f2f4;
+	border-bottom: 1px solid #f2f3f5;
+}
+
+.job-center {
+	width: 1054px;
+	height: 198px;
+	background-color: white;
+	margin: 30px auto 0 auto;
+
+}
+
+.job-center .job-center1 {
+	float: left;
+	width: 285px;
+	height: 165px;
+	background-color: cadetblue;
+	margin: 20px 0 0 20px;
+}
+
+.job-center div {
+	width: 679px;
+	/* background-color: yellow; */
+	float: right;
+	margin: 0 37px 0 0;
+	line-height: 1;
+}
+
+.job-center div h3 {
+	font-size: 18px;
+	color: #404337;
+	margin: 25px 0 22px 0;
+	font-weight: normal;
+	/* 字间距 */
+	letter-spacing: 3px;
+}
+
+.job-center div .money,
+.job-center div a {
+	font-size: 14px;
+	color: #4b544c;
+	margin: 0 0 18px 0;
+}
+
+.job-center div .money span {
+	color: #29a744;
+	margin: 0 44px 0 21px;
+}
+
+.job-center div .dec {
+	font-size: 12px;
+	line-height: 24px;
+	color: #8f929b;
+	/* background-color: #0000FF; */
+}
+
+/* 面授名师区域 */
+.teacher {
+	width: 1102px;
+	height: 416px;
+	margin: 0 auto;
+	/* background-color: #008DD5; */
+}
+
+.title {
+	height: 79px;
+	line-height: 1;
+	border-bottom: 1px solid #dcdcdc;
+}
+
+.title h3 {
+	font-size: 22px;
+	color: #2c3436;
+	font-weight: 500;
+	margin: 37px 0 0 3px;
+	float: left;
+}
+
+.title p {
+	font-size: 17px;
+	color: #e94d1c;
+	margin: 40px 2px 0 0;
+	float: right;
+}
+
+.list-teacher {
+	height: 290px;
+	margin: 15px 0 0 0;
+	/* background-color: #0000FF; */
+}
+
+.list-teacher div {
+	width: 262px;
+	height: 290px;
+	float: left;
+	margin: 0 17px 0 0;
+	text-align: center;
+	line-height: 1;
+	/* background-color: #29A744; */
+}
+
+.list-teacher .last {
+	margin: 0;
+}
+
+.list-teacher img {
+	margin: 18px 0 15px 0;
+}
+
+.list-teacher h4 {
+	font-weight: 500;
+	font-size: 13px;
+	color: #26252d;
+	margin: 0 0 11px 0;
+}
+
+.list-teacher h5 {
+	width: 124px;
+	height: 26px;
+	background: #63a0fd;
+	line-height: 26px;
+	margin: 0 auto 15px auto;
+	font-size: 12px;
+	color: #f9fffa;
+	font-weight: 500;
+}
+
+.list-teacher div p {
+	width: 238px;
+	border-top: 1px solid #d5d9dc;
+	margin: 0 auto;
+	font-size: 12px;
+	color: #59645c;
+	line-height: 24px;
+	padding: 11px 6px 0 5px;
+	text-align: left;
+}
+
+/* 尾部 */
+.footer {
+	height: 85px;
+	background: #111b24;
+	padding: 40px 0 0 0;
+}
+
+.footer p {
+	font-size: 12px;
+	color: #9699a8;
+	line-height: 24px;
+	text-align: center;
+	/* margin: 40px 0 0 0; */
+}
