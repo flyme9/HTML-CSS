@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!-- 声明文档类型 -->
+<html lang="en">
+    <!-- html ->根标签(根标签) -->
+    <head>
+        <!-- head ->描述区 头部区域 -->
+        <meta charset="UTF-8">
+        <!-- 控制编码格式 UTF-8 ->通用编码  gb2312/gbk中文编码 -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- 控制渲染模式:按照最高浏览器版本渲染 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- 视口控制 -->
+        <title>首页</title>
+        <!-- 网页标题  显示在状态栏上 -->
+    </head>
+
+    <body>
+        <!-- body ->内容区 显示的内容放在body内-->
+        <h1>网页学习</h1>
+        <h2>网页学习</h2>
+        <h3>网页学习</h3>
+        <h4>网页学习</h4>
+        <h5>网页学习</h5>
+        <h6>网页学习</h6>
+        <!-- 标题标签 -->
+        <!-- 默认样式：文本大小，文本加粗显示 -->
+        <!-- 注意事项: -->
+        <!-- h1的唯一性：在同一个网页内只能出现一次，放网站logo -->
+        <!-- h1 -- h6 不能互相嵌套 -->
+
+        <i>倾斜</i>
+        <em>倾斜</em>
+        <!-- 倾斜标签 -->
+        <!-- 默认样式：字体倾斜 -->
+        
+        <b>加粗</b>
+        <strong>加粗</strong>
+        <!-- 加粗标签 -->
+        <!-- 默认样式：字体加粗 -->
+
+        <u>下划线</u>
+        <!-- 下划线标签 -->
+        <!-- 默认样式：添加下划线 -->
+
+        3<sub>3</sub>
+        log<sup>N</sup><sub>2</sub>
+        <!-- 上标 下标 -->
+        
+        <p>段落</p>
+        <!-- 段落标签 -->
+        <!-- 注意事项： -->
+        <!-- p标签不能嵌套h1-h6 -->
+
+        <span></span>
+        <!-- 控制小段文本 -->
+
+        <!-- 转义字符 -->
+        &nbsp;
+        <!-- 空格 -->
+        &gt;
+        <!-- 右尖括号 -->
+        &lt;
+        <!-- 左尖括号 -->
+        &copy;
+        <!-- 版权符号 -->
+
+        <div>容器</div>
+        <!-- 一个块，当作容器，用于网页布局 -->
+
+        <!-- 列表 -->
+        <!-- 无序列表  默认样式：实心列表符号-->
+        <!-- 使用场景：新闻条、页面主导航、轮播图 -->
+        <ul>
+            <li>列表内容</li>
+        </ul>
+        <!-- 有序列表 -->
+        <ol>
+            <li>列表内容</li>
+        </ol>
+        <!-- type属性:更改列表符号类型 -->
+        <!-- start属性:控制列表符从第几个开始,只有有序列表可用 -->
+        
+        <!-- 自定义列表 -->
+        <dl>
+            <dt>放的是一个名词</dt>
+            <dd>对名词详细的解释</dd>
+        </dl>
+
+        <!-- 超链接 -->
+        <a href="http://www.baidu.com" title="baidu" target="_blank" rel="nofollow">baidu</a>
+        <!-- href属性:属性值写跳转的地址     target属性: _self(默认值 当前窗口打开) _blank(新弹出窗口打开) 
+             title属性:显示提示信息(可用于任何标签)     rel属性: rel="nofollow -->
+        <!-- 空连接,使用 # 占位:href="#"-->
+        <!-- 模拟按钮 -->
+            <a href="javascript:void(0)">按钮</a>
+        
+        <!-- 图片 -->
+        <img src="" alt="">
+        <!-- src属性:属性值->图片路径   
+             alt属性:图片加载失败或图片顺坏,显示属性值内文本;有利于SEO优化,因为搜索引擎无法读取上面文本
+             title属性: title属性:显示提示信息(可用于任何标签) -->
+        <!-- 路径:
+             绝对路径:
+             相对路径:
+                     1.同级文件:./目标文件名 ./当前路径
+                     2.上级找下级:./目标文件所在文件夹/目标文件名 
+                     3.下级找下级:../目标文件所在文件夹/目标文件名 ../返回上一级-->
+        
+        <!-- 表格 -->
+        <!-- 作用:显示数据, -->
+        <!-- table 表格  tr 行  td 列 -->
+        <!-- 表格属性:
+             width ->宽  height ->高  border ->边框  bordercolor ->边框颜色  bgcolor ->背景颜色 
+             cellspacing -> 边框之间的间距  cellpadding ->边框与内容之间的间距  algin ->水平对齐(right center left) 
+             valign ->垂直对齐(top bottom middle)   colspan ->合并列    rowspan ->合并行 -->
+             <!-- 无论合并行还是合并列,操作的是td    -->
+        
+        <table width="200px" height="100px" border="2px" bordercolor="red" cellspacing="0" cellpadding="0">
+            <tr >
+                <td valign="bottom">1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+            </tr>
+        </table>
+    </body>
+</html>
