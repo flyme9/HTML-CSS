@@ -1,0 +1,34 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+.logo{
+    width: 1002px;
+    height: 80px;
+    background: red;
+}
+.navigation{
+    width: 100%;
+    height: 50px;
+    background: blue;
+}
+.banner{
+    width: 100%;
+    height: 300px;
+    background: blueviolet;
+}
+.newslist{
+    width: 1002px;
+    height: 200px;
+    background: cadetblue;
+}
+.displaylist{
+    width: 1002px;
+    height: 300px;
+    background: chartreuse;
+}
+.footer{
+    width: 100%;
+    height: 100px;
+    background: chocolate;
+}
