@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+/* 版心居中 */
+
+.head-cent,
+.nav-cent,
+.banner-cent {
+    width: 1002px;
+    margin: 0 auto;
+}
