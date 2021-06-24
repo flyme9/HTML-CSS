@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+/* 清除默认样式 */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 16px;
+    font-family: "微软雅黑";
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+b,
+strong {
+    font-weight: normal;
+}
+
+a,
+u {
+    text-decoration: none;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+input {
+    border: none;
+    /* 选中输入框时，聚焦边框样式去除 */
+    outline: none;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.floatRight {
+    float: right;
+}
+
+.borderNone {
+    border: none!important;
+}
+
+.bgNone {
+    background: none!important;
+}
