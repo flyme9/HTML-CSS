@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+/* 版心居中 */
+
+.nav-center,
+.banner-center,
+.list-center,
+.case-center,
+.cli-center,
+.news-center,
+.copy-center,
+.foot-center {
+    width: 1086px;
+    margin: 0 auto;
+}
+
+
+/* 导航栏 */
+
+#nav {
+    width: 100%;
+    background: #E83828;
+}
+
+.nav-center {
+    height: 58px;
+}
+
+.nav-center_left {
+    width: 186px;
+    height: 58px;
+}
+
+.nav-center_left h1 {
+    margin: 20px 0 0 53px;
+    line-height: 0;
+}
+
+.nav-center_cent {
+    width: 589px;
+    height: 58px;
+}
+
+.nav-center_cent ul {
+    padding-left: 155px;
+}
+
+.nav-center_cent li {
+    float: left;
+    font-size: 12px;
+    padding: 27px 43px 0 0;
+}
+
+.nav-center_cent .last {
+    padding-right: 0;
+}
+
+.nav-center_cent a {
+    color: #ffffff;
+}
+
+.nav-center_right {
+    width: 236px;
+    height: 40px;
+    padding-top: 18px;
+    padding-left: 75px;
+}
+
+.nav-center_right img {
+    display: block;
+    float: left;
+}
+
+.nav-center_right .between {
+    margin: 0 13px 0 11px;
+}
+
+
+/* 页脚 */
+
+#foot {
+    font-size: 16px;
+    height: 170px;
+    background: #393939;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.foot-center {
+    height: 170px;
+}
+
+.foot-center p {
+    line-height: 32px;
+}
