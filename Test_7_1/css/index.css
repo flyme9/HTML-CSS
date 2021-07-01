@@ -1,0 +1,9 @@
+#banner {
+    height: 469px;
+    /* background: url(../images/banner.png) no-repeat center 0; */
+}
+
+.banner-list li {
+    height: 469px;
+    background: url(../images/banner.png) no-repeat center center;
+}

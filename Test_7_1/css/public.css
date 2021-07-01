@@ -1,0 +1,40 @@
+/* 版心 */
+
+.container {
+    width: 1080px;
+    margin: 0 auto;
+    /* 后面子元素定位相对于该父元素进行定位 */
+    position: relative;
+}
+
+
+/* 通栏 */
+
+.container-fluid {
+    width: 100%;
+}
+
+
+/* 头部导航 */
+
+#head {
+    height: 81px;
+}
+
+.head-logo {
+    margin-top: 19px;
+}
+
+.head-menu li {
+    font-size: 14px;
+    float: left;
+    margin-left: 50px;
+    line-height: 80px;
+}
+
+.head-menu a {
+    color: #646464;
+}
+
+
+/*  */
