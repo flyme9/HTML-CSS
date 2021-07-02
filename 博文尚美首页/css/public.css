@@ -1,0 +1,76 @@
+/* 版心 */
+
+.container {
+    width: 1080px;
+    margin: 0 auto;
+    /* 后面子元素定位相对于该父元素进行定位 */
+    position: relative;
+}
+
+
+/* 通栏 */
+
+.container-fluid {
+    width: 100%;
+}
+
+
+/* 头部导航 */
+
+#head {
+    height: 81px;
+}
+
+.head-logo {
+    width: 162px;
+    height: 44px;
+    margin-top: 19px;
+}
+
+.head-menu li {
+    font-size: 14px;
+    float: left;
+    margin-left: 55px;
+    line-height: 81px;
+}
+
+
+/* 标题区域 */
+
+.area-title {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.area-title h2 {
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+    color: #363636;
+    background: url(../images/title_bg.png) center center no-repeat;
+}
+
+.area-title p {
+    font-size: 14px;
+    color: #9F9F9F;
+    line-height: 34px;
+}
+
+
+/* 页脚 */
+
+#foot {
+    background: #66c5b4;
+}
+
+#foot .container {
+    height: 54px;
+    line-height: 54px;
+    font-size: 12px;
+    color: white;
+}
+
+#foot div a {
+    color: white;
+    margin: 0 10px;
+}

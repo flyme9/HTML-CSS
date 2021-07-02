@@ -1,0 +1,251 @@
+/* banner */
+
+#banner {
+    /* 相对定位，让子元素相对于父元素进行定位 */
+    position: relative;
+}
+
+#banner .banner_list {
+    width: 100%;
+    height: 469px;
+    /* 相对定位，让子元素相对于父元素进行定位 */
+    position: relative;
+}
+
+#banner .banner_list li {
+    /* 继承版心宽高 */
+    width: 100%;
+    height: 100%;
+    background: center 0 no-repeat;
+    /* 绝对定位 */
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* 透明度——隐藏后面背景 */
+    opacity: 0;
+    /* 层次优先级 */
+    z-index: 1;
+}
+
+#banner .banner_list .active {
+    opacity: 1;
+    /* 层次优先级 */
+    z-index: 10;
+}
+
+#banner .banner_list a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#banner .banner_btn {
+    width: 100%;
+    position: absolute;
+    bottom: 19px;
+    /* 层次优先级 显示在上方 */
+    z-index: 20;
+    font-size: 0;
+    text-align: center;
+}
+
+#banner .banner_btn li {
+    /* 转换成内联块元素 */
+    display: inline-block;
+    /* 设置宽高 */
+    width: 12px;
+    height: 12px;
+    /* 添加边框 */
+    border: 2px solid white;
+    /* 圆型显示 */
+    border-radius: 50%;
+    box-sizing: border-box;
+    margin: 0 6px;
+}
+
+#banner .banner_btn a {
+    display: block;
+    width: 12px;
+    height: 12px;
+}
+
+#banner .banner_btn .active {
+    background-color: white;
+}
+
+
+/* 服务范围 */
+
+#service {
+    min-height: 407px;
+    overflow: hidden;
+}
+
+#service .service-list {
+    text-align: center;
+    margin-top: 34px;
+}
+
+#service .service-list li {
+    width: 250px;
+    margin: 0 10px;
+    float: left;
+}
+
+#service .service-list div {
+    width: 102px;
+    height: 102px;
+    margin: 0 auto;
+}
+
+#service .service-list li:nth-of-type(1) div {
+    background-image: url(../images/l1.png);
+}
+
+#service .service-list li:nth-of-type(2) div {
+    background-image: url(../images/l2.png);
+}
+
+#service .service-list li:nth-of-type(3) div {
+    background-image: url(../images/l3.png);
+}
+
+#service .service-list li:nth-of-type(4) div {
+    background-image: url(../images/l4.png);
+}
+
+#service .service-list h3 {
+    font-size: 18px;
+    color: #434343;
+    line-height: 36px;
+    margin-top: 25px;
+}
+
+#service .service-list p {
+    font-size: 14px;
+    line-height: 22px;
+    color: #6D6D6D;
+}
+
+
+/* 案例 */
+
+#case {
+    background-color: #F8F8F8;
+}
+
+#case .container {
+    height: 460px;
+    overflow: hidden;
+}
+
+#case .area-title {
+    margin-top: 55px;
+}
+
+#case .area-title h2 {
+    color: #66C5B4;
+}
+
+#case .case_list {
+    margin-top: 28px;
+}
+
+#case .case_list li {
+    float: left;
+    width: 340px;
+    margin: 0 10px;
+}
+
+#case .case_btn {
+    width: 176px;
+    height: 37px;
+    background: #66C5B4;
+    margin: 0 auto;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 37px;
+    margin-top: 36px;
+    font-size: 14px;
+}
+
+#case .case_btn a {
+    color: #FFFFFF;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* news */
+
+#news {
+    min-height: 450px;
+    overflow: hidden;
+}
+
+#news .area_title {
+    margin-top: 65px;
+}
+
+#news dl {
+    margin-top: 48px;
+}
+
+#news dt {
+    width: 234px;
+}
+
+#news dd {
+    width: 846px;
+}
+
+#news .news_list {
+    width: 100%;
+}
+
+#news .news_list li {
+    width: 50%;
+    float: left;
+    margin-bottom: 48px;
+}
+
+#news .news_date {
+    width: 71px;
+    height: 70px;
+    border-right: 1px solid #DCDCDC;
+    text-align: center;
+}
+
+#news .news_date i {
+    color: #66C5B4;
+    font-size: 39px;
+    display: block;
+    font-weight: bold;
+}
+
+#news .news_date span {
+    color: #999999;
+    font-size: 20px;
+    line-height: 36px;
+}
+
+#news .news_text {
+    width: 310px;
+    margin-left: 20px;
+}
+
+#news .news_text h3 {
+    font-size: 14px;
+}
+
+#news .news_text h3 a {
+    color: #3F3F3F;
+}
+
+#news .news_text p {
+    color: #A4A4A4;
+    font-size: 12px;
+    line-height: 21px;
+    margin-top: 17px;
+}
