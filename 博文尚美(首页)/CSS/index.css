@@ -1,0 +1,209 @@
+    @charset "utf-8";
+/* banner */
+#banner{
+    position: relative;
+}
+#banner .banner_list{ 
+    width:100%; 
+    height:469px; 
+    position: relative;
+}
+#banner .banner_list li{
+    width:100%; 
+    height:100%;
+    /* 背景图居中显示 */
+    background:center 0 no-repeat;
+    /* 背景图定位 隐藏至第一张后面 */
+    position: absolute; 
+    left:0; top:0;
+    /* 透明 */
+    opacity: 0; 
+    /* 层级为1 */
+    z-index: 1;
+}
+#banner .banner_list li:nth-of-type(1){
+    background-image: url(../img/banner.png);
+}
+#banner .banner_list li:nth-of-type(2){
+    background-image: url(../img/banner.png);
+}
+#banner .banner_list li:nth-of-type(3){
+    background-image: url(../img/banner.png);
+}
+#banner .banner_list li:nth-of-type(4){
+    background-image: url(../img/banner.png);
+}
+#banner .banner_list li.active{
+    opacity: 1; z-index: 10;
+}
+#banner .banner_list a{ 
+    display: block; width:100%; height:100%;
+}
+#banner .banner_btn{ 
+    width:100%; 
+    position: absolute; 
+    bottom: 19px; 
+    z-index: 20; 
+    font-size:0; 
+    text-align: center;
+}
+#banner .banner_btn li{ 
+    display: inline-block; 
+    width:12px; 
+    height:12px; 
+    border:1px solid white; 
+    border-radius: 50%; 
+    box-sizing: border-box; 
+    margin:0 6px; 
+}
+#banner .banner_btn li.active{ 
+    background:white;
+}
+#banner .banner_btn li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* 服务范围 */
+#service{
+    overflow: hidden;
+    min-height: 407px;
+}
+#service .service_list{ 
+    text-align:center; 
+    margin-top: 34px;
+}
+#service .service_list li{ 
+    float:left; 
+    width:250px; 
+    margin:0 10px;
+}
+#service .service_list div{ 
+    width:102px; 
+    height:102px; 
+    margin:0 auto;
+}
+#service .service_list li:nth-of-type(1) div{
+    background-image: url(../img/ser-1.png);
+}
+#service .service_list li:nth-of-type(2) div{
+    background-image: url(../img/ser-2.png);
+}
+#service .service_list li:nth-of-type(3) div{
+    background-image: url(../img/ser-3.png);
+}
+#service .service_list li:nth-of-type(4) div{
+    background-image: url(../img/ser-4.png);
+}
+#service .service_list h3{ 
+    font-size:18px; color:#434343; 
+    line-height: 36px; 
+    margin-top:25px;
+}
+#service .service_list p{ 
+    font-size:14px; 
+    color:#6D6D6D; 
+    line-height: 22px;
+}
+
+/* case */
+#case{
+    background-color: #f8f8f8;
+}
+#case .container-center{
+    overflow: hidden;
+    min-height: 460px;
+}
+#case .area_title{
+    margin-top: 55px;
+}
+#case .area_title h2{
+    color: #66C5B4;
+}
+
+#case .case_list{
+    margin-top: 28px;
+}
+#case .case_list li{ 
+    float:left; 
+    width:340px; 
+    margin: 0 10px;
+}
+
+#case .case_btn{
+    width: 176px;
+    height: 37px;
+    border-radius: 50px;
+    background-color: #66C5B4;
+    text-align: center;
+    font-size: 14px;
+    line-height: 37px;
+    margin: 36px auto 0;
+}
+#case .case_btn a{
+    color: #FFFFFF;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* news */
+#news .container-center{
+    min-height: 450px;
+    overflow: hidden;
+}
+#news .container-center .area_title{
+    margin-top: 65px;
+}
+#news .container-center dl{
+    margin-top:48px;
+}
+#news .container-center dt{
+    width: 234px;
+}
+#news .container-center dd{
+    width: 846px;
+}
+/* #news .container-center .news_list{
+    width: 100%;
+} */
+#news .container-center .news_list li{
+    width: 50%;
+    float: left;
+    margin-bottom: 44px;
+}
+#news .container-center .news_date{
+    width: 74px;
+    height: 70px;
+    float: left;
+    text-align: center;
+    border-right: 1px solid #DCDCDC;
+}
+#news .container-center .news_date i{
+    font-size: 39px;
+    color: #66C5B4;
+    display: block;
+    font-weight: bold;
+}
+#news .container-center .news_date span{
+    font-size: 20px;
+    color: #999999;
+    line-height: 36px;
+}
+#news .news_text{ 
+    width:310px; 
+    margin-left:20px;
+}
+#news .news_text h3{
+    font-size: 14px;
+}
+#news .news_text h3 a{
+    color:#3f3f3f;
+}
+#news .news_text p{
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: 17px;
+    color:#A4A4A4;
+}
