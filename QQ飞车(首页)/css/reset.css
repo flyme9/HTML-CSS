@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+/* 清除元素边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, 
+/* 结构元素 */
+dl, dt, dd, ul, ol, li, 
+/* 列表元素 */
+pre,
+/* 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td
+/* 表格元素 */ {
+    margin: 0;
+    padding: 0;
+}
+
+/* 重置body 页面背景为白色 */
+body {
+    background:#fff
+}
+
+/* 重置页面文字属性 */
+body,th,td,input,select,textarea,button {  
+    font-size:16px;
+    line-height:1;
+    font-family:Arial, "黑体","宋体";color:#666;
+}
+
+/* css重置样式标签的样式 */
+h1,h2,h3,h4, h5, h6 { 
+    font-size: 16px;
+    font-weight: normal;
+}
+
+/* 将斜体扶正*/
+address,caption,cite,code,dfn,em,var {
+    font-style:normal;
+    font-weight:normal;
+}  
+
+/* 重置类表前导符号为onne,menu在HTML5中有效 */
+dl,ul,ol,li {
+    list-style:none;
+}
+
+/* 重置链接a标签 */
+/* 重置链接a标签样式*/
+/* 取消a标签点击后的虚线框 */
+a {
+    color:#666;
+    text-decoration:none;
+    outline: none;
+}
+
+/* 重置链接a标签的鼠标滑动效果 */
+a:active, a:hover {
+    text-decoration:none
+}
+
+/* 图片的边框为0 图片在当前行内的垂直位置 */
+img {
+    border:0 none;
+    vertical-align:top;
+}
+
+/* 重置表格标题为隐藏 */
+caption {
+    display:none;
+}
+
+/* 重置table属性 */
+table {
+    width:100%;
+    border-collapse:collapse;
+    border-spacing:0;
+    table-layout:fixed;
+}
+
+/* 重置嵌套引用*/
+blockquote:before, blockquote:after,q:before, q:after {
+    content:'';
+    content:none
+}
+

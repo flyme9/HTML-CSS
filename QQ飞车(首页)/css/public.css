@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* 通栏 */
+.container-full{
+    width: 100%;
+}
+/* 版心 */
+.container-center{
+    width: 980px;
+    margin: 0 auto;
+}
+/* 浮动 */
+.float_left{
+    float: left;
+}
+.float_right{
+    float: right;
+}
+/*清除浮动*/
+.clearfix:before,.clearfix:after{
+    content:"";
+    display: block;
+    clear: both; 
+}
+
+/* head */
+#head{
+    height: 41px;
+    background: url(../images/head_bg.png) repeat-x;
+}
+#head .container-center{ 
+    height:100%;
+}
+#head .head_logo{
+    width: 220px;
+    height:100%;
+    background: url(../images/ost-bg.png) 0 -38px ;
+}
+#head  .head_logo a{
+    display: block;
+    width: 100%;
+    height:100%;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+#head .head_ad{
+    padding-top: 1px;
+    margin-left: 8px;
+}
+
+#head .head_menu{
+    width: 220px;
+    height: 100%;
+    font-size: 12px;
+    line-height: 38px;
+    background:url(../images/ost-bg.png) left -80px ,url(../images/ost-bg.png) right -78px;
+}
+#head .head_menu .head_menu_czsh{
+    margin: 0 25px 0 20px;
+}
+#head .head_menu .head_menu_top{
+    margin-right: 18px;
+}

@@ -1,0 +1,336 @@
+@charset "utf-8";
+#main {
+    min-height: 780px;
+    background: url(../images/bg20190104.jpg) no-repeat;
+}
+/* 导航栏 */
+#nav {
+  min-height: 200px;
+  background: url(../images/nav_down_re.png) repeat-x,
+    url(../images/nav.png) no-repeat;
+}
+#nav .container-center {
+  min-height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+/* logo */
+#nav .container-center .nav_logo {
+  width: 138px;
+  height: 112px;
+  margin: 15px auto 0;
+}
+
+/* 导航公共样式 */
+#nav .container-center dl {
+  position: absolute;
+  top: 0;
+}
+#nav .container-center dt {
+  height: 67px;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+#nav .container-center dd {
+  font-size: 12px;
+  line-height: 27px;
+  text-align: center;
+}
+#nav .container-center a {
+  position: relative;
+  color: aliceblue;
+}
+#nav .container-center a:hover {
+  color: #b94a08;
+  text-decoration: underline;
+}
+
+/* 首页 */
+#nav .container-center .nav_index a {
+  width: 67px;
+  height: 100%;
+  display: block;
+}
+/* 游戏资料 */
+#nav .container-center .nav_yxzl {
+  position: absolute;
+  left: 83px;
+  width: 97px;
+}
+/* 赛事中心 */
+#nav .container-center .nav_sszx {
+  position: absolute;
+  left: 191px;
+  width: 97px;
+}
+/* 活动中心 */
+#nav .container-center .nav_hdzx {
+  position: absolute;
+  left: 311px;
+  width: 97px;
+}
+/* 商城专区 */
+#nav .container-center .nav_sczq {
+  position: absolute;
+  left: 552px;
+  width: 97px;
+}
+/* 视频直播 */
+#nav .container-center .nav_spzb {
+  position: absolute;
+  left: 671px;
+  width: 97px;
+}
+/* 玩家互动 */
+#nav .container-center .nav_wjhd {
+  position: absolute;
+  left: 787px;
+  width: 97px;
+}
+/* 客服  */
+#nav .container-center .nav_kf {
+  position: absolute;
+  left: 903px;
+  width: 70px;
+}
+/* 小图标 */
+#nav dd a.hot:after,
+#nav dd a.new:after {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: url(../images/nav_tips.png) no-repeat;
+  position: absolute;
+  right: -15px;
+  top: 0;
+}
+#nav dd a.hot:after {
+  background-position: 0 -12px;
+}
+#nav dd a.new:after {
+  background-position: 0 0;
+}
+
+/* link */
+#link {
+  height: 191px;
+}
+#link a {
+  width: 484px;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* 展示板 */
+#banner {
+  min-height: 276px;
+  background: url(../images/top.png) no-repeat 0 20px;
+  overflow: hidden;
+}
+#banner .banner_left {
+  width: 250px;
+  height: 310px;
+  background: url(../images/down_user_spr.png) no-repeat 7px 0;
+  overflow: hidden;
+}
+#banner .banner_download p {
+  width: 91px;
+  height: 25px;
+  background: url(../images/down_user_spr.png) no-repeat;
+  margin: 0 auto;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+#banner .banner_download p:first-child {
+  background-position: -253px 0;
+  margin-top: 40px;
+}
+#banner .banner_download p:last-child {
+  background-position: -253px -25px;
+}
+/* 动画效果 */
+#banner .banner_download:hover p:first-child {
+  animation: 1s upMove;
+}
+@keyframes upMove {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+#banner .banner_download:hover p:last-child {
+  animation: 1s downMove;
+}
+@keyframes downMove {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#banner .banner_user div {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin: 80px auto 0 auto;
+  border: 4px #283257 solid;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+#banner .banner_user img {
+  width: 100%;
+  height: 100%;
+}
+#banner .banner_user p {
+  font-size: 12px;
+  margin-top: 25px;
+  text-align: center;
+  color: #797a7f;
+}
+#banner .banner_user a {
+  color: #275050;
+}
+
+#banner .banner_center {
+  margin: 34px 0 0 2px;
+  width: 495px;
+  height: 253px;
+  background: chartreuse;
+  overflow: hidden;
+  position: relative;
+}
+
+#banner .banner_list_ul {
+  width: 495px;
+}
+#banner .banner_list_ul li {
+  width: 495px;
+  height: 253px;
+  float: left;
+}
+#banner .banner_list_ul li>a{
+    display: block;
+    width: 495px;
+    height: 253px;
+}
+#banner .banner_bottomline {
+  width: 100%;
+  height: 37px;
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 1px #514b55 solid;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+#banner .banner_bottomline_ul {
+  text-align: center;
+  margin-top: 11px;
+}
+#banner .banner_bottomline_ul li {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url(../images/top.png) no-repeat -603px -299px;
+  cursor: pointer;
+}
+#banner .banner_bottomline_ul li.active {
+  background-position: -581px -299px;
+}
+#banner .banner_bottomline_leftbtn,
+#banner .banner_bottomline_rightbtn {
+  width: 12px;
+  height: 22px;
+  position: absolute;
+  top: 5px;
+  background: url(../images/top.png) no-repeat;
+  cursor: pointer;
+}
+#banner .banner_bottomline_leftbtn {
+  left: 5px;
+  background-position: -542px -296px;
+}
+#banner .banner_bottomline_rightbtn {
+  right: 5px;
+  background-position: -554px -296px;
+}
+#banner .banner_bottomline_leftbtn:hover {
+  background-position: -542px -325px;
+}
+#banner .banner_bottomline_rightbtn:hover {
+  background-position: -554px -325px;
+}
+#banner .banner_list_lt,
+#banner .banner_list_rt,
+#banner .banner_list_rb,
+#banner .banner_list_lb {
+  width: 12px;
+  height: 12px;
+  background: url(../images/top.png) no-repeat;
+  position: absolute;
+}
+#banner .banner_list_lt {
+  left: -2px;
+  top: -4px;
+  background-position: -621px -299px;
+}
+#banner .banner_list_rt {
+  right: -2px;
+  top: -4px;
+  background-position: -634px -299px;
+}
+#banner .banner_list_rb {
+  right: -2px;
+  bottom: -5px;
+  background-position: -634px -312px;
+}
+#banner .banner_list_lb {
+  left: -2px;
+  bottom: -5px;
+  background-position: -621px -312px;
+}
+
+#banner .banner_right {
+  width: 209px;
+  height: 255px;
+  position: relative;
+  margin: 32px 0 0 12px;
+}
+#banner .banner_right_lt,
+#banner .banner_right_rt,
+#banner .banner_right_rb,
+#banner .banner_right_lb {
+  width: 15px;
+  height: 15px;
+  background: url(../images/top.png) no-repeat;
+  position: absolute;
+}
+#banner .banner_right_lt {
+  left: -4px;
+  top: -4px;
+  background-position: -681px -298px;
+}
+#banner .banner_right_rt {
+  right: -4px;
+  top: -4px;
+  background-position: -696px -298px;
+}
+#banner .banner_right_rb {
+  right: -4px;
+  bottom: -6px;
+  background-position: -696px -313px;
+}
+#banner .banner_right_lb {
+  left: -4px;
+  bottom: -6px;
+  background-position: -681px -313px;
+}
