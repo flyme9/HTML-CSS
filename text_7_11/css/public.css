@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* 通栏 */
+.container-full{
+    width: 100%;
+}
+/* 版心 */
+.container-center{
+    width: 980px;
+    margin: 0 auto;
+}
+/* 浮动 */
+.float_left{
+    float: left;
+}
+.float_right{
+    float: right;
+}
+/*清除浮动*/
+.clearfix:before,.clearfix:after{
+    content:"";
+    display: block;
+    clear: both; 
+}

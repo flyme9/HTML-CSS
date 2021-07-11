@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- stront和b 、 em和i -->
+    <!-- 都是表示强调标签
+         表现形态都是文本加粗和斜体
+         区别在于 strong 和 em 具备语义化；b和i不具备语义化
+         应用场景：利用标签的不同区分不同的样式，减少类选择器的定义，简化选择器的操作 
+    -->
+    <strong>加粗</strong>
+    <b>加粗</b>
+    <em>斜体</em>
+    <i>斜体</i>
+
+
+    <!-- 应用标签 -->
+    <!-- blockquote：引用大段的段落解释
+         q：引用小段短语的解释 
+         abbr：名称的缩写或首字母缩略词  名称全称写在title属性中
+         address：引用文档地址信息
+         cite：引用著作的标题
+     -->
+    <br>
+    引用：
+    <blockquote>引用文章</blockquote>
+    <q>引用小段落</q>
+    <abbr title="">WOH</abbr>
+    <address>地址</address>
+    <cite>著作</cite>
+
+    <!-- iframe嵌套页面 -->
+    <!-- 在已有页面中嵌入其他页面
+          利用iframe属性进行调节
+          当srcdoc和src同时存在时，只显示写在前面的内容
+          不好的应用：钓鱼网站
+          应用场景：数据传输、共享代码、局部刷新、第三方介入
+    -->
+    <header>
+        <iframe src="https://meizu.com" frameborder="0" width="1800px" height="500px"></iframe>
+    </header>
+
+
+    <!-- br 和 wbr -->
+    <!-- br：强制换行
+         wbr：软换行   针对比较长的单词在一定时机进行换行的时候使用
+     -->
+    换行<br>
+    换行
+    ashjghggjgjgjgghjjghgsdhjgsjzdg
+    <wbr> siudosydisydisshjghggjgjgjgghjjghgsdhjgs<wbr> jzdgshjghggjgjgjgghjjghgsdhjgsjzdgshjghggjgj<wbr> gjgghjjghgsdhjgsjzdgshjghggjgjgjgghj<wbr> jghgsdhjgsjzdgshjghggjgjgjgghjjghgsdhjgsjzdgshjghggjgjgjgghjjghgsdhjgsjzdg
+
+    <!-- pre和code -->
+    <!-- pre：定义预格式化的文本，包含在pre中的文本通常会保留空格和换行符
+          code：通常只把文本变成等宽字体，暗示这段文本是源程序代码
+          应用场景：pre和code组合使用，通常pre里包含code，用于页面显示代码的区域
+      -->
+    <pre>
+        <code>
+            <blockquote>引用文章</blockquote>
+            <q>引用小段落</q>
+            <abbr title="">WOH</abbr>
+            <address>地址</address>
+            <cite>著作</cite>
+        </code>
+    </pre>
+
+
+    <!-- 图像映射 -->
+    <!-- map和area
+         引擎
+     -->
+</body>
+
+</html>
