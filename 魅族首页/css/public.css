@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* 通栏 */
+.container-full{
+    width: 100%;
+}
+/* 版心 */
+.container-center{
+    width: 1240px;
+    margin: 0 auto;
+}
+/* 浮动 */
+.float_left{
+    float: left;
+}
+.float_right{
+    float: right;
+}
+/*清除浮动*/
+.clearfix:before,.clearfix:after{
+    content:"";
+    display: block;
+    clear: both; 
+}
+
+/* logo */
+header {
+    height: 46px;
+    position: relative;
+}
+header h1{
+    position:absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    margin: 15px 15px 0 2px;
+    background: url(../images/logo_03.png) no-repeat;
+
+}
+header h1 a{
+    text-indent: -9999px;
+    width:92px;
+    height: 17px;
+    display: block;
+}
+header nav {
+    width: 700px;
+    height: 100%;
+}
+header nav li{
+    float: left;
+    font-size: 14px;
+    line-height: 46px;
+    margin: 0 10px;
+}
+header nav li a{
+    color: white;
+}
+header form input{
+    width: 127px;
+    height: 22px;
+    border: none;
+    outline: none;
+    border-radius:11px 0 0 11px;
+    padding-left: 12px;
+    vertical-align:middle;
+    background: white;
+}
+header form button{
+    width: 35px;
+    height: 22px;
+    border: none;
+    margin-left: -10px;
+    border-radius:0 11px 11px 0;
+    vertical-align:middle;
+    background: url(../images/sousuo_03.png) no-repeat center center white;
+}
