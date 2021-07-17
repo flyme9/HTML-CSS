@@ -1,0 +1,346 @@
+@charset "utf-8";
+#left-nav {
+  margin-top: 15px;
+  border: 1px solid #ddd;
+}
+#left-nav {
+  width: 200px;
+  min-height: 260px;
+}
+#left-nav h2 {
+  font-size: 24px;
+  width: 100%;
+  height: 60px;
+  display: inline-block;
+  background: #c40000;
+  text-align: center;
+  line-height: 60px;
+  border-bottom: 1px solid #ddd;
+  color: white;
+}
+
+#left-nav .nav_list {
+  width: 100%;
+  min-height: 546px;
+}
+#left-nav .nav_list .nav_one .btn_tit {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 50px;
+  background: #e9e9e9 url(../images/tag_nav_li.png) no-repeat 30px center;
+  font-size: 16px;
+  color: #c40000;
+  border-bottom: 1px solid #ddd;
+}
+#left-nav .nav_list .nav_list_2 a {
+  display: block;
+  height: 35px;
+  line-height: 35px;
+  padding-right: 20px;
+  text-align: right;
+  border-bottom: 1px solid #e9e9e9;
+  background: #fff;
+}
+#left-nav .nav_list .nav_list_2 li a:hover {
+  background-color: #f0f0f0;
+  color: #ec8529;
+}
+#left-nav .nav_list .nav_list_2 li:last-child {
+  margin-bottom: 10px;
+}
+
+#cent-container {
+  width: 748px;
+  min-height: 260px;
+  margin: 15px 8px 0 10px;
+}
+#cent-container .banner {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  position: relative;
+}
+#cent-container .banner .banner_list {
+  width: 100%;
+  height: 260px;
+  position: relative;
+}
+#cent-container .banner .banner_list li {
+  width: 100%;
+  height: 100%;
+  /* 背景图居中显示 */
+  background: center 0 no-repeat;
+  /* 背景图定位 隐藏至第一张后面 */
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* 透明 */
+  opacity: 0;
+  /* 层级为1 */
+  z-index: 1;
+}
+#cent-container .banner .banner_list li:nth-child(1) {
+  background-image: url(../images/pic_banner_1.jpg);
+}
+#cent-container .banner .banner_list li:nth-child(2) {
+  background-image: url(../images/pic_banner_2.jpg);
+}
+#cent-container .banner .banner_list li:nth-child(3) {
+  background-image: url(../images/pic_banner_3.jpg);
+}
+#cent-container .banner .banner_list .active {
+  opacity: 1;
+  z-index: 10;
+}
+#cent-container .banner .banner_list li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#cent-container .banner .banner_btn {
+  width: 100%;
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  text-align: right;
+  z-index: 20;
+  font-size: 0;
+}
+#cent-container .banner_btn li {
+  display: inline-block;
+  width: 20px;
+  height: 6px;
+  margin-left: 8px;
+  background-color: white;
+}
+#cent-container .banner_btn li.active {
+  height: 8px;
+  background: #eba05d;
+}
+#cent-container .banner_btn li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#cent-container .pinmin,
+#cent-container .diandu {
+  width: 100%-5px;
+  height: 200px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  background: #ffffff;
+}
+#cent-container .pinmin .pinmin_list,
+#cent-container .diandu .diandu_list {
+  width: 100%;
+  height: 160px;
+  padding: 10px;
+}
+#cent-container .pinmin .pinmin_list ul:nth-child(1) {
+  width: 15%;
+}
+#cent-container .pinmin .pinmin_list ul:nth-child(2) {
+  width: 35%;
+}
+#cent-container .pinmin .pinmin_list ul:nth-child(3) {
+  width: 30%;
+}
+#cent-container .pinmin .pinmin_list ul:nth-child(4) {
+  width: 20%;
+}
+#cent-container .pinmin .pinmin_list ul li,
+#cent-container .diandu .diandu_list ul li {
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+}
+#cent-container .pinmin .pinmin_list ul li a,
+#cent-container .diandu .diandu_list ul li a {
+  color: #666666;
+}
+#cent-container .pinmin .pinmin_list ul li a:hover,
+#cent-container .diandu .diandu_list ul li a:hover {
+  color: #ec8529;
+}
+#cent-container .diandu .diandu_list ul {
+  width: 25%;
+}
+
+#cent-container .cailiao {
+  width: 100%-10px;
+  height: 250px;
+  border: 1px solid #ddd;
+  background: #ffffff;
+  margin-bottom: 40px;
+}
+#cent-container .cailiao .cailiao_list {
+  width: 678px;
+  min-height: 117px;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+  margin-left: 10px;
+  padding: 30px 20px 0;
+}
+#cent-container .cailiao .cailiao_list ul {
+  min-width: 900px;
+  height: 147px;
+  position: relative;
+}
+#cent-container .cailiao .cailiao_list ul li {
+  width: 153px;
+  height: 113px;
+  float: left;
+  border: 1px solid #ddd;
+  margin-right: 22px;
+}
+#cent-container .cailiao .cailiao_list ul li:hover {
+  width: 153px;
+  height: 113px;
+  display: block;
+  border: 1px solid #ec8529;
+}
+
+#cent-container .cailiao .cailiao_btn {
+  height: 43px;
+  width: 60px;
+  margin: -15px auto 0 auto;
+}
+#cent-container .cailiao .cailiao_btn a {
+  width: 20px;
+  height: 30px;
+  background: #bfbfbf;
+  display: block;
+  margin: 0 5px;
+}
+#cent-container .cailiao .cailiao_btn a:nth-child(1) {
+  background: #bfbfbf url(../images/tag_prev_1.png) no-repeat center center;
+}
+#cent-container .cailiao .cailiao_btn a:nth-child(2) {
+  background: #bfbfbf url(../images/tag_next_1.png) no-repeat center center;
+}
+#cent-container .cailiao .cailiao_btn a:nth-child(1):hover {
+  background: #c40000 url(../images/tag_prev_1.png) no-repeat center center;
+}
+#cent-container .cailiao .cailiao_btn a:nth-child(2):hover {
+  background: #c40000 url(../images/tag_next_1.png) no-repeat center center;
+}
+
+#right-tel {
+  width: 230px;
+  min-height: 260px;
+  margin-top: 15px;
+}
+#right-tel .rel {
+  width: 100%;
+  min-height: 30px;
+  border: 1px solid #ddd;
+  background: white;
+}
+#right-tel .rel h4,
+#right-tel .rel p {
+  width: 100%-8px;
+  height: 30px;
+  background: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+  line-height: 30px;
+  padding-left: 8px;
+  font-size: 14px;
+}
+#right-tel .rel .telephone,
+#right-tel .rel .fax,
+#right-tel .rel .skype,
+#right-tel .rel .service_tel,
+#right-tel .rel .contact {
+  background: no-repeat 10px center;
+  border: none;
+  text-indent: 2em;
+}
+#right-tel .rel .telephone,
+#right-tel .rel .service_tel {
+  background-image: url(../images/tag_phone.png);
+}
+#right-tel .rel .fax {
+  background-image: url(../images/tag_fax.png);
+}
+#right-tel .rel .skype {
+  background-image: url(../images/tag_skype.png);
+}
+#right-tel .rel .contact {
+  text-indent: 0;
+  color: #ec8529;
+}
+#right-tel .rel .contact img {
+  vertical-align: middle;
+  margin: 0 3px;
+}
+#right-tel .rel span {
+  font-size: 16px;
+  color: #be0101;
+}
+
+#right-tel .rel_list {
+  width: 100%;
+  min-height: 200px;
+}
+
+#right-tel .rel_list li {
+  width: 30%;
+  height: 35px;
+  background: url(../images/btn_qq.png) no-repeat left center;
+  float: left;
+  margin-left: 15px;
+  line-height: 35px;
+  font-size: 12px;
+  padding-left: 25px;
+}
+#right-tel .erweima {
+  width: 100%;
+  min-height: 100px;
+  margin-top: 25px;
+  text-align: center;
+}
+#right-tel .erweima span {
+  display: block;
+  margin: 8px 0 24px 0;
+  font-size: 12px;
+  color: #666;
+}
+
+#right-tel .news_list {
+  width: 100%;
+  min-height: 30px;
+  background-color: white;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  font-size: 12px;
+}
+#right-tel .news_list .news_list_title {
+  width: 100%-20px;
+  height: 30px;
+  background: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+  line-height: 30px;
+  padding: 0 10px;
+}
+#right-tel .news_list ul {
+  width: 100%-24px;
+  min-height: 22px;
+  padding: 12px;
+}
+#right-tel .news_list li {
+  height: 22px;
+  line-height: 22px;
+  background: url(../images/tag_news_li.png) no-repeat left center;
+  padding-left: 10px;
+}
+#right-tel .news_list a {
+  width: 155px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#right-tel .news_list a:hover {
+  color: #ec8529;
+}
