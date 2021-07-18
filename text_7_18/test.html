@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./test.css">
+</head>
+<body>
+    <!-- strong与b 、em和i -->
+    <strong>语义化加粗标签</strong>
+    <b>加粗标签</b>
+    <em>语义化斜体标签</em>
+    <i>斜体标签</i>
+
+    <!-- 引用标签 -->
+    <div>
+        <span>名词</span>
+        <blockquote>引用名词解释引用名词解释引用名词解释引用名词解释引用名词解释引用名词解释引用名词解释引用名词解释引用名词解释引用名词解释引用名词解释引用名词解释</blockquote>
+        说：<q>引用说明引用说明引用说明引用说明引用说明</q>
+
+        <abbr title="World Health Organization">WHO</abbr>成立于1948年
+
+        <address>网页北京公司</address>
+        本文引用于<cite>资治通鉴</cite>
+    </div>
+    <div style="width: 100%; min-height:300px">
+        <iframe src="https://www.baidu.com/" frameborder="0" width="100%" height="500"></iframe>
+    </div>
+    
+
+    <!-- pre与code -->
+    <pre>
+        <code>
+            &lt;html&gt;
+        </code>
+    </pre>
+
+    <img src="./star.jpg" width="300px" usemap="#tu">
+    <!-- map使用name与图片建立关联性，需要在usemap属性值名称前加# -->
+    <map name="tu">
+        <area shape="circle" coords="100,50,50" href="https://www.baidu.com/" style="background-color: antiquewhite;">
+    </map>
+
+    <embed src="./flash.swf" type="">
+    <object data="./flash.swf" type=""></object>
+
+    <audio src="./johann_sebastian_bach_air.mp3" controls loop ></audio>
+    <video src="./johann_sebastian_bach_air.ogg" controls loop autoplay></video>
+    <video src="./Intermission-Walk-in_512kb.mp4" controls autoplay=""></video>
+    <video controls autoplay loop>
+        <source src="./Intermission-Walk-in.ogv">
+        <source src="./Intermission-Walk-in_512kb.mp4">
+    </video>
+
+</body>
+</html>
