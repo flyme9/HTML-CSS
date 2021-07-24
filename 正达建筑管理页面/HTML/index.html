@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理平台</title>
+    <link rel="stylesheet" href="../CSS/reset.css">
+    <link rel="stylesheet" href="../CSS/public.css">
+    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../fontface/iconfont.css">
+    <script src="../fontface/iconfont.js"></script>
+    <style>
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <header id="header">
+        <!-- logo区 -->
+        <hgroup class="header_logo float_left">
+            <h1 class="float_left">
+                <img src="../img/logo.png" alt="">
+            </h1>
+            <h2 class="float_left">正达建筑内部管理平台</h2>
+        </hgroup>
+        <!-- 用户信息导航 -->
+        <ul class="header_nav float_right">
+            <li>
+                <i class="iconfont icon-yonghu"></i>欢迎您，武剑 管理员
+            </li>
+            <li>
+                <a href="#"><i class="iconfont icon-yuechi"></i>修改密码</a>
+            </li>
+            <li>
+                <a href="#"><i class="iconfont icon-zhuye"></i>公司官网</a>
+            </li>
+            <li>
+                <a href="#"><i class="iconfont icon-exit-door"></i>退出</a>
+            </li>
+        </ul>
+    </header>
+
+    <!-- 侧边导航栏 -->
+    <aside id="menu" class="float_left">
+        <ul>
+            <li class="active">
+                <a href="#">
+                    <i class="iconfont icon-bangonglou"></i>
+                    <p>项目管理</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="iconfont icon-yonghuguanli"></i>
+                    <p>用户管理</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="iconfont icon-shezhi"></i>
+                    <p>系统设置</p>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <!-- 主体区域 -->
+    <main id="main">
+        <!-- 主体内容 -->
+        <section class="main_container">
+            <!-- 主体头部信息区域 -->
+            <section id="projectTitle" class="clear">
+                <div class="projectTitle_text float_left">
+                    <h2>青田高湾绿园一期、二期工程<i class="iconfont icon-bianji"></i></h2>
+                    <p>
+                        项目编号：<span>CN0000507</span>
+                        <br>
+                        项目类型：<span>在建工程</span>
+                        <br>
+                        项目负责人：<span>梅海丽</span>
+                        <br>
+                        手机号码：<span>15869168967</span>
+                    </p>
+                </div>
+                <div class="projectTitle_img float_right">
+                    <img src="../img/prpject.jpg" alt="">
+                </div>
+            </section>
+            <!-- 工程资料导航栏 -->
+            <section id="projectList">
+                <!-- 工程资料导航栏 -->
+                <div class="projectList_btns">
+                    <ul>
+                        <li>视频监控</li>
+                        <li>考勤管理</li>
+                        <li>安全巡查</li>
+                        <li class="active">资料管理</li>
+                    </ul>
+                </div>
+                <!-- 工程内容展示区域 -->
+                <div class="projectList_cons">
+                    <div class="btns-search">
+                        <div class="upload_btns float_left">
+                            <label>
+                                <input type="file">
+                                <i class="iconfont icon-shangchuan"></i>
+                                <span>&nbsp;&nbsp;单个上传</span>
+                            </label>
+                            <label>
+                                <input type="file" multiple>
+                                <i class="iconfont icon-shangchuan1"></i>
+                                <span>&nbsp;&nbsp;批量上传</span>
+                            </label>
+                        </div>
+                        <div class="search float_right">
+                            <input type="search" placeholder="请输入关键字">
+                            <button><i class="iconfont icon-sousuo"></i></button>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th width="50"><input type="checkbox"></th>
+                                <th>文档名称</th>
+                                <th width="165">文档大小</th>
+                                <th width="145">上传者</th>
+                                <th width="170">上传时间</th>
+                                <th width="80">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td width="50"><input type="checkbox"></td>
+                                <td>
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-DOC"></use>
+                                    </svg>
+                                    <span>安全专项方案.doc</span>
+                                </td>
+                                <td width="165">
+                                    <span>31.3KB</span>
+                                </td>
+                                <td width="145">
+                                    <span>陈文耀</span>
+                                </td>
+                                <td width="170">
+                                    <span>2016-03-13</span>
+                                </td>
+                                <td width="80">
+                                    <i class="iconfont icon-xiazai"></i>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="iconfont icon-shanchu"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50"><input type="checkbox"></td>
+                                <td>
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-DOC"></use>
+                                    </svg>
+                                    <span>安全专项方案.doc</span>
+                                </td>
+                                <td width="165">
+                                    <span>31.3KB</span>
+                                </td>
+                                <td width="145">
+                                    <span>陈文耀</span>
+                                </td>
+                                <td width="170">
+                                    <span>2016-03-13</span>
+                                </td>
+                                <td width="80">
+                                    <i class="iconfont icon-xiazai"></i>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="iconfont icon-shanchu"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50"><input type="checkbox"></td>
+                                <td>
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-DOC"></use>
+                                    </svg>
+                                    <span>安全专项方案.doc</span>
+                                </td>
+                                <td width="165">
+                                    <span>31.3KB</span>
+                                </td>
+                                <td width="145">
+                                    <span>陈文耀</span>
+                                </td>
+                                <td width="170">
+                                    <span>2016-03-13</span>
+                                </td>
+                                <td width="80">
+                                    <i class="iconfont icon-xiazai"></i>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="iconfont icon-shanchu"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50"><input type="checkbox"></td>
+                                <td>
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-DOC"></use>
+                                    </svg>
+                                    <span>安全专项方案.doc</span>
+                                </td>
+                                <td width="165">
+                                    <span>31.3KB</span>
+                                </td>
+                                <td width="145">
+                                    <span>陈文耀</span>
+                                </td>
+                                <td width="170">
+                                    <span>2016-03-13</span>
+                                </td>
+                                <td width="80">
+                                    <i class="iconfont icon-xiazai"></i>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="iconfont icon-shanchu"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50"><input type="checkbox"></td>
+                                <td>
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-DOC"></use>
+                                    </svg>
+                                    <span>安全专项方案.doc</span>
+                                </td>
+                                <td width="165">
+                                    <span>31.3KB</span>
+                                </td>
+                                <td width="145">
+                                    <span>陈文耀</span>
+                                </td>
+                                <td width="170">
+                                    <span>2016-03-13</span>
+                                </td>
+                                <td width="80">
+                                    <i class="iconfont icon-xiazai"></i>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="iconfont icon-shanchu"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50"><input type="checkbox"></td>
+                                <td>
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-DOC"></use>
+                                    </svg>
+                                    <span>安全专项方案.doc</span>
+                                </td>
+                                <td width="165">
+                                    <span>31.3KB</span>
+                                </td>
+                                <td width="145">
+                                    <span>陈文耀</span>
+                                </td>
+                                <td width="170">
+                                    <span>2016-03-13</span>
+                                </td>
+                                <td width="80">
+                                    <i class="iconfont icon-xiazai"></i>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="iconfont icon-shanchu"></i>
+                                </td>
+                            </tr>
+                            <tr class="active">
+                                <td width="50"><input type="checkbox"></td>
+                                <td>
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-DOC"></use>
+                                    </svg>
+                                    <span>安全专项方案.doc</span>
+                                </td>
+                                <td width="165">
+                                    <span>31.3KB</span>
+                                </td>
+                                <td width="145">
+                                    <span>陈文耀</span>
+                                </td>
+                                <td width="170">
+                                    <span>2016-03-13</span>
+                                </td>
+                                <td width="80">
+                                    <i class="iconfont icon-xiazai"></i>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="iconfont icon-shanchu"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50"><input type="checkbox"></td>
+                                <td>
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-DOC"></use>
+                                    </svg>
+                                    <span>安全专项方案.doc</span>
+                                </td>
+                                <td width="165">
+                                    <span>31.3KB</span>
+                                </td>
+                                <td width="145">
+                                    <span>陈文耀</span>
+                                </td>
+                                <td width="170">
+                                    <span>2016-03-13</span>
+                                </td>
+                                <td width="80">
+                                    <i class="iconfont icon-xiazai"></i>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="iconfont icon-shanchu"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50"><input type="checkbox"></td>
+                                <td>
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-XLStubiao"></use>
+                                    </svg>
+                                    <span>安全专项方案.xls</span>
+                                </td>
+                                <td width="165">
+                                    <span>31.3KB</span>
+                                </td>
+                                <td width="145">
+                                    <span>陈文耀</span>
+                                </td>
+                                <td width="170">
+                                    <span>2016-03-13</span>
+                                </td>
+                                <td width="80">
+                                    <i class="iconfont icon-xiazai"></i>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="iconfont icon-shanchu"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50"><input type="checkbox"></td>
+                                <td>
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-DOC"></use>
+                                    </svg>
+                                    <span>安全专项方案.doc</span>
+                                </td>
+                                <td width="165">
+                                    <span>31.3KB</span>
+                                </td>
+                                <td width="145">
+                                    <span>陈文耀</span>
+                                </td>
+                                <td width="170">
+                                    <span>2016-03-13</span>
+                                </td>
+                                <td width="80">
+                                    <i class="iconfont icon-xiazai"></i>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="iconfont icon-shanchu"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50"><input type="checkbox"></td>
+                                <td>
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-RARtubiao"></use>
+                                    </svg>
+                                    <span>安全专项方案.rar</span>
+                                </td>
+                                <td width="165">
+                                    <span>31.3KB</span>
+                                </td>
+                                <td width="145">
+                                    <span>陈文耀</span>
+                                </td>
+                                <td width="170">
+                                    <span>2016-03-13</span>
+                                </td>
+                                <td width="80">
+                                    <i class="iconfont icon-xiazai"></i>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="iconfont icon-shanchu"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50"><input type="checkbox"></td>
+                                <td>
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-DOC"></use>
+                                    </svg>
+                                    <span>安全专项方案.doc</span>
+                                </td>
+                                <td width="165">
+                                    <span>31.3KB</span>
+                                </td>
+                                <td width="145">
+                                    <span>陈文耀</span>
+                                </td>
+                                <td width="170">
+                                    <span>2016-03-13</span>
+                                </td>
+                                <td width="80">
+                                    <i class="iconfont icon-xiazai"></i>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="iconfont icon-shanchu"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="zl_footer">
+                        <button class="zl_remove">批量删除</button>
+                        <button class="zl_download">批量下载</button>
+                        <div class="zl_page float_right">
+                            <a href="#">共12条</a>
+                            <a href="#">首页</a>
+                            <a href="#">上一页</a>
+                            <a href="#" class="active">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">下一页</a>
+                            <a href="#">尾页</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+    <!-- 版权区域 -->
+    <footer id="footer">
+        <p>Copyright © 2009 -2016 丽水市正达建筑工程有限公司 All rights reserved. 技术支持：红点智能</p>
+    </footer>
+</body>
+
+</html>
