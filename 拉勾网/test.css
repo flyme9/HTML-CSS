@@ -1,0 +1,143 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+p {
+  font-size: 16px;
+  color: #333333;
+}
+a {
+  text-decoration: none;
+  color: #333333;
+}
+ul,
+li {
+  list-style: none;
+}
+html{
+  font-size: 26.66667vw;
+}
+body{
+  font-size: 16px;
+}
+header {
+  height: 0.45rem;
+  background: #40c6a7;
+  text-align: center;
+  line-height: 0.45rem;
+  color: white;
+  font-size: 0.2rem;
+}
+.login {
+  display: flex;
+  height: 0.43rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.14rem;
+}
+.login span {
+  margin-left: 0.15rem;
+}
+.login span:last-child {
+  width: 0.85rem;
+  height: 0.3rem;
+  color: white;
+  background: #40c6a7;
+  margin-right: 0.15rem;
+  line-height: 0.3rem;
+  text-align: center;
+  border-radius: 0.15rem;
+}
+.login span:last-child a {
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+.list li {
+  height: 0.9rem;
+  border-top: 0.01rem solid #e8e8e8;
+  display: flex;
+  align-items: center;
+}
+.list .list_img {
+  width: 0.6rem;
+  height: 0.6rem;
+  margin: 0 0.1rem 0 0.14rem;
+}
+.list .list_img img {
+  width: 100%;
+}
+.list .list_info {
+  flex: 1;
+}
+.list .list_info h2 {
+  font-size: 0.18rem;
+  margin-bottom: 0.04rem;
+}
+.list .list_info p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.14rem;
+  color: #7b7b7b;
+  line-height: 0.22rem;
+}
+.list .list_info p span:last-child {
+  margin-right: 0.15rem;
+  color: #00b38a;
+}
+.list .list_info p:last-child {
+  font-size: 0.12rem;
+  color: #a3a3a3;
+}
+.more {
+  height: 0.5rem;
+  background: #fafafa;
+  border-top: 0.01rem solid #e8e8e8;
+  text-align: center;
+  line-height: 0.5rem;
+  font-size: 0.16rem;
+}
+.more a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: #6d6d6d;
+}
+footer {
+  width: 100%;
+  text-align: center;
+  margin: 0.27rem 0 0.95rem 0;
+}
+footer p {
+  font-size: 0.12rem;
+  line-height: 0.22rem;
+}
+.tabbar {
+  width: 100%;
+  height: 0.45rem;
+  border-top: 0.01rem #e8e8e8 solid;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  background: #f6f6f6;
+  font-size: 0.18rem;
+  color: #c2cfcc;
+}
+.tabbar i {
+  font-size: 0.22rem;
+  position: relative;
+  top: 0.02rem;
+}
+.tabbar div {
+  flex: 1;
+  text-align: center;
+  line-height: 0.45rem;
+}
+.tabbar .active {
+  background: #e7f3f0;
+  color: #00b38a;
+}
