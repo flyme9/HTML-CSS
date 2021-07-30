@@ -1,0 +1,17 @@
+$num:18px;
+.box{
+    margin: $num;
+}
+@function sum($a , $b){
+    @return ($a + $b);
+}
+.box{
+    margin: sum(19px, 20px);
+}
+@mixin show {
+    display: none;
+}
+p{
+    @include show();
+}
+

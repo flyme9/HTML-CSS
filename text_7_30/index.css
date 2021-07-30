@@ -1,0 +1,52 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    background:red;
+}
+@media all and (min-width:768px) {
+    .box{
+        background:blanchedalmond;
+    }
+}
+@media all and (orientation:portrait) {
+    .box{
+        background:blanchedalmond;
+    }
+}
+@media all and (orientation:landscape) {
+    .box{
+        background:violet;
+    }
+}
+
+.container{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left:auto;
+    margin-right: auto;
+    background: violet;
+
+}
+@media all and (min-width:768px) {
+    .container{
+        max-width: 720px;
+        background: violet;
+    }
+}
+@media all and (min-width:992px) {
+    .container{
+        max-width: 960px;
+        background: violet;
+    }
+}
+@media all and (min-width:1200px) {
+    .container{
+        max-width: 1140px;
+        background: violet;
+    }
+}

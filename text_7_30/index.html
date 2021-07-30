@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <style>
+        .cont {
+            width: 1000px;
+            height: 1000px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        @media all and (max-width:1499.98px) {
+            .subbar {
+                position: fixed;
+                left: 50%;
+                margin-left: 475px;
+                bottom: 20%;
+            }
+
+            .subbar li {
+                width: 50px;
+                height: 50px;
+                border: 1px solid red;
+                text-align: center;
+                line-height: 30px;
+            }
+
+            .subbar li p {
+                display: none;
+            }
+        }
+
+        @media all and (min-width:1500px) {
+            .subbar {
+                position: fixed;
+                right: 0;
+                bottom: 20%;
+            }
+
+            .subbar li {
+                width: 100px;
+                height: 100px;
+                border: 1px solid red;
+                text-align: center;
+                line-height: 100px;
+            }
+
+            .subbar li p {
+                display: none;
+            }
+
+        }
+    </style>
+    <link rel="stylesheet" href="../2_bootstrap-5.0.2/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+    <div class="box">
+
+    </div>
+    <div class="container">
+        123
+    </div>
+    <hr>
+    <div class="cont">
+        <ul class="subbar">
+            <li><i class="">1</i>
+                <p>123</p>
+            </li>
+            <li><i class="">1</i>
+                <p>123</p>
+            </li>
+            <li><i class="">1</i>
+                <p>123</p>
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col border">
+                1
+            </div>
+            <div class="col border">
+                2
+            </div>
+            <div class="col border">
+                3
+            </div>
+        </div>
+    </div>
+    <div class="container border">
+        <div class="row">
+            <div class="col-4 border">
+                11  
+            </div>
+            <div class="col-auto border">222</div>
+        </div>
+    </div>
+    
+</body>
+
+</html>
