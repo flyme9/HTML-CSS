@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div id="time">
+        <ul>
+
+        </ul>
+        <div id="hour"></div>
+        <div id="minu"></div>
+        <div id="seco"></div>
+        <div id="ball"></div>
+    </div>
+    <script>
+
+        var ul = document.querySelector('ul');
+        var hour = document.querySelector('#hour');
+        var minu = document.querySelector('#minu');
+        var seco = document.querySelector('#seco');
+
+        for (var i = 0; i < 60; i++) {
+            var li = document.createElement('li');
+            li.style.transform = 'rotate('+ ( i*6 ) +'deg)';
+            // 整点时间加长显示
+            if (i % 5 === 0) {
+                li.style.height = '15px';
+            }
+            ul.appendChild(li);
+        }
+
+        // 每秒调用一次
+        run();
+        setInterval(run, 1000);
+        // 获取系统时间
+        function run() {
+            var date = new Date();
+            var iH = date.getHours();
+            var iM = date.getMinutes();
+            var iS = date.getSeconds()
+            // 设置指针旋转
+            hour.style.transform = 'rotate(' + (iH * 30 + iM / 2) + 'deg)';
+            minu.style.transform = 'rotate(' + (iM * 6) + 'deg)';
+            seco.style.transform = 'rotate(' + (iS * 6) + 'deg)';
+        }
+    </script>
+</body>
+
+</html>
