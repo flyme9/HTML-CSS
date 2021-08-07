@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+</head>
+
+<body>
+    <!-- 表格制作个人简历 -->
+    <table cellspacing="0" border="1px">
+        <!-- <col width="100px"> 
+        <col width="100px"> 
+        <col width="100px"> 
+        <col width="100px"> 
+        <col width="100px"> 
+        <col width="100px"> 
+        <col width="200px">  -->
+        <colgroup span="6" width="100px">
+            <colgroup span="1" width="200px">
+            <tr>
+                <th colspan="7">个人简历</th>
+            </tr>
+        <tr>
+            <td>姓名</td>
+            <td></td>
+            <td>性别</td>
+            <td></td>
+            <td>年龄</td>
+            <td></td>
+            <td rowspan="4">照片</td>
+        </tr>
+        <tr>
+            <td>学历</td>
+            <td></td>
+            <td>籍贯</td>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <td>电话</td>
+            <td></td>
+            <td>政治面貌</td>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <td>毕业院校</td>
+            <td colspan="5"></td>
+
+        </tr>
+        <tr>
+            <td>求职意向</td>
+            <td colspan="6"></td>
+        </tr>
+    </table>
+
+    <!-- 等高布局 -->
+    <div class="box1">
+        <div class="left">
+            <p>1111111111111111111111111111111111111111</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+            <p>6</p>
+            <p>7</p>
+        </div>
+        <div class="right">
+            <p>1111111111111111111111111111111111111111</p>
+        </div>
+    </div>
+
+    <!-- 通栏+版心布局 -->
+    <div class="container">
+        <div class="container-fluid">
+
+        </div>
+    </div>
+
+    <!-- 双飞翼布局 -->
+    <div class="center">
+        <div>内容</div>
+    </div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+
+    <!-- 圣杯布局 -->
+    <div class="container clear">
+        <div class="center">
+            内容部分
+        </div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+
+    
+</body>
+
+</html>
