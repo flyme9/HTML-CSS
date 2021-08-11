@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./test.css">
+    <script src="./test.js"></script>
+</head>
+
+<body>
+    <h2>各科小常识</h2>
+    <hr>
+    <h3>语文</h3>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;《三国演义》中国古典四大名著之一。元末明初小说家罗贯中所著，是中国第一长篇章回体历史演义的小说。描写了从东汉末年到西晋初年之间近100年的历史风云</p>
+    <hr>
+    <h3>数学</h3>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;勾股定理直角三角形，a<sup>2</sup>+b<sup>2</sup>=c<sup>2</sup>
+    </p>
+    <hr>
+    <h3>英语</h3>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;No pain no gain</p>
+    <h3>化学</h3>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;H<sub>2</sub>SO<sub>4</sub>是一种重要的工业原料，可用于制作肥料、洗涤剂等。</p>
+    <hr>
+    <h3>经济</h3>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;版权符号：&copy;<br>&nbsp;&nbsp;&nbsp;&nbsp;注册商标：&trade;</p>
+    <form action="">
+        <input type="text" id="first">
+        <select id="type">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" id="second">
+        <button onclick="btn()" type="button">=</button>
+        <input type="text" disabled id="result">
+    </form>
+
+    <button onclick="sub()">-</button>
+    <button onclick="add()">+</button>
+</body>
+
+</html>
