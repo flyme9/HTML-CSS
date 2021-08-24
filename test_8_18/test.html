@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    form {
+      border: 1px dashed black;
+      width: 300px;
+      height: 150px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+
+    form>input {
+      width: 200px;
+      height: 20px;
+      border-radius: 5px;
+      outline: none;
+      border: 0.5px solid black;
+      margin: 5px;
+      padding: 0 10px;
+    }
+
+    form>button {
+      width: 300px;
+      height: 30px;
+      margin-top: 10px;
+      cursor: pointer;
+      border: none;
+    }
+
+    table {
+      margin: 20px auto;
+      width: 500px;
+      min-height: 50px;
+      border-collapse: collapse;
+    }
+
+    table th {
+      height: 50px;
+      width: 100px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    table tr {
+      text-align: center;
+      font-size: 20px;
+    }
+
+    table button {
+      width: 75px;
+      height: 30px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="">
+    姓名：<input class="userName" type="text" /><br />
+    年龄：<input class="userAge" type="text" /><br />
+    性别：<input class="userGender" type="text" /><br />
+    <button type="button" class="add">添加内容</button>
+  </form>
+  <table border="1">
+    <thead>
+      <th>姓名</th>
+      <th>年龄</th>
+      <th>性别</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>张山</td>
+        <td>20</td>
+        <td>男</td>
+        <td><button type="button" class="del">删除</button></td>
+      </tr>
+      <tr>
+        <td>张山</td>
+        <td>20</td>
+        <td>男</td>
+        <td><button type="button" class="del">删除</button></td>
+      </tr>
+      <tr>
+        <td>张山</td>
+        <td>20</td>
+        <td>男</td>
+        <td><button type="button" class="del">删除</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+<script>
+    var nameInput = document.querySelector(".userName");
+    var ageInput = document.querySelector(".userAge");
+    var genderInput = document.querySelector(".userGender");
+    var addBtn = document.querySelector(".add");
+    var tbody = document.querySelector("tbody");
+    var delBtn = document.querySelectorAll(".del");
+    // console.log(nameInput,ageInput,genderInput)
+    addBtn.onclick = function () {
+      //获取文本框内容
+      var username = nameInput.value;
+      var age = ageInput.value;
+      var gender = genderInput.value;
+      console.log(username, age, gender)
+      //验证表单内容
+      if (username === '' || age === '' || gender === '') {
+        // console.log(123)
+        alert('请填写完整信息');
+        return;
+      }
+
+      //组合一个节点
+      var tr = document.createElement('tr');
+      var td1 = document.createElement('td');
+      var td2 = document.createElement('td');
+      var td3 = document.createElement('td');
+      var td4 = document.createElement('td');
+      var button = document.createElement('button');
+      //给节点插入内容
+      td1.innerHTML = username;
+      td2.innerHTML = age;
+      td3.innerHTML = gender;
+      button.innerHTML = '删除';
+
+      //插入节点
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tr.appendChild(td3);
+      td4.appendChild(button);
+      tr.appendChild(td4);
+
+      //将内容插入到tbody内
+      tbody.appendChild(tr);
+
+      //添加成功后清空表单输入框内容
+      nameInput.value = '';
+      ageInput.value = '';
+      genderInput.value = '';
+    }
+    //删除按钮
+    delBtn.forEach(function (item) {
+      item.onclick = function () {
+        var tr = this.parentElement.parentElement;
+        tr.remove()
+      }
+    })
+  </script> 
+
+
+  <table>
+    <tr>
+      <td>姓名</td>
+      <td>年龄</td>
+      <td>性别</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <script>
+    userList = [
+      { name: 'jack', age: 18, gender: '男' },
+      { name: 'tom', age: 18, gender: '男' },
+      { name: '张山', age: 18, gender: '男' }
+    ]
+    //获取tbody标签
+    var tbody = document.querySelector('tbody');
+    //创建一个文档碎片承载内容
+    var frg = document.createDocumentFragment();
+    userList.forEach(function (item) {
+      var tr = document.createElement('tr');
+      tr.innerHTML = `
+      <td>${item.name}</td>
+      <td>${item.age}</td>
+      <td>${item.gender}</td>
+      `;
+      frg.appendChild(tr)
+    })
+    tbody.appendChild(frg);
+
+    console.log(tbody.children)
+  </script>
+</body>
+
+</html>
