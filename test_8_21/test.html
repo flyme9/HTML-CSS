@@ -1,0 +1,234 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../tools_2.js"></script>
+</head>
+
+<body>
+    <div id="div" style="width: 100px;height: 100px;background: lemonchiffon;">
+        <button id="btn">解绑</button>
+    </div>
+    <script>
+        var div = document.getElementById('div');
+        var btn=document.getElementById('btn')
+        // function on(ele,type,handler){
+        //     //检查ele参数合理性
+        //     if(!ele || ele.nodeType!==1) throw new Error('ele事件源传递不正确');
+        //     //事件绑定兼容处理
+        //     if(ele.addEventListener){
+        //         //标准浏览器
+        //         ele.addEventListener(type,handler)
+        //     }
+        //     else if(ele.attachEvent){
+        //         ele.attachEvent('on'+type,handler)
+        //     }
+        //     else{
+        //         ele['on'+type]=handler
+        //     }
+        // }
+
+        // function off(ele, type, handler) {
+        //     if (!ele || ele.nodeType !== 1) throw new Error('ele事件源传递不正确');
+        //     if (ele.addEventListener) {
+        //         //标准浏览器
+        //         ele.removeEventListener(type, handler)
+        //     } else if (ele.attachEvent) {
+        //         //IE低版本
+        //         ele.detachEvent('on' + type, handler)
+        //     } else {
+        //         //原始浏览器
+        //         ele['on' + type] = null
+        //     }
+        // }
+        function a() {
+            console.log('hello world')
+        }
+        on(div, 'click', a)
+        btn.onclick=function(){
+            off(div, 'click',a)
+            console.log('‘解绑')
+        }
+    </script>
+
+
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 实时显示坐标点 -->
+    <!-- <h1>X 轴坐标：<span class="x">0</span></h1>
+    <h1>Y 轴坐标：<span class="y">0</span></h1>
+    <script>
+        var spanX=document.querySelector('.x')
+        var spanY=document.querySelector('.y')
+
+        document.addEventListener('mousemove',function(e){
+            e=e||window.event;
+            spanX.innerHTML=e.pageX;
+            spanY.innerHTML=e.pageY;
+        })
+    </script> -->
+    <!-- 
+    <style>
+      span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: none;
+      }
+      div {
+        width: 200px;
+        height: 100px;
+        border: 1px solid red;
+        margin: 100px auto;
+      }
+      .active {
+        display: block;
+      }
+    </style>
+    <div>标题文本</div>
+    <span>提示文本</span>
+
+    <script>
+      var div = document.querySelector("div");
+      var span = document.querySelector("span");
+      div.addEventListener("mouseover", function () {
+        span.classList.add("active");
+      });
+      div.addEventListener("mouseout", function () {
+        span.classList.remove("active");
+      });
+      div.addEventListener("mousemove", function (e) {
+        e = e || window.event;
+        var x = e.clientX + 10;
+        var y = e.clientY + 10;
+        span.style.left = x + "px";
+        span.style.top = y + "px";
+      });
+    </script>
+ -->
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .con {
+        width: 300px;
+        height: 300px;
+        line-height: 300px;
+        text-align: center;
+        font-size: 30px;
+        border: 1px silver solid;
+        margin: 300px auto;
+        position: relative;
+        overflow: hidden;
+      }
+      .mask {
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 255, 200, 0.5);
+        position: absolute;
+        left: 0;
+        top: -100%;
+        pointer-events: none;
+      }
+    </style>
+    <div class="con">
+      显示内容
+      <div class="mask"></div>
+    </div>
+    <script>
+      var con = document.querySelector(".con");
+      var mask = document.querySelector(".mask");
+      con.addEventListener("mouseover", function (event) {
+        e = event || window.event;
+        //确定坐标原点
+        var originX = con.offsetLeft + con.offsetWidth / 2;
+        var originY = con.offsetTop + con.offsetHeight / 2;
+        //根据新坐标轴获取原来坐标位置
+        var mouseX = e.clientX - originX;
+        var mouseY = e.clientY - originY;
+        //计算角度
+        var deg = Math.atan2(mouseY, mouseX) * (180 / Math.PI);
+        //换算为0-360度
+        var degNum = Math.round((deg + 180) / 90) % 4;
+        //0 左边  1上边  2右边  3下边
+        mask.style.transition='none'
+        switch(degNum){
+            case 0:
+                mask.style.left='-100%'
+                mask.style.top=0
+                break;
+            case 1:
+                mask.style.left=0
+                mask.style.top='-100%'
+                break;
+            case 2:
+                mask.style.left='100%'
+                mask.style.top=0
+                break;
+            case 3:
+                mask.style.left=0
+                mask.style.top='100%'
+                break;
+            default:
+                break;
+        }
+        setTimeout(function(){
+            mask.style.transition='all 0.5s linear'
+            mask.style.left=0
+            mask.style.top=0
+        },16)
+      });
+
+      con.addEventListener('mouseout',function(e){
+        e = event || window.event;
+        //确定坐标原点
+        var originX = con.offsetLeft + con.offsetWidth / 2;
+        var originY = con.offsetTop + con.offsetHeight / 2;
+        //根据新坐标轴获取原来坐标位置
+        var mouseX = e.clientX - originX;
+        var mouseY = e.clientY - originY;
+        //计算角度
+        var deg = Math.atan2(mouseY, mouseX) * (180 / Math.PI);
+        //换算为0-360度
+        var degNum = Math.round((deg + 180) / 90) % 4;
+        //0 左边  1上边  2右边  3下边
+        switch(degNum){
+            case 0:
+                mask.style.left='-100%'
+                mask.style.top=0
+                break;
+            case 1:
+                mask.style.left=0
+                mask.style.top='-100%'
+                break;
+            case 2:
+                mask.style.left='100%'
+                mask.style.top=0
+                break;
+            case 3:
+                mask.style.left=0
+                mask.style.top='100%'
+                break;
+            default:
+                break;
+        }
+      })
+    </script>
+  </body>
+</html>
