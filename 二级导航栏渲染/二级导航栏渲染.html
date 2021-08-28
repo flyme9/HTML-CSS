@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    ul,
+    ol,
+    li {
+      list-style: none;
+    }
+
+    ul {
+      width: 100%;
+      height: 60px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    ul>li {
+      float: left;
+      line-height: 60px;
+      width: 200px;
+      cursor: pointer;
+      background: orange;
+      font-size: 20px;
+
+    }
+
+    div {
+      width: 100%;
+      height: 230px;
+      border: 1px solid #333;
+      display: none;
+    }
+
+    div>ol {
+      width: 1226;
+      height: 100%;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    div>ol>li {
+      width: calc(100% / 6);
+      height: 100%;
+      background: white;
+      float: left;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="nav">
+  </ul>
+  <div>
+    <ol class="goodsBox">
+    </ol>
+  </div>
+
+  <script>
+    //二级菜单渲染
+    var nav = document.querySelector('.nav');
+    var goodsBox = document.querySelector('.goodsBox');
+    //
+    dataList = [{
+        "id": 1,
+        "name": "小米手机",
+        "list": [{
+            "list_id": 101,
+            "list_name": "小米10 pro",
+            "list_price": 3999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 102,
+            "list_name": "小米10 pro",
+            "list_price": 4999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 103,
+            "list_name": "小米10 pro",
+            "list_price": 2999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 104,
+            "list_name": "小米10 pro",
+            "list_price": 5999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 105,
+            "list_name": "小米10 pro",
+            "list_price": 6999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 106,
+            "list_name": "小米10 pro",
+            "list_price": 7999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "红米手机",
+        "list": [{
+            "list_id": 201,
+            "list_name": "小米20 pro",
+            "list_price": 3999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 202,
+            "list_name": "小米20 pro",
+            "list_price": 4999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 203,
+            "list_name": "小米20 pro",
+            "list_price": 2999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 204,
+            "list_name": "小米20 pro",
+            "list_price": 5999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 205,
+            "list_name": "小米20 pro",
+            "list_price": 6999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 206,
+            "list_name": "小米20 pro",
+            "list_price": 7999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "大米手机",
+        "list": [{
+            "list_id": 301,
+            "list_name": "小米30 pro",
+            "list_price": 3999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 302,
+            "list_name": "小米30 pro",
+            "list_price": 4999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 303,
+            "list_name": "小米30 pro",
+            "list_price": 2999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 304,
+            "list_name": "小米30 pro",
+            "list_price": 5999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 305,
+            "list_name": "小米30 pro",
+            "list_price": 6999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 306,
+            "list_name": "小米30 pro",
+            "list_price": 7999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "黑米手机",
+        "list": [{
+            "list_id": 401,
+            "list_name": "小米40 pro",
+            "list_price": 3999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 402,
+            "list_name": "小米40 pro",
+            "list_price": 4999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 403,
+            "list_name": "小米40 pro",
+            "list_price": 2999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 404,
+            "list_name": "小米40 pro",
+            "list_price": 5999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 405,
+            "list_name": "小米40 pro",
+            "list_price": 6999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 406,
+            "list_name": "小米40 pro",
+            "list_price": 7999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "糯米手机",
+        "list": [{
+            "list_id": 501,
+            "list_name": "小米50 pro",
+            "list_price": 3999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 502,
+            "list_name": "小米50 pro",
+            "list_price": 4999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 503,
+            "list_name": "小米50 pro",
+            "list_price": 2999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 504,
+            "list_name": "小米50 pro",
+            "list_price": 5999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 505,
+            "list_name": "小米50 pro",
+            "list_price": 6999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 506,
+            "list_name": "小米50 pro",
+            "list_price": 7999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "路由器",
+        "list": [{
+            "list_id": 601,
+            "list_name": "小米60 pro",
+            "list_price": 3999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 602,
+            "list_name": "小米60 pro",
+            "list_price": 4999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 603,
+            "list_name": "小米60 pro",
+            "list_price": 2999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 604,
+            "list_name": "小米60 pro",
+            "list_price": 5999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 605,
+            "list_name": "小米60 pro",
+            "list_price": 6999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 606,
+            "list_name": "小米60 pro",
+            "list_price": 7999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "家电",
+        "list": [{
+            "list_id": 701,
+            "list_name": "小米70 pro",
+            "list_price": 3999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 702,
+            "list_name": "小米70 pro",
+            "list_price": 4999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 703,
+            "list_name": "小米70 pro",
+            "list_price": 2999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 704,
+            "list_name": "小米70 pro",
+            "list_price": 5999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 705,
+            "list_name": "小米70 pro",
+            "list_price": 6999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          },
+          {
+            "list_id": 706,
+            "list_name": "小米70 pro",
+            "list_price": 7999,
+            "list_url": "https://openfile.meizu.com/group1/M00/08/73/Cgbj0WA-HPiAav_gAAfPQ4W25Lo615.png680x680.jpg"
+          }
+        ]
+      }
+    ]
+
+    var frg = document.createDocumentFragment(); //文档碎片
+    dataList.forEach(function (item) {
+      var li = document.createElement('li'); //创建元素节点
+      li.innerHTML = item.name; //插入name
+      li.dataset.id = item.id; //为每一个li元素自定义添加一个id
+      frg.appendChild(li) //插入到文档碎片
+    })
+    nav.appendChild(frg); //插入到页面中
+    var lis = nav.querySelectorAll('li'); //获取li元素
+    //
+    lis.forEach(function (item) {
+      //添加一个鼠标移入事件
+      item.onmouseover = function () {
+        var id = this.dataset.id - 0; //获取li元素上的id
+        var secondList = dataList.find(function (item) {
+          return item.id === id
+        }).list; //获取到对应id下的二级标题数据
+        var str = '';
+        secondList.forEach(function (item) {
+          str += `
+            <li>
+              <img src="${item.list_url}" alt="" width="100px" height="100px"> 
+              <p>${item.list_name}</p>
+              <p>￥${item.list_price.toFixed(2)}</p>
+            </li>
+            `
+        })
+        goodsBox.innerHTML = str
+        var div = document.querySelector('div')
+        div.style = 'display:block'
+      }
+      var div = document.querySelector('div')
+      div.onmouseover = function () {
+        div.style = 'display:block'
+      }
+      div.onmouseout = function () {
+        div.style = 'display:none'
+      }
+    })
+  </script>
+</body>
+
+</html>
