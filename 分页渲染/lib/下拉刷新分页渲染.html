@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body>div {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style: none;
+        }
+
+        .header,
+        .footer {
+            height: 200px;
+            background: wheat;
+            text-align: center;
+            font-size: 100px;
+            color: white;
+        }
+
+        .container>ul {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .container>ul>li {
+            float: left;
+            width: calc(100% / 5 - 12px);
+            border: 1px solid #ccc;
+            margin: 10px 5px;
+            height: 300px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .container>ul>li>.img {
+            width: 150px;
+            margin: 30px auto;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .loading {
+            width: 300px;
+            margin: 0 auto;
+            display: none;
+        }
+
+        .loading.active {
+            width: 300px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">头部</div>
+    <div class="container">
+        <ul>
+        </ul>
+    </div>
+    <div class="loading">
+        <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F56377cc10ffc9f11de53a0b0e79b422e875c36b9db0-BxBhdS_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631966924&t=dab506b207db7ed43e3bb8e947bd470b"
+            alt="">
+    </div>
+    <div class="footer">尾部</div>
+
+    <!-- <script src="../data/data.js"></script> -->
+    <script>
+        //生成数据
+        dataList = []
+        for (var i = 1; i < 1200; i++) {
+            dataList.push({
+                cartNumber: 0,
+                list_id: 0000 + i,
+                list_name: `商品${i}`,
+                list_price: 100 + i,
+                list_url: "https://img10.360buyimg.com/jdcms/s300x300_jfs/t1/194722/8/2466/52319/609a4a21E2b5ea967/bc8dee8c1dab550e.jpg.webp"
+            })
+        }
+
+        //获取元素 和 数据
+        var listBox = document.querySelector('.container>ul'); //获取别ul元素
+        var windowHight = document.documentElement.clientHeight; //获取窗口高度
+        var ulOffsetTop = listBox.offsetTop; //获取ul顶部偏移量
+        // console.log(listBox,windowHight,ulOffsetTop);
+
+        var totlePage = Math.ceil(dataList.length / 20); //计算总页数
+        var curPage = 1; //当前的页数
+        var flag = true; //为true时，允许加载
+        var loading = document.querySelector('.loading');
+
+        function bindHtml() {
+            //拆数组
+            var bindList = dataList.slice((curPage - 1) * 20, curPage * 20);
+            //渲染页面 - 创建节点
+            var frg = document.createDocumentFragment(); //文档碎片
+            bindList.forEach(function (item) {
+                var li = document.createElement('li'); //创建li
+                li.innerHTML = `
+                <div class="img">
+                    <img src="${item.list_url}" alt="">
+                </div>
+                <p>${item.list_name}</p>
+                <span>￥${item.list_price.toFixed(2).big().fontcolor('red')} </span>
+                `
+                var btn = document.createElement('button')
+                btn.innerHTML = '加入购物车'
+                btn.setAttribute('goodsid', item.list_id) //设置按钮对应商品的id
+                btn.onclick = addCart
+
+                li.appendChild(btn)
+                frg.appendChild(li)
+            })
+            listBox.appendChild(frg);
+            flag = true;
+            loading.classList.remove('active');
+
+        }
+        bindHtml();
+
+        window.onscroll = function () {
+            var scrollTop = (document.documentElement.scrollTop || document.body.scrollTop) + windowHight;
+            var ulHeight = listBox.offsetHeight + ulOffsetTop;
+            // console.log(scrollTop,ulHeight,ulOffsetTop)
+
+            if (curPage === totlePage) return; //最后一页加载完后不在加载
+            if (scrollTop < ulHeight) return;
+            if (!flag) return;
+
+
+            flag = false; //为false时，不执行滚动事件
+            loading.classList.add('active');
+            console.log(flag)
+            setTimeout(function () {
+                curPage++;
+                bindHtml();
+            }, 500)
+        }
+
+
+        //加入购物车
+
+        function addCart() {
+            //获取对应商品id
+            var goodsId = this.getAttribute('goodsid') - 0
+            // console.log(goodsId)
+            //在原始数组中查找数据
+            var goods = dataList.find(function (item) {
+                return item.list_id === goodsId
+            })
+            // console.log(goods)
+            //从localStorage中获取数据
+            var list = JSON.parse(window.localStorage.getItem('cart')) || []
+            //向数组里面添加数据
+            if (!list.length) {
+                //如果是空数组,
+                console.log('1')
+                goods.cartNumber = 1;
+                list.push(goods)
+            } else {
+                //数组有内容，判断是否是当前点击的数据
+                var res = list.some(function (item) {
+                    return item.list_id === goodsId
+                })
+                if (res) {
+                    //有这条则在原有基础上cartNumber ++
+                    var index = list.findIndex(function (item) {
+                        return item.list_id === goodsId
+                    })
+                    console.log(index)
+                    list[index].cartNumber++;
+                } else {
+                    //没有这条内容，则放入数组中
+                    goods.cartNumber = 1
+                    list.push(goods)
+                }
+            }
+            window.localStorage.setItem('cart', JSON.stringify(list))
+
+        }
+    </script>
+</body>
+
+</html>

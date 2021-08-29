@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        table {
+            width: 800px;
+            min-height: 50px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table>tbody>tr:nth-child(odd) {
+            background: cornsilk;
+        }
+
+        table>tbody>tr:nth-child(even) {
+            background: rgb(226, 216, 173);
+        }
+
+        table>tbody>tr:hover {
+            background: #ccc;
+        }
+
+        table>tbody>tr>td>button {
+            margin: 0 10px;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style: none;
+        }
+
+        .pagination {
+            width: 800px;
+            height: 25px;
+            margin-top: 20px;
+        }
+
+        .pagination>span,
+        .pagination li {
+            float: left;
+            line-height: 25px;
+            margin: 0 8px;
+            cursor: pointer;
+        }
+
+        .pagination li {
+            display: inline-block;
+            width: 25px;
+            text-align: center;
+        }
+
+        .pagination li.active {
+            background: darkgray;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <th>序号</th>
+            <th>ID</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>班级</th>
+            <th>操作</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>张山</td>
+                <td>男</td>
+                <td>20</td>
+                <td>2021</td>
+                <td><button type="button">编辑</button><button type="button">删除</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination">
+        <span class="first">首页</span>
+        <span class="prev">上一页</span>
+        <ul class="pageList">
+            <!-- <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li> -->
+        </ul>
+        <span class="next">下一页</span>
+        <span class="last">尾页</span>
+    </div>
+
+    <script src="../../tools_1.js"></script>
+    <script>
+        //获取元素 ==> .pageList  上一页按钮等 tbody
+        var pageList = document.querySelector('.pageList');
+        var firstBtn = document.querySelector('.first');
+        var prevBtn = document.querySelector('.prev');
+        var nextBtn = document.querySelector('.next');
+        var lastBtn = document.querySelector('.last');
+        var tbody = document.querySelector('tbody');
+
+        var curPage = 1;
+        //生成数据
+        var userList = []
+        var str1 = '赵钱孙李周武吴郑王黄';
+        var str2 = '一二三四五六七八九十';
+        var str3 = '男女';
+        for (var i = 0; i < 123; i++) {
+            userList.push({
+                id: i + 1,
+                username: str1[randomNum(0, 9)] + str2[randomNum(0, 9)],
+                gender: str3[randomNum(0, 1)],
+                age: randomNum(18, 30),
+                class: randomNum(2010, 2020)
+            })
+        }
+
+        //计算总页数
+        var totlePage = Math.ceil(userList.length / 10);
+        // console.log(totlePage);
+
+        frg = document.createDocumentFragment(); //文档碎片
+        for (var i = 1; i <= totlePage; i++) {
+            //获取元素
+            var li = document.createElement('li');
+            li.innerHTML = i; 
+            li.dataset.page=i;//插入页码
+            if (i === 1) li.className = 'active'; //显示第一页，按钮特殊样式
+            li.onclick = function () {
+                var page = this.dataset.page-0;
+                curPage=page;
+                bindHtml();
+            }
+            frg.appendChild(li);
+        }
+        pageList.appendChild(frg);
+
+        function bindHtml() {
+            var bindList = userList.slice((curPage - 1) * 10, curPage * 10); //获取每页内容
+            // console.log(bindList);
+            var str = ''
+            bindList.forEach(function (item, index) {
+                str += `
+                <tr>
+                    <td>${index+1}</td>
+                    <td>${item.id}</td>
+                    <td>${item.username}</td>
+                    <td>${item.gender}</td>
+                    <td>${item.age}</td>
+                    <td>${item.class}</td>
+                    <td><button type="button">编辑</button><button type="button">删除</button></td>
+                </tr>`
+            })
+            tbody.innerHTML = str;
+            changeCurrent();
+        }
+        bindHtml();
+        //下一页切换
+        nextBtn.onclick = function () {
+            if (curPage === totlePage) return;
+            curPage++;
+            bindHtml();
+        }
+        //上一页切换
+        prevBtn.onclick = function () {
+            if (curPage === 1) return;
+            curPage--;
+            bindHtml();
+        }
+        //首页
+        firstBtn.onclick=function(){
+            if(curPage===1) return;
+            curPage=1;
+            bindHtml();
+
+        }
+        //尾页
+        lastBtn.onclick=function(){
+            if(curPage ===totlePage) return
+            curPage=totlePage
+            bindHtml();
+        }
+
+        //单个页数控制
+
+
+        //改变 .active 位置
+        function changeCurrent() {
+            for (var i = 0; i < pageList.children.length; i++) {
+                pageList.children[i].className = '';
+            }
+            pageList.children[curPage - 1].className = 'active';
+
+        }
+        document.onselectstart=function(e){e.preventDefault()}
+    </script>
+</body>
+
+</html>
