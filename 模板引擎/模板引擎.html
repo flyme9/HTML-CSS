@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body>div{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .header,.footer{
+            height: 300px;line-height: 300px;text-align: center;font-size: 100px;color:white;background: orange;
+        }
+        .container{
+            padding-top: 20px;
+        }
+        .container>ul{
+            width: calc(100%-40px);
+            height: 410px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .container>ul>.top{
+            height: 40px;
+            line-height: 40px;
+            overflow: hidden;
+        }
+        .container>ul>.top>p{
+            float: left;
+            font-size: 30px;
+        }
+        .container>ul>.top>span{
+            float: right;
+        }
+        .container>ul>.left{
+            width: 270px;
+            float: left
+        }
+        .container>ul>.right{
+            width: 870px;
+        }
+        .container>ul>.right{
+            float: left;
+        }
+        .container>ul>.right>li{
+            float: left;
+            width: 270px;
+            list-style: none;
+            height: 180px;
+            margin: 0 0 10px 15px;
+        }   
+        .container>ul>.right>li>.img{
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+    <div class="container">
+    </div>
+    <div class="footer"></div>
+    <script src="./data.js"></script>
+    
+    <script src="../art-template-master/lib/template-web.js"></script>
+
+    <script type="text/html" id="tmp">
+        <ul>
+            <div class="top">
+                <p>{{title}}</p>
+                <span>查看全部</span>
+            </div>
+            <div class="left">
+                <img src="{{first.verticalPic}}" alt="">
+            </div>
+            <div class="right">
+                {{each other}}
+                <li data-index="{{$index}}">
+                    <div class="img">
+                        <img src=" {{$value.verticalPic}} " alt="">
+                    </div>
+                    
+                </li>
+                {{/each}}
+            </div>
+        </ul>
+    </script>
+
+    <script>
+        var container=document.querySelector('.container')
+        // var str1=template('tmp',{
+        //     title:'演唱会',
+        //     first:data1[0],
+        //     other:data1.slice(1)
+        // })
+        // container.innerHTML += str1
+        // var str2=template('tmp',{
+        //     title:'演唱会',
+        //     first:data2[0],
+        //     other:data2.slice(1)
+        // })
+        // container.innerHTML += str2
+        // var str3=template('tmp',{
+        //     title:'演唱会',
+        //     first:data3[0],
+        //     other:data3.slice(1)
+        // })
+        // container.innerHTML += str3
+        // var str4=template('tmp',{
+        //     title:'演唱会',
+        //     first:data4[0],
+        //     other:data4.slice(1)
+        // })
+        // container.innerHTML += str4
+
+        var list=[
+            {title:'演唱会',list:data1},
+            {title:'话剧',list:data2},
+            {title:'歌剧',list:data3},
+            {title:'儿童亲子',list:data4},
+        ]
+        list.forEach(function(item){
+            var str=template('tmp',{
+                title:item.title,
+                first:item.list[0],
+                other:item.list.slice(1)
+            })
+            container.innerHTML+=str;
+        })
+    </script>
+</body>
+</html>
