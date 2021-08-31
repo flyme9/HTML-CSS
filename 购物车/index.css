@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.box {
+  width: 1200px;
+  margin: 30px auto;
+  border: 1px solid #333;
+}
+
+.box > .top {
+  height: 40px;
+  background: skyblue;
+  line-height: 40px;
+  padding-left: 20px;
+}
+
+.box > ul {
+  padding: 20px;
+}
+
+.box > .bottom {
+  height: 80px;
+  background: skyblue;
+}
+
+.box > .bottom > p {
+  font-size: 30px;
+  line-height: 80px;
+  margin-left: 30px;
+  float: left;
+}
+
+.box > .bottom > button {
+  float: left;
+  height: 30px;
+  margin: 25px 0 0 20px;
+  cursor: pointer;
+}
+
+.box > ul > li {
+  height: 100px;
+  border: 1px silver solid;
+  margin-top: 10px;
+}
+
+.box > ul > li > .select {
+  float: left;
+  width: 100px;
+  border-right: 1px solid silver;
+  height: 100%;
+  position: relative;
+}
+
+.box > ul > li > .select input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.box > ul > li img {
+  width: 100px;
+  padding: 0 10px;
+  float: left;
+  display: block;
+}
+
+.box > ul > li > .desc {
+  width: 200px;
+  height: 100%;
+  float: left;
+}
+
+.box > ul > li > .price,
+.box > ul > li > .subtotal {
+  width: 200px;
+  line-height: 100px;
+  font-size: 30px;
+  text-align: center;
+  float: left;
+}
+
+.box > ul > li > .number {
+  float: left;
+  width: 200px;
+  margin-top: 35px;
+  text-align: center;
+}
+
+.box > ul > li > .number > input,
+.box > ul > li > .number > button {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.box > ul > li > .number > input {
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+.box > ul > li > .del {
+  float: left;
+  margin-top: 35px;
+}
+
+.box > ul > li > .del > button {
+  height: 30px;
+  padding: 0 20px;
+  cursor: pointer;
+}

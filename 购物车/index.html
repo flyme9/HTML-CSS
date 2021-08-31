@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="box"> </div>
+
+    <!-- 引入模板引擎文件 -->
+    <script src="../art-template-master/lib/template-web.js"></script>
+    <!-- 页面 html 结构渲染 -->
+    <script type="text/html" id="tmp">
+        <div class="top"><label for="btnAll">全选：</label><input id="btnAll" class="selectAll" type="checkbox" {{selectAll && list.length && 'checked' }} /></div>
+        <ul>
+            {{if list.length}}
+            {{each list v}}
+            <li>
+                <div class="select">
+                    <input type="checkbox" {{v.isSelect && 'checked' }} data-id="{{v.list_id}}" class="select-item" />
+                </div>
+                <div class="img">
+                    <img src="{{v.list_url}}" alt="" />
+                </div>
+                <div class="list_name">{{v.desc}}</div>
+                <div class="list_price">￥{{v.price}}</div>
+                <div class="number">
+                    <button data-id="{{v.list_id}}" class="sub" {{ v.cartNumber==1 &&'disabled' }}>-</button>
+                    <input type="text" readonly value="{{v.cartNumber}}" />
+                    <button data-id="{{v.list_id}}" class="add" {{ v.cartNumber==v.number &&'disabled' }}>+</button>
+                </div>
+                <div class="sub">￥{{v.cartNumber*v.list_price}}</div>
+                <div class="del">
+                    <button data-id="{{v.list_id}}" class="del">删除</button>
+                </div>
+            </li>
+            {{/each}}
+            {{else}}
+            <ul>购物为空</ul>
+            {{/if}}
+        </ul>
+        <div class="bottom">
+            <p>总计：{{total}}件</p>
+            <button {{ !list.length && 'disabled' }} class="pay">去结算</button>
+            <button><a href="https://taobao.com">继续购物</a></button>
+            <button {{ !list.length && 'disabled' }} class="clearAll">清空购物车</button>
+            <p>总价：{{totalPrice.toFixed(2)}}元</p>
+        </div>
+    </script>
+    <!-- js渲染页面数据 -->
+    <script src="./index.js"></script>
+</body>
+
+</html>
