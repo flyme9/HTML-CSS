@@ -1,0 +1,65 @@
+<html data-framework="vue">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Vue.js • TodoMVC</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./index1.css" />
+</head>
+
+<body>
+    <section class="todoapp">
+        <!--  -->
+    </section>
+
+    <!-- 引入第三方模板文件 -->
+    <script src="../art-template-master/lib/template-web.js"></script>
+
+    <!-- 模板标签 -->
+    <script type="text/html" id="tmp">
+        <header class="header">
+            <h1>todos</h1>
+            <input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?">
+        </header>
+
+        {{ if length }}
+        <section class="main">
+            <input id="toggle-all" class="toggle-all" type="checkbox" {{ activeNum === 0 && 'checked' }}>
+            <label for="toggle-all">Mark all as complete</label>
+            <ul class="todo-list">
+                {{ each bindList v}}
+                <li class="{{ v.isFinish && 'completed' }} {{ v.isEdit && 'editing' }} ">
+                    <div class="view">
+                        <input class="toggle" type="checkbox" {{ v.isFinish && 'checked' }} data-id = "{{ v.id }}" >
+                        <label for="edit" class="todo-item" data-id=" {{ v.id }} " >{{ v.content}}</label>
+                        <button class="destroy" data-id=" {{v.id}} "></button>
+                    </div>
+                    <input class="edit" data-id="{{ v.id }}" type="text" value="{{ v.content }}">
+                </li>
+                {{ /each }}
+            </ul>
+        </section>
+
+        <footer class="footer">
+            <span class="todo-count">
+                <strong>{{ activeNum }}</strong> item left
+            </span>
+            <ul class="filters">
+                <li><a href="#/all" class={{ type==='all' && 'selected' }}>All</a></li>
+                <li><a href="#/active" class={{ type==='active' && 'selected' }}>Active</a></li>
+                <li><a href="#/completed" class={{ type==='completed' && 'selected' }}>Completed</a></li>
+            </ul>
+            {{ if activeNum!==length }}
+            <!-- 没有选中时，不显示这个段结构内容 -->
+            <button class="clear-completed">
+                Clear completed
+            </button>
+            {{ /if }}
+        </footer>
+        {{ /if }}
+    </script>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
