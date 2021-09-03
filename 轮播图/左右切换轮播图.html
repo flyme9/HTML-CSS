@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style: none;
+        }
+
+        .banner {
+            width: 600px;
+            height: 400px;
+            border: 1px solid #333;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner>ul {
+            width: 500%;
+            overflow: hidden;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .banner>ul>li {
+            width: 600px;
+            height: 400px;
+            float: left;
+            font-size: 100px;
+            text-align: center;
+            line-height: 400px;
+        }
+
+        .banner>ol {
+            width: 190px;
+            height: 25px;
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            border-radius: 15px;
+            transform: translateX(-50%);
+            padding-top: 5px;
+            padding-right: 15px;
+        }
+
+        .banner>ol>li {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            float: left;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
+        .banner>ol>li.active {
+            background: orange;
+        }
+
+        .banner>div {
+            width: 100%;
+            height: 60px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -30px;
+
+        }
+
+        .banner>div>p {
+            float: left;
+            width: 40px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            line-height: 60px;
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .banner>div>p:last-child {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <ul class="img_box">
+            <li style="background-color: pink;">1</li>
+            <li style="background-color: orange;">2</li>
+            <li style="background-color: red;">3</li>
+            <li style="background-color: blue;">4</li>
+            <li style="background-color: blueviolet;">5</li>
+        </ul>
+        <ol>
+            <!-- <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li> -->
+        </ol>
+        <div>
+            <p class="left"> < </p>
+            <p class="right"> > </p>
+        </div>
+    </div>
+
+    <script src="../tools_2.js"></script>
+    <script>
+
+        //获取有多少张图片
+        const imgBox = document.querySelector('.banner > ul')
+        //获取承载焦点的盒子
+        const pointBox = document.querySelector('.banner > ol')
+        //获取可视区域的盒子
+        const banner=document.querySelector('.banner')
+       
+        //定义变量
+        //获取可视区域的宽度
+        const bannerWidth=banner.clientWidth
+        //记录定时器返回值
+        let timer=0
+        //记录当前显示第几张
+        let index=1
+         //多次点击时 执行开关
+         let flag=true
+
+        //生成焦点
+        setPoint()
+        function setPoint() {
+            //获取有多少个焦点
+            let num = imgBox.children.length
+            //生成若干个焦点
+            const frg = document.createDocumentFragment()
+            for (let i = 0; i < num; i++) {
+                const li = document.createElement('li')
+                li.setAttribute('type','point')
+                li.setAttribute('pointIndex',i+1)
+                if (i === 0) li.classList.add('active')
+                frg.appendChild(li)
+            }
+            pointBox.appendChild(frg)
+
+            pointBox.style.width = num * 35 + 'px'
+        }
+
+        //赋值元素
+        copyEle()
+        function copyEle() {
+            //克隆节点
+            const first = imgBox.firstElementChild.cloneNode(true)
+            const last = imgBox.lastElementChild.cloneNode(true)
+
+            //插入节点
+            imgBox.appendChild(first)
+            imgBox.insertBefore(last,imgBox.firstChild)
+
+            //根据最新子元素的数量来决定 imgBox 的宽度
+            imgBox.style.width=imgBox.children.length*100+'%'
+
+            // 设置imgBox的定位关系
+            imgBox.style.left= -bannerWidth+'px'
+        }
+
+        //自动轮播
+        autoPlay()
+        function autoPlay(){
+            timer = setInterval(() => {
+                index++
+                move(imgBox,{left:bannerWidth* -index},moveEnd)
+            }, 1300);
+        }
+        // 运动结束函数
+        function moveEnd(){
+            // 运动到最后一张图时，瞬间定位到第一张图
+            if(index===imgBox.children.length-1){
+                index=1
+                imgBox.style.left=-index*bannerWidth+'px'
+            }
+            //运动到第 0 张时，瞬间定位到倒数第二张
+            if(index===0){
+                index=imgBox.children.length-2
+                imgBox.style.left=-index*bannerWidth+'px'
+            }
+            // 焦点与当前图片相匹配
+            for(let i=0;i<pointBox.children.length;i++){
+                pointBox.children[i].className=''
+            }
+            pointBox.children[index-1].className='active'
+            flag=true// 所有代码执行完毕开启开关
+        }
+
+        // 移入移出
+        overOut()
+        function overOut(){
+            banner.addEventListener('mouseover',()=>clearInterval(timer))
+            banner.addEventListener('mouseout',()=>autoPlay())
+        }
+
+        // 点击事件
+        bindEvent()
+        function bindEvent(){
+            banner.addEventListener('click',event=>{
+                event=event||window.event
+                const target=event.target||event.srcElement
+
+                // 点击的是右按钮
+                if(target.className==='right'){
+                    if(!flag) return //开关关闭，跳出函数
+                    index++
+                    move(imgBox,{left:-index*bannerWidth},moveEnd)
+                    flag=false// 执行完开关关闭
+                }
+
+                // 点击的是做按钮
+                if(target.className==='left'){
+                    if(!flag) return
+                    index--
+                    move(imgBox,{left:-index*bannerWidth},moveEnd)
+                    flag=false
+
+                }
+                // 点击的是焦点按钮
+                if(target.getAttribute('type')==='point'){
+                    if(!flag) return
+                    index=target.getAttribute('pointIndex')-0
+                    move(imgBox,{left:-index*bannerWidth},moveEnd)
+                    flag=false
+                }
+            })
+        }
+
+        // 切换标签页
+        changeTab()
+        function changeTab(){
+            document.addEventListener('visibilitychange',()=>{
+                if(document.visibilityState==='hidden'){
+                    clearInterval(timer)
+                }
+                else if(document.visibilityState==='visible'){
+                    autoPlay()
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
