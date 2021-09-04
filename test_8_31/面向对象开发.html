@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // //工厂函数创建对象
+        // function createObj(name,age,gender){
+        //     //手动创建一个对象
+        //     let obj=new Object()
+        //     //手动添加内容
+        //     obj.name=name
+        //     obj.age=age
+        //     obj.gender=gender
+        //     //手动返回
+        //     return obj
+        // }
+
+        // 自定义构造函数
+        function createObj(name,age,gender){
+            //自动创建一个对象
+            
+            //手动添加内容
+            // this 指向的是创建对象的那个变量
+            this.name=name
+            this.age=age
+            this.gender=gender
+            //自动返回
+            
+        }
+        let o1=new createObj('jack',20,'男')// // this 指向 o1
+        
+        function Person(name,age,gender){
+            this.name=name
+            this.age=age
+            this.gender=gender
+        }
+        Person.prototype.sayHi=function(){console.log('hello word')}
+        let p1=new Person('jack',20,'男')
+        console.log()
+        p1.sayHi()
+
+
+        // 
+    </script>
+</body>
+</html>

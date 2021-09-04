@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../swiper-4.5.3/dist/css/swiper.min.css">
+  <style>
+    .swiper-container {
+      width: 1000px;
+      height: 500px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div style="background: aqua;" class="swiper-slide">Slide 1</div>
+      <div style="background: antiquewhite;" class="swiper-slide">Slide 2</div>
+      <div style="background: azure;" class="swiper-slide">Slide 3</div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+
+    <!-- 如果需要导航按钮 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- 如果需要滚动条 -->
+    <!-- <div class="swiper-scrollbar"></div> -->
+  </div>
+
+
+  <script src="../swiper-4.5.3/dist/js/swiper.min.js"></script>
+
+
+  <script>
+    // 参数一：轮播图容器的类名或id名
+    // 参数二：对当前这个轮播图的配置，是一个对象
+    var mySwiper = new Swiper('.swiper-container', {
+      direction: 'vertical', // 垂直切换选项
+      loop: true, // 循环模式选项
+
+      // 如果需要分页器
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // 如果需要前进后退按钮
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+
+      //   // 如果需要滚动条
+      //   scrollbar: {
+      //     el: '.swiper-scrollbar',
+      //   },
+    })
+  </script>
+</body>
+
+</html>
