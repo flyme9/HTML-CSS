@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="username" type="text" value="">
+
+
+    <script>
+        let prop={
+            firstName:'张',
+            lastName:'思锐'
+        }
+        let obj={}
+
+        Object.defineProperty(obj,'username',{
+            enumerable:true,//
+            get (){
+                return prop.firstName + prop.lastName
+            },
+            set (val){
+                let a=val.slice(0,1)
+                let b=val.slice(1)
+                prop.firstName=b
+                prop.lastName=a
+                let inp = document.querySelector('#username')
+                inp.value=obj.username
+                console.log(inp.value)
+            }
+        })
+        obj.username='123'
+        console.log(obj)
+
+        class Person{
+            constructor(name,age){
+                this.name=name,
+                this.age=age
+            }
+            init(){
+                console.log(this)
+            }
+        }
+        let o=new Person('Jack',18)
+        o.init()
+        console.log(o)
+    </script>
+</body>
+</html>
