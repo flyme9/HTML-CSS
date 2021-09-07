@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .pagination{
+            border: 1px solid #333;
+            left: 200px;
+            top: 100px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="pagination"></div>
+    <ul></ul>
+
+    <script src="./分页器.js"></script>
+    <script>
+
+
+        var arr=[]
+        var ul=document.querySelector('ul')
+        for(var i=0;i<300;i++){
+            arr.push({name:'张山',age:i+1})
+        }
+        const p= new Pagination('.pagination',{
+            current : 1,
+            total :300,
+            pageSize: 10,
+            first:'首页',
+            go:'go',
+            change:function(num){
+                let tmp=arr.slice((num-1)*10,num*10)
+                ul.innerHTML=''
+                for(let i=0;i<tmp.length;i++){
+                    const li=document.createElement('li')
+                    li.innerHTML='渲染页面'+ tmp[i].name + tmp[i].age
+                    ul.appendChild(li)
+                }
+            }
+        })
+        // console.log(p)
+    </script>
+</body>
+</html>
