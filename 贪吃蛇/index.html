@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        button{
+            width: 80px;
+            height: 25px;
+            outline: none;
+            text-align: center;
+        }
+        .map{
+            width: 800px;
+            height: 600px;
+            background: url(./img/bg.jpg);
+            border: 5px solid #999;
+            margin: 10px auto;
+            position: relative;
+        }
+
+        .map>.food,.map>.head,.map>.body{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        .map>.food{
+            background: url(./img/food.jpg) no-repeat;
+            position: absolute;
+        }
+        .map>.head{
+            background: url(./img/header.jpg) no-repeat;
+            position:absolute;
+        }
+        .map>.body{
+            background: url(./img/body.jpg) no-repeat;
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+    <button class="start">开始</button>
+    <button class="stop">停止</button>
+    <button class="restart">重新开始</button>
+    <input type="text" value="0" class="score">
+    <div class="map">
+        <!-- <div class="food"></div>
+        <div class="head"></div>
+        <div class="body"></div> -->
+    </div>
+    <script src="./main.js" type="module"></script>
+</body>
+</html>
