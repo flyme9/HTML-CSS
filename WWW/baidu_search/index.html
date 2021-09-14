@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol,li{
+            list-style: none;
+        }
+        input{
+            width: 600px;
+            padding: 20px 0;
+            text-indent: 10px;
+            outline: none;
+            display: block;
+            float: left;
+            font-size: 24px;
+            margin-left: 200px;
+        }
+        button{
+            height: 72px;
+            padding: 0 60px;
+            background: skyblue;
+            border: 1px solid skyblue;
+            display: block;
+            color: white;
+            font-size: 36px;
+
+        }
+        ul{
+            width:600px;
+            border: 1px solid #333;
+            margin-left: 200px;
+            display: none;
+
+        }
+        ul > li{
+            text-indent: 10px;
+            cursor: pointer;
+            font-size: 20px;
+
+        }
+        ul > li:hover{
+            background: #ccc;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <input type="text"><button>百度一下</button>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <script>
+        const inp=document.querySelector('input')
+        const ul=document.querySelector('ul')
+        inp.addEventListener('input',function(){
+            const str='https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=34445,34527,34144,31660,34554,33848,34525,34585,34092,26350,34420,34557&wd=' + this.value + '&req=2&csor=5&pwd=ai%27q&cb=fn&_=1631340109445'
+            const script=document.createElement('script')
+            script.src=str
+            document.body.appendChild(script)
+            script.remove()
+        })
+        function fn(res){
+            if(!res.g){
+                ul.style.display='none'
+                return
+            }
+            let str=''
+            res.g.forEach(item=>{
+                str+=`
+                    <li>${item.q}</li>`
+            })
+            ul.innerHTML=str
+            ul.style.display='block'
+        }
+    </script>
+
+    
+</body>
+</html>

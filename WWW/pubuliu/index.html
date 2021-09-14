@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    
+    <div class="header">头部</div>
+    <div class="content">
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+    </div>
+    <div class="footer">尾部</div>
+    
+
+    <script type="text/html" id="itemTmp">
+        <li>
+            <div style="height: {{info.photo.height * 290 / info.photo.width }}px" class="img" >
+                <img src="{{ info.photo.path }}" alt="">
+            </div>
+            <div class="bottom">
+                <p class="desc">
+                    {{ info.msg }}​
+                </p>
+                <div class="info">
+                    <div class="avatar">
+                        <img src="{{ info.sender.avatar }}" alt="">
+                    </div>
+                    <div class="username">
+                        {{ info.sender.username }}
+                    </div>
+                </div>
+            </div>
+        </li>
+    </script>
+
+    <script src="../tool/art-template-master/lib/template-web.js"></script>
+    <script src="../tool/ajax.js"></script>
+    <script src="./index.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // const xhr=new XMLHttpRequest()
+        // xhr.open('GET','/duitang?include_fields=top_comments%2Cis_root%2Csource_link%2Citem%2Cbuyable%2Croot_id%2Cstatus%2Clike_count%2Csender%2Calbum%2Creply_count&filter_id=%E6%89%8B%E5%B7%A5DIY&start=24&_=1631344703481')
+        // xhr.onload=function(){
+        //     console.log(JSON.parse(xhr.responseText))
+        // }
+        // xhr.send()
+    </script>
+</body>
+</html>
