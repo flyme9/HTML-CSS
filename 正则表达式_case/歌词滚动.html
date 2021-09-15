@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol,li{
+            list-style: none;
+        }
+        .box{
+            width: 500px;
+            height: 600px;
+            border: 1px solid #eee;
+            background:#eee;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        ul{
+            position: absolute;
+            top: 150px;
+            width: 100%;
+            transition: top .5s ease-in;
+        }
+        ul>li{
+            width: 100%;
+            height: 25px;
+            line-height: 20px;
+            text-align: center;
+            color: rgba(0,128,255,0.4);
+            font-size: 20px;
+        }
+        ul>li.active{
+            width: 100%;
+            height: 30px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 24px;
+            color: rgba(0,128,255,0.9);
+        }
+        audio{
+            width: 50%;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+        </ul>
+    </div>
+    <audio src="https://sharefs.ali.kugou.com/202109122116/3e05c74888bcda5190bb16ec116c6b17/KGTX/CLTX001/8e772e7d25a87075a46a36dfb1079c32.mp3"
+    controls></audio>
+
+    <script src="./歌词.js"></script>
+    <script>
+        // 存储时间
+        const timerArr=[]
+        // 存储歌词
+        const lrcArr=[]
+        // 正则表达式
+        const reg = /\[(\d{2}:\d{2})\.\d{2}\](.+)/g
+
+        // 循环捕获
+        let tmp=reg.exec(lrcStr)
+        while(tmp){
+            timerArr.push(tmp[1])
+            lrcArr.push(tmp[2])
+            tmp=reg.exec(lrcStr)
+        }
+        // 渲染歌词
+        const ul = document.querySelector('.box>ul')
+        let str=''
+        lrcArr.forEach((item,index)=>{
+            str+=`<li class="${ index === 0 ? 'active' : '' }"> ${item}</li>`
+        })
+        ul.innerHTML=str
+
+        const audio=document.querySelector('audio')
+        audio.addEventListener('timeupdate',function(){
+            // 转换时间格式
+            const { currentTime } = audio
+            const min = parseInt(currentTime / 60)
+            const sec = parseInt(currentTime % 60)
+            const timerStr = (min < 10 ? '0' + min : min) + ':' + (sec < 10 ? '0' + sec : sec)
+
+            // 
+            const index=timerArr.findIndex(item=> item===timerStr)
+            if(index!==-1){
+                ul.style.top=-index*20+150+'px'
+                ;[...ul.children].forEach(item=>item.className='')
+                ul.children[index].className='active'
+            }
+        })
+    </script>
+</body>
+</html>

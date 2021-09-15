@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        input{
+            padding:3px 6px;
+        }
+        form{
+            width: 500px;
+            padding: 20px;
+            border: 5px solid skyblue;
+            border-radius: 15px;
+            margin: 30px auto;
+            font-size: 14px;
+        }
+        form>label{
+            position: relative;
+            width: 100%;
+            height: 30px;
+            display: block;
+            padding: 10px 0 10px;
+        }
+        form>label>span{
+            position: absolute;
+            left: 3px;
+            bottom: -10px;
+            color: red;
+            display: none;
+        }
+        form>label>span.error{
+            display: block;
+        }
+        form>label>i{
+            position:absolute;
+            left: 250px;
+            width: 30px;
+            height: 30px;
+        }
+        form>label>i.icon-zhengque1{
+            color: green;
+            font-size: 22px;
+        }
+        form>label>i.icon-cuowu{
+            color: red;
+        }
+        form>label>p{
+            display: inline-block;
+            border: 1px solid #ccc;
+            background: grey;
+        }
+        form>label>p>span{
+            padding: 3px 10px;
+            font-size: 12px;
+        }
+        form>label>p>span.low.active{
+            background: red;
+        }
+        form>label>p>span.mid.active{
+            background: orange;
+        }
+        form>label>p>span.hei.active{
+            background: green;
+        }
+    </style>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2807304_sh3yhgiwr2.css">
+</head>
+    <form>
+        <label>
+            用户名：<input placeholder="6-12位数字、字母或下划线" type="text">
+            <i class="iconfont"></i>
+            <span>只能由6-12位数字、字母、下划线组成</span>
+        </label>
+        <label>
+            密&nbsp;&nbsp;码：<input placeholder="数字、字母或下划线" type="password">
+            <p><span class="low">弱</span><span class="mid">中</span><span class="hei">强</span></p>
+        </label>
+    </form>
+
+    <script>
+        let timer=0
+        const reg = /^[0-9a-zA-Z]\w{5,11}$/
+        const i=document.querySelector('i')
+        const span =document.querySelector('span')
+        const inp=document.querySelector('input')
+        inp.addEventListener('input',function(){
+            clearTimeout(timer)
+            timer=setTimeout(() => {
+                if(reg.test(this.value)){
+                i.classList.add('icon-zhengque1')
+                i.classList.remove('icon-cuowu')
+                span.classList.remove('error')
+            }else{
+                i.classList.add('icon-cuowu')
+                i.classList.remove('icon-zhengque1')
+                span.classList.add('error')
+            }
+            }, 300);
+            if(!this.value){
+                clearTimeout(timer)
+                i.classList.remove('icon-zhengque1')
+                i.classList.remove('icon-cuowu')
+                span.classList.remove('error')
+            }
+        })
+
+
+        const numReg=/\d+/
+        const zimuReg=/[a-zA-Z]+/
+        const fuhaoReg=/[@#%\$]+/
+
+        const pwdInp=document.querySelector('input[type=password]')
+        const pwdSpan=document.querySelectorAll('p span')
+        pwdInp.addEventListener('input',function(){
+            const password=this.value
+            pwdSpan.forEach((item)=>{
+                item.classList.remove('active')
+            })
+            let level=0
+            if(numReg.test(password)) level++
+            if(zimuReg.test(password)) level++
+            if(fuhaoReg.test(password)) level++
+            console.log(level,fuhaoReg.test(password))
+            for(let i=0;i<level;i++){
+                pwdSpan[i].classList.add('active')
+            }
+        })
+    </script>
+<body>
+
+
+
+
+
+    <!-- <script>
+        // 正则验证数字
+        let reg = /^(1?\d{1,2}|2[0-4]\d|25[0-5])$/
+        console.log(reg.test('128'))
+
+        // 邮箱匹配
+        const reg1=/^[0-9a-zA-Z]\w{5,9}@(qq|163|sina)\.(com|cn)$/
+        console.log(reg1.test('2016754638@qq.com'))
+
+        // 捕获手机号
+        const reg2=/(?:\+86 ?)?((133|158)\d{8})/
+        console.log(reg2.exec('13312341234'))
+
+        // 字符串替换
+        let str='18174019689'
+        const reg3=/\d{3,6}/
+        console.log(str.replace(reg3,'****'))
+        // 
+    </script> -->
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0 auto;
+        }
+
+        span {
+            display: block;
+            width: 300px;
+            height: 100px;
+            border: 1px solid #bbb;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <span>1212</span>
+    <audio
+        src="https://sharefs.ali.kugou.com/202109122116/3e05c74888bcda5190bb16ec116c6b17/KGTX/CLTX001/8e772e7d25a87075a46a36dfb1079c32.mp3"
+        controls></audio>
+
+
+    <script src="./歌词.js"></script>
+    <script>
+        const audio = document.querySelector('audio')
+        const span = document.querySelector('span')
+
+        audio.addEventListener('timeupdate', function () {
+            const { currentTime } = audio
+            const min = parseInt(currentTime / 60)
+            const sec = parseInt(currentTime % 60)
+            const timerStr = (min < 10 ? '0' + min : min) + ':' + (sec < 10 ? '0' + sec : sec)
+
+            const reg=new RegExp('\\[' + timerStr + '\\.\\d{2}\\](.+)')
+            let lrc=reg.exec(lrcStr)
+            lrc=lrc?lrc[1]:''
+            span.innerHTML=lrc?lrc:span.innerHTML
+        })
+    </script>
+</body>
+
+</html>
