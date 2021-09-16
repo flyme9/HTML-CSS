@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // ① 宏任务队列调用整体JS代码
+        console.log(1); // ① 同步代码输出1
+        setTimeout(() => {
+            // ① 异步代码，放入WEB API
+            // ② 询问微任务队列，不执行
+            // ③ 询问宏任务队列，输出2
+            console.log(2);
+        }, 0);
+        new Promise(resolve=>{
+            // ① 同步代码输出3
+            console.log(3);
+            // ① 异步代码，放入WEB API
+            resolve();
+        }).then(()=>{
+            // ② 询问微任务队列，输出4
+            console.log(4);
+        });
+
+        // ① 异步代码，放入WEB API
+        // ② 询问微任务队列，不执行
+        setTimeout(() => {
+            console.log(5);
+            new Promise(resolve=>{
+                console.log(6);
+                setTimeout(() => {
+                    console.log(7);
+                });
+                resolve();
+            }).then(()=>{
+                console.log(8);
+            });
+        }, 500);
+        new Promise(resolve=>{
+            // ① 同步代码输出9
+            console.log(9)
+            resolve()
+        }).then(()=>{
+            // ② 询问微任务队列，输出10
+            console.log(10)
+            // ② 询问微任务队列，异步代码，放入WEB API
+            setTimeout(() => {
+                console.log(11)
+            }, 0);
+        })
+        // ① 同步代码输出12
+        console.log(12)
+    </script>
+
+</body>
+</html>
