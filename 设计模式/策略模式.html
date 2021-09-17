@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        const calcPrice = (function () {
+            // 存储多种方法的对象
+            const sale = {
+                '100_10': function (price) { return price -= 10 },
+                '200_25': function (price) { return price -= 25 },
+                '80%': function (price) { return price *= 0.8 }
+            }
+            // 返回一个函数，calcPrice接收这个函数
+            function calcPrice(price,type){
+                // 判断type是否在sale中存在
+                if(!sale[type]) return '传入的type不存在'
+                return sale[type](price)
+            }
+            // 向 sale 中添加内容
+            calcPrice.add=function(type,fn){
+                // 判断 type 是否存在
+                if(sale[type]) return 'type 已存在'
+                // 添加type
+                sale[type]=fn
+            }
+            // 删除一个type
+            calcPrice.del=function(type){
+                delete sale[type]
+            }
+            return calcPrice
+        })()
+        calcPrice.add('70%',function(price){return price*=0.7})
+        calcPrice.del('80%')
+        const res=calcPrice(320,'80%')
+        console.dir(calcPrice)
+        console.log(res)
+    </script>
+
+</body>
+
+</html>

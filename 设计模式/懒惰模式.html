@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="box">1</div>
+
+    <script>
+        var AddEvent = function(dom, type, fn){
+            if(dom.addEventListener){
+                AddEvent = function(dom, type, fn){
+                    dom.addEventListener(type, fn, false);
+                }
+            }else if(dom.attachEvent){
+                AddEvent = function(dom, type, fn){
+                    dom.attachEvent('on'+type, fn);
+                }
+            }else{
+                AddEvent = function(dom, type, fn){
+                    dom['on'+type] = fn;
+                }
+            }
+            AddEvent(dom, type, fn);
+        };
+
+
+    var div=document.getElementById('box')
+    console.log(div)
+    AddEvent(div,'click',function(){
+        console.log('点击了')
+    })
+    </script>
+
+</body>
+</html>

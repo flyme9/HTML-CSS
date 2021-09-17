@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        // 观察者构造函数
+        class Observer{
+            constructor(name,fn=()=>{}){
+                // name 观察者名
+                // fn 被观察者改变状态时执行的技能函数
+                this.name=name,
+                this.fn=fn
+            }
+        }
+        // 创建观察者
+        const bzr=new Observer('班主任',(state)=>{console.log('由于你' + state + '找家长')})
+        const njzr=new Observer('年级主任',(state)=>{console.log('由于你' + state + '问你哪个班的')})
+        const xz=new Observer('校长',(state)=>{console.log('由于你' + state + '校长骂你班主任')})
+
+        // 被观察者的构造函数
+        class Subject{
+            constructor(state){
+                // 记录自己的状态
+                this.state=state
+                // 记录观察者的人数
+                this.observers=[]
+            }
+            // 设置自己的状态
+            setState(val){
+                this.state=val
+                // 改变状态，触发观察者技能函数
+                this.observers.forEach(item=>{
+                    item.fn(this.state)
+                })
+            }
+
+            // 添加观察者
+            addObservser(obs){
+                // 数组有，过滤掉
+                this.observers=this.observers.filter(item=>item!==obs)
+                this.observers.push(obs)
+            }
+            // 删除观察者
+            delObservser(obs){
+                this.observers=this.observers.filter(item=>item!==obs)
+            }
+        }
+
+        const s=new Subject('学习')
+        s.addObservser(bzr)
+        s.addObservser(xz)
+        s.addObservser(njzr)
+        s.delObservser(xz)
+        s.setState('123')
+        console.log(s)
+    </script>
+
+</body>
+</html>

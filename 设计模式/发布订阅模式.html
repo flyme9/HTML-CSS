@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+        class Observer{
+            constructor(){
+                this.message={}
+            }
+            // 向消息队列添加内容
+            on(type,fn){
+                // type 需要监测的行为
+                // fn 行为发生时需要做的事
+
+                // 第一次添加内容，将message 赋值为一个数组
+                if(!this.message[type]){
+                    this.message[type]=[]
+                }
+                // 将函数放入数组中
+                this.message[type].push(fn)
+            }
+            // 删除消息队列内容
+            off(type,fn){
+                // 只有一个 type 参数，将对应type里的函数全部删除
+                if(!fn){
+                    delete this.message[type]
+                    return
+                }
+                // 未订阅情况
+                if(!this.message[type]) return
+                // 订阅过情况
+                this.message[type]=this.message[type].filter(item=>item!==fn)
+
+            }
+            // 触发消息队列内容
+            trigger(type){
+                // 未订阅
+                if(!this.message[type]) return
+                // 订阅过，执行函数
+                this.message[type].forEach(item=>{
+                    item()
+                })
+            }
+        }
+
+        // 创建实例
+        const person=new Observer()
+        console.log(person)
+
+        person.on('A',handlerA)
+        person.on('A',handlerB)
+        person.on('B',handlerB)
+        // person.off('A',handlerA)
+        person.trigger('A')
+
+        function handlerA(){console.log('handlerA')}
+        function handlerB(){console.log('handlerB')}
+        function handlerC(){console.log('handlerC')}
+        function handlerD(){console.log('handlerD')}
+        function handlerE(){console.log('handlerE')}
+        function handlerF(){console.log('handlerF')}
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tip {
+            width: 500px;
+            min-height: 100px;
+            max-height: 300px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            background: white;
+            /* display: none; */
+
+        }
+
+        .tip>.top {
+            height: 40px;
+            background: ye;
+            padding: 10px;
+            box-sizing: border-box;
+            border-left: 1px solid #333;
+            border-right: 1px solid #333;
+        }
+
+        .tip>.top>span {
+            float: right;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            background: white;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .tip>.container {
+            min-height:50px;
+            max-height: 210px;
+            padding: 20px;
+            line-height: 24px;
+            overflow: hidden;
+            font-size: 18px;
+            box-sizing: border-box;
+            text-align: center;
+            word-break: break-all;
+            border-left: 1px solid #333;
+            border-right: 1px solid #333;
+        }
+
+        .tip>.btns {
+            height: 50px;
+            padding: 10px;
+            box-sizing: border-box;
+            background: turquoise;
+            border-left: 1px solid #333;
+            border-right: 1px solid #333;
+        }
+
+        .tip>.btns>button {
+            float: right;
+            width: 20%;
+            height: 100%;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div><!----></div>
+
+
+    <script>
+        // 实现功能的单例模式
+        const Tip=(function(){
+            class Tip {
+                constructor() {
+                    // 获取最外层div
+                    this.ele = document.createElement('div')
+                    this.ele.className = 'tip'
+                    document.body.appendChild(this.ele)
+                    this.callback=function(){}
+                    this.bindEvent()
+                }
+                // 填充 this.ele 内容
+                setContent(txt) {
+                    // 最好以创建节点的形式书写，并添加样式
+                    this.ele.innerHTML = `
+                    <div class="top">标题<span class="close">X</span></div>
+                    <div class="container">
+                        ${txt}
+                    </div>
+                    <div class="btns">
+                    <button class="cancel">取消</button><!--
+                    --><button class="ok">确定</button>
+                    </div>
+                    `
+                    this.ele.style.display = 'block'
+                }
+
+                // 添加各种事件
+                bindEvent() {
+                    this.ele.addEventListener('click', e => {
+                        e = e || window.event
+                        const target = e.target || e.srcElement
+                        if (target.className === 'close') {
+
+                            this.ele.style.display = 'none'
+                        }
+                        if (target.className === 'cancel') {
+                            this.ele.style.display = 'none'
+                            this.callback(false)
+                        }
+                        if (target.className === 'ok') {
+                            this.ele.style.display = 'none'
+                            this.callback(true)
+                        }
+                    })
+
+                }
+                
+                // 调整样式
+                setStyle(val){
+                    this.ele.querySelector('.top').style.backgroundColor=val
+                }
+            }
+            
+            let instance=null
+
+            return function singleTon(options={},cb){
+                if(!instance) instance = new Tip()
+                instance.setContent(options.txt||'你好')
+                instance.callback=cb||function(){}
+                instance.setStyle(options.bg||'skyblue')
+                return instance
+            }
+        })()
+
+        Tip({txt:'hello', bg:'red'},function(res){console.log(res)})
+    </script>
+</body>
+
+</html>
