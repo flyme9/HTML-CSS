@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <script>
+        // 父类
+        function Person(name, age) {
+            this.name = name
+            this.age = age
+        }
+        Person.prototype.sayHi = function () { console.log('hello world') }
+
+        // 子类
+        function Student(gender, name, age) {
+            this.gender = gender
+
+            // 拷贝继承
+            const p = new Person(name, age)
+            for (let key in p) {
+                Student.prototype[key] = p[key]
+            }
+        }
+        // 添加方法
+        Student.prototype.study=function(){console.log('study')}
+        const s = new Student('男', 'jack', 18)
+        console.log(s)
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+        // 父类
+        function Person(name,age){
+            this.name=name
+            this.age=age
+        }
+        Person.prototype.sayHi=function(){ console.log('hello world') }
+        // 子类
+        function Student(gender,name,age){
+            this.gender=gender
+            // 寄生实例继承
+            const instance = new Person(name,age)
+            return instance
+        }
+        Student.prototype.study=function(){}
+        // 寄生原型
+        Student.prototype=Person.prototype
+        Student.prototype.study=function(){}
+
+        const stu=new Student('男','jack',18)
+        console.log(stu)
+    </script>
+
+</body>
+</html>

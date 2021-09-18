@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 父类
+        function Person(name,age){
+            this.name=name
+            this.age=age
+        }
+        Person.prototype.sayHi=function(){ console.log('hello world') }
+        // 子类
+        function Student(gender){
+            this.gender=gender
+        }
+        Student.prototype.study=function(){ console.log('study') }
+
+        // 改变原型继承
+        Student.prototype= new Person('jack',18)
+        const s=new Student('男')
+        console.log(s)
+    </script>
+</body>
+</html>
