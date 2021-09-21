@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 auto;padding: 0;
+        }
+        .box{
+            width: 100px;
+            padding: 20px;
+            border:1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="all">
+            <input type="checkbox"> 全选
+        </div>
+        <hr>
+        <div class="select">
+            <input type="checkbox" checked> 选项1<br>
+            <input type="checkbox" > 选项2<br>
+            <input type="checkbox" checked> 选项3<br>
+            <input type="checkbox" checked> 选项4<br>
+        </div>
+    </div>
+
+    <script src="../jQuery/jQuery.min.js"></script>
+    <script src="../tool/utils.js"></script>
+    <script>
+        
+        $('.all>input').change(function(){
+            $('.select>input').setChecked($(this).getChecked())
+        })
+        $('.select>input').change(function(){
+            $('.all>input').setChecked($('.select>input').selectAll())
+        })
+
+    </script>
+</body>
+</html>

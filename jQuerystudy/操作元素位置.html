@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 3000px;
+        }
+        div{
+            width: 300px;
+            height: 300px;
+            background: skyblue;
+            /* margin: 100px; */
+            overflow: hidden;
+            position: relative;
+        }
+        div>p{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 150px;
+            height: 150px;
+            /* margin: 20px; */
+            background: tomato;
+        }
+    </style>
+    <link rel="stylesheet" href="../tool/adimate/animate.min.css">
+</head>
+<body>
+    
+    <button class="">123</button>
+    <div>
+        <p class="animated bounce">文字</p>
+    </div>
+    <div class="animated bounce" id="dowebok"></div>
+
+    <script src="../jQuery/jQuery.js"></script>
+    <script>
+        $('.slideToggle').click(()=>{
+            $('div').animate({width:500},1000,'linear')
+        })
+</script>
+</body>
+</html>

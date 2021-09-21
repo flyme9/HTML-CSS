@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        function deep(o2, o1) {
+            for (var key in o1) {
+                if (o1[key].constructor === Array) {
+                    o2[key] = []
+                    deep(o2[key],o1[key])
+                } else if (o1[key].constructor === Object) {
+                    o2[key] = {}
+                    deep(o2[key],o1[key])
+                } else {
+                    o2[key] = o1[key]
+                }
+            }
+        }
+
+        var o1={
+            name:'Jack',
+            age:18,
+            info:{
+                class:'gp20',
+                scroe:100,
+                time:{
+                    createTime:100,
+                    updateTime:200,
+                    times=[]
+                }
+            }
+        }
+        var o2={}
+        deep(o2,o1)
+        o2.name='Rose'
+        o2.info.scroe=90
+        o2.info.time.createTime=90
+        console.log(o1,o2)
+    </script>
+</body>
+
+</html>

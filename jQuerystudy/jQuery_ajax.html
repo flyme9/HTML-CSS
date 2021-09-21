@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script src="../jQuery/jQuery.min.js"></script>
+    <script>
+        // $.ajax({
+        //     url:'./server/ajax.php', // 请求地址，必填项
+        //     type:'GET',              // 本次请求方式，默认为GET
+        //     // method:'GET',            与type 作用相同
+        //     async:true,              // 是否为异步请求，默认为异步（true），非异步（false）
+        //     data:'a=100&b=200',      // 传递给后端的数据参数，可以是查询字符串，也可以是一个对象类型
+        //     dataType:'json',         // 期望后端返回的数据类型，json 表示 JSON.parse 解析后的结果
+        //     success(res){            // 请求成功的回调函数
+        //         console.log(res)
+        //     },
+        //     error(xhr,info,err){     // 请求失败或解析失败的回调函数
+        //         console.log(xhr,info,err)
+        //         // xhr 是jQuery封装的ajax对象，info是失败的错误信息，err是失败的详细信息
+        //     },
+        //     timeout:1000,            // 设置一个加载超时时间，到达时间没有接到响应，取消本次请求
+        //     cache:true,              // 默认为缓存（true），不进行缓存时默认以一个时间戳为一个参数
+        //     // context:              // 指定回调函数的this 指向，jQuery 回调函数this 指向jQuery封装的xhr对象
+        // })
+        $(window).ajaxStart(function(){ console.log('第一个请求开始') })
+    </script>
+</body>
+</html>

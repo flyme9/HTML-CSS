@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol,li{
+            list-style: none;
+        }
+        ul{
+            width: 900px;
+            height: 40px;
+            margin: 50px auto;
+            border-bottom: 3px solid#333;
+            position: relative;
+        }
+        li{
+            float: left;
+            width: 100px;
+            text-align:center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        ul>span{
+            width: 100px;
+            height: 40px;
+            display: block;
+            background: skyblue;
+            border-bottom: 3px solid red;
+            text-align:center;
+            line-height: 40px;
+            cursor: pointer;
+            color: white;
+            position: absolute;
+            bottom: -3px;
+            /* 不作为事件目标对象 */
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <ul>
+        <li>选项卡1</li>
+        <li>选项卡2</li>
+        <li>选项卡3</li>
+        <li>选项卡4</li>
+        <li>选项卡5</li>
+        <li>选项卡6</li>
+        <li>选项卡7</li>
+        <li>选项卡8</li>
+        <li>选项卡9</li>
+        <span>选项卡1</span> 
+    </ul>
+
+    <script src="../jQuery/jQuery.min.js"></script>
+    <script>
+        $('li').mouseover(function(){
+            const index=$(this).index()
+            $('span').stop().animate({
+                left:index*100
+            },500).text($(this).text())
+
+            console.log(index)
+        })
+        $('ul').on('click','li',function(){
+            console.log(this)
+        })
+    </script>
+</body>
+</html>

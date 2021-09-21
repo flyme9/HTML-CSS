@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        ul {
+            width: 621px;
+            height: 900px;
+            border: 5px solid pink;
+            margin: 25px auto;
+            overflow: hidden;
+        }
+
+        li {
+            width: 155px;
+            height: 100%;
+            overflow: hidden;
+            float: left;
+        }
+
+        li>img {
+            width: 500px;
+            height: 100%;
+            display: block;
+
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><img src="./1.jpg" alt=""></li>
+        <li><img src="./1.jpg" alt=""></li>
+        <li><img src="./1.jpg" alt=""></li>
+        <li><img src="./1.jpg" alt=""></li>
+
+    </ul>
+
+    <script src="../jQuery/jQuery.min.js"></script>
+    <script>
+        $('li').mouseover(function () {
+            $(this).siblings().stop().animate({ width: 40 }) // 先让兄弟元素变为 40
+            $(this).stop().animate({ width: 499 }) // 在变自己的宽度
+        })
+        $('ul').mouseleave(function () {
+            $('li').stop().animate({ width: 155 })
+        })
+    </script>
+</body>
+
+</html>

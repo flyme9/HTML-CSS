@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0;
+        }
+        ul,ol,li{
+            list-style: none;
+        }
+        ul{
+            width: 200px;
+            /* min-height: 200px; */
+            border: 1px solid #333;
+            padding: 15px;
+            box-sizing: border-box;
+            background: skyblue;
+            color: white;
+        }
+        ul>li>ol{
+            padding-left: 30px;
+            display: none;
+        }
+        /* li{
+            height: 25px;
+            line-height: 25px; 
+        } */
+        ul>li::before{
+            content: '+ ';
+        }
+        ul>li.active::before{
+            content: ' - ';
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <span>一级菜单</span>
+            <ol>
+                <li>+ 二级菜单1</li>
+                <li>+ 二级菜单2</li>
+                <li>+ 二级菜单3</li>
+                <li>+ 二级菜单4</li>
+                <li>+ 二级菜单5</li>
+            </ol>
+        </li>
+        <li>
+            <span>一级菜单</span>
+            <ol>
+                <li>+ 二级菜单1</li>
+                <li>+ 二级菜单2</li>
+                <li>+ 二级菜单3</li>
+                <li>+ 二级菜单4</li>
+                <li>+ 二级菜单5</li>
+            </ol>
+        </li>
+        <li>
+            <span>一级菜单</span>
+            <ol>
+                <li>+ 二级菜单1</li>
+                <li>+ 二级菜单2</li>
+                <li>+ 二级菜单3</li>
+                <li>+ 二级菜单4</li>
+                <li>+ 二级菜单5</li>
+            </ol>
+        </li>
+    </ul>
+
+    <script src="../jQuery/jQuery.min.js"></script>
+    <script>
+        $('ul>li').click(function(){
+            $(this).toggleClass('active').siblings().removeClass('active')
+
+            $(this).find('ol').slideToggle().parent().siblings().find('ol').slideUp()
+        })
+
+    </script>
+</body>
+</html>

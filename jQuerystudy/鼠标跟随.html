@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        ul{
+            width: 390px;
+            height: 120px;
+            border: 5px solid pink;
+            overflow: hidden;
+            padding-top: 20px;
+        }
+        li{
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin-left: 20px;
+        }
+        li>img{
+            width:60%;
+            display: block;
+        }
+        div{
+            width: 288px;
+            display: none;
+        }
+        div>img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><img src="./1.jpg" alt=""></li>
+        <li><img src="./1.jpg" alt=""></li>
+        <li><img src="./1.jpg" alt=""></li>
+    </ul>
+    <div>
+        <img src="./1.jpg" alt="">
+    </div>
+
+
+    <script src="../jQuery/jQuery.min.js"></script>
+    <script>
+        $('li').hover(
+            function(){
+                $('div').fadeIn(100)
+                const src=$(this).find('img').prop('src')
+                $('div').find('img').prop('src',src)
+            },
+            function(){$('div').fadeOut(100)}
+        ).mousemove(function(e){
+            const x=e.pageX+10
+            const y=e.pageY+10
+            $('div').offset({left:x,top:y})
+        })
+    </script>
+</body>
+</html>

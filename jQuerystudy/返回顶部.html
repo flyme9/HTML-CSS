@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 3000px;
+        }
+        div{
+            width: 60px;
+            height: 60px;
+            background: skyblue;
+            box-sizing: border-box;
+            padding: 10px;
+            position: fixed;
+            bottom: 10%;
+            right: 10%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="goTop">回到顶部</div>
+
+    <script src="../jQuery/jQuery.min.js"></script>
+    <script>
+        $('.goTop').click(()=>{
+            // jQuery 页面回到顶部
+            $('html').animate({
+                scrollTop:0
+            },4000)
+        })
+    </script>
+</body>
+</html>
