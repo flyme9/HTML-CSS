@@ -1,0 +1,200 @@
+// 基础语法
+// 单行注释 不会编译到css文件内
+/* 多行注释 会被编译到css文件中，后期打包时会被忽略掉*/
+/*!强力注释 会被编译到css文件中，后期打包时会被保留*/
+
+/* 
+定义变量(定义的变量不会被编译到css文件中，只有使用时会被解析出来) $变量名:值
+
+使用变量：
+    + 在样式值位置使用：color:$color;
+    + 在样式名位置使用
+    + 在选择器位置使用
+*/
+
+// $color:red;
+// $left:left;
+// $type:price;
+// *{
+//     margin: 0;
+//     padding: 0;
+//     color: $color;
+//     // 在样式名位置使用：
+//     margin-#{ $left }:10px;
+// }
+// // 在选择器位置使用
+// .goods-#{$type}{
+//     font-size: 24px;
+// }
+
+
+
+// if 分支语句
+/*
+    @if 表达式{
+        内容
+    }
+
+    @if 表达式{
+        内容
+    }@else{
+        内容
+    }
+*/
+// $className:desc;
+// div{
+//     @if $className =='price'{
+//         color: red;
+//     }@else{
+//         color: black;
+//     }
+//     margin: 20px;
+//     font-size: 100px;
+// }
+
+
+// sass 数组：$变量名:值1,值2,值3,值4,值5,值6
+// $list:red,green,skyblue,blue;
+// // @for $i from 1 to 4 {
+// //     li:nth-child(#{$i}){
+// //         color: nth($list,$i);
+// //     }
+// // }
+
+// // @for $j from 1 through 4{
+// //     ul>li:nth-child(#{$j}){
+// //         color: nth($list, $j );
+// //     }
+// // }
+
+// @each $value,$index in $list {
+//     $i:index($list,$value);
+//     li:nth-child(#{$i}){
+//         color: $value;
+//     }
+// }
+
+
+
+// 嵌套
+// .header{
+//     margin: 10px;
+//     // 基本嵌套
+//     .logo{
+//         width: 100px;
+//         a{
+//             color: white;
+//         }
+//     }
+//     // 子代选择器嵌套
+//     >p{
+//         color: red;
+//     }
+//     // 连接符嵌套 &符号表示父元素
+//     &:hover{
+//         color: skyblue;
+//     }
+//     // 群组嵌套——一个嵌套多个
+//     div{
+//         height: 200px;
+//         .box1,.box2{
+//             width: 100px;
+//         }
+//     }
+//     // 群组嵌套——多个嵌套一个
+//     .box1,.box2{
+//         height: 300px;
+//         p{
+//             color: red;
+//         }
+//     }
+//     // 群组选择器——多个嵌套多个
+//     .box,.box2{
+//         color: red;
+//         .item1,.item2{
+//             background: skyblue;
+//         }
+//     }
+// }
+
+// // 属性嵌套
+// div{
+//     font: {
+//         size: 20px;
+//     };
+//     background: {
+//         color: red;
+//     };
+// }
+// p{
+//     width: 0;
+//     height: 0;
+//     border: 10px solid transparent{
+//         bottom: #333;
+//     };
+// }
+
+
+
+
+// 混合器(定义一个函数)
+// @mixin trans{
+//     -o-transition: all 1s 0s linear;
+//     -webkit-transition: all 1s 0s linear;
+//     -moz-transition: all 1s 0s linear;
+//     -ms-transition: all 1s 0s linear;
+//     transition: all 1s 0s linear;
+// }
+// div{
+//     width: 100px;
+//     @include trans();
+// }
+
+// 带有参数的混合器
+// @mixin trans($p,$t,$d,$tf) {
+//     -webkit-transition: $p $t $d $tf;
+//     -moz-transition: $p $t $d $tf;
+//     -ms-transition: $p $t $d $tf;
+//     -o-transition: $p $t $d $tf;
+//     transition: $p $t $d $tf;
+// }
+// .box1{
+//     @include trans(width, 1s, 0s, linear)
+// }
+// .box2{
+//     @include trans(all, 1s, 0s, linear)
+// }
+
+// 带有参数默认值的混合器
+// @mixin trans($p:all,$t:1s,$d:0s,$tf:linear) {
+//     -webkit-transition: $p $t $d $tf;
+//     -moz-transition: $p $t $d $tf;
+//     -ms-transition: $p $t $d $tf;
+//     -o-transition: $p $t $d $tf;
+//     transition: $p $t $d $tf;
+// }
+// h1{
+//     @include trans()
+// }
+// h1{
+//     // 指定某一个形参赋值
+//     @include trans($tf:ease-in,$t:2s)
+// }
+
+
+// 继承语法
+.box1{
+    width: 100px;
+    height: 100px;
+    background: skyblue;
+}
+.box2{
+    @extend .box1;
+    margin: 10px;
+    height: 300px;
+}
+
+
+
+// 导入语法
+@import './mixin.scss';
