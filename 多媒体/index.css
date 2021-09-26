@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix::after,
+.clearfix::before {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.box {
+    width: 600px;
+    height: 40px;
+    border: 1px solid #333;
+    margin: 200px auto;
+}
+
+.box>div {
+    float: left;
+}
+
+.box>.playPause,
+.box>.stop,
+.box>.volume {
+    width: 20px;
+    height: 20px;
+    /* background: #333; */
+    margin: 10px 0 10px 10px;
+    cursor: pointer;
+}
+
+.box>.time {
+    margin: 10px 0 10px 10px;
+}
+
+.box>.progress {
+    width: 320px;
+    height: 4px;
+    padding: 18px 0 18px 10px;
+    position: relative;
+}
+
+.box>.progress>.di {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    background: #ccc;
+}
+
+.box>.progress>.circle {
+    width: 10px;
+    height: 10px;
+    background: #333;
+    position: absolute;
+    left: 5px;
+    top: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.box>.progress>.currentTime {
+    width: 0px;
+    height: 4px;
+    background: #333;
+    position: absolute;
+    left: 10px;
+    top: 18px;
+    border-radius: 2px;
+}
+
+.box>.volume {
+    position: relative;
+    margin: 0;
+    padding: 10px 0 0 10px;
+}
+
+.box>.volume>.volume_box {
+    width: 50px;
+    height: 120px;
+    position: absolute;
+    left: -10px;
+    bottom: 90%;
+    background: white;
+    border: 1px solid #333;
+    display: none;
+}
+
+.box>.volume>.volume_box.active {
+    display: block;
+}
+
+.box>.volume>.volume_box>.volume_progress {
+    height: 100px;
+    width: 4px;
+    padding: 10px 23px;
+    position: relative;
+}
+
+.box>.volume>.volume_box>.volume_progress>.volume_di {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    background: #ccc;
+}
+
+.box>.volume>.volume_box>.volume_progress>.volume_circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #333;
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.box>.volume>.volume_box>.volume_progress>.volume_current {
+    width: 4px;
+    height: 100px;
+    position: absolute;
+    bottom: 10px;
+    left: 23px;
+    background: #333;
+    border-radius: 2px;
+}
+
+.box>.volume:hover .volume_box {
+    display: block;
+}
