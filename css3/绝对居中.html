@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        div{
+            width: 500px;
+            height: 500px;
+            border: 1px solid #333;
+            position: relative;
+        }
+        p:hover{
+            width: 200px;
+            height: 200px;
+        }
+        p{
+            transition: 1s;
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+
+            /* 方法一： */
+            /* position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto; */
+
+            /* 方法二： */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p></p>
+    </div>
+</body>
+</html>
