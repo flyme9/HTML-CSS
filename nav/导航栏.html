@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style: none;
+        }
+
+        body>div,
+        body>ul {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        body>div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        div.header {
+            height: 120px;
+            background: skyblue;
+        }
+
+        div.nav {
+            height: 30px;
+            background: #ccc;
+        }
+
+        div.banner {
+            height: 300px;
+            background: orange;
+        }
+
+        div.footer {
+            height: 250px;
+            background: orchid;
+        }
+
+        body>ul {
+            margin: 30px auto 0;
+        }
+
+        body>ul>li {
+            height: 600px;
+            background: purple;
+            margin-bottom: 30px;
+            font-size: 80px;
+            color: white;
+        }
+
+        body>ol {
+            width: 50px;
+            height: 250px;
+            margin-bottom: 30px;
+            border-top: 1px solid #333;
+            border-right: 1px solid #333;
+            position: fixed;
+            right: 100px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+        }
+
+        body>ol>li {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-left: 1px solid #333;
+            border-bottom: 1px solid #333;
+            cursor: pointer;
+        }
+
+        body>ol>li.active {
+            background: orange;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">网页头部</div>
+    <div class="nav">网页导航栏</div>
+    <div class="banner">网页轮播图</div>
+    <ul class="louceng">
+        <li class="one">一楼</li>
+        <li class="two">二楼</li>
+        <li class="three">三楼</li>
+        <li class="four">四楼</li>
+        <li class="five">五楼</li>
+    </ul>
+    <div class="footer">网页底部</div>
+    <ol class="lou_nav">
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+
+    <script src="./jquery.js"></script>
+
+    <script>
+        // 事件委托绑定事件
+        $('ol').on('click', 'li', function () {
+            // 获取点击的是第一几个li
+            const index = $(this).index()
+
+            // 找到对应的楼层盒子
+            const loucengLi = $('ul>li').eq(index)
+
+            // 获取楼层到顶部的距离
+            const topSize = loucengLi.offset().top
+
+            // 让浏览器滚动到 topSize位置
+            $('html').stop().animate({
+                scrollTop: topSize
+            }, 1000)
+        })
+
+        $(window).on('scroll', function () {
+            // 获取浏览器卷去的高度
+            const topSize = document.documentElement.scrollTop || document.body.scrollTop
+
+            // 拿到现在的楼层
+            let lou = 0
+
+                // 循环遍历所有盒子
+                ;[...$('ul>li')].forEach((item, index) => {
+                    if ($(item).offset().top  <= topSize) {
+                        lou = index+1
+                    }
+                })
+            // 设置对应导航的盒子的类名
+            $('ol>li').removeClass('active').eq(lou).addClass('active')
+        })
+    </script>
+</body>
+
+</html>
