@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol,li{
+            list-style: none;
+        }
+        ul{
+            width: 800px;
+            height: 600px;
+            border: 10px solid #333;
+            margin: 50px auto;
+            /* 开启弹性盒布局 */
+            display: flex;
+
+            /* 主轴方向 */
+            /*flex-direction: row;            /* 设置水平方向排列，从左往右排列，侧轴垂直方向从上往下排列 */
+            /*flex-direction: row-reverse;    /* 设置水平方向排列，从右往左排列，侧轴垂直方向从上往下排列 */
+            /*flex-direction: column;         /* 设置垂直方向排列，从上往下排列，侧轴垂直方向从左往右排列 */
+            /*flex-direction: column-reverse; /* 设置水平方向排列，从下往上排列，侧轴垂直方向从左往右排列 */
+
+            /* 主轴方向元素排列方式(不改变元素顺序) */
+            /*justify-content: flex-start;    /* 所有元素堆叠在主轴开始位置 */
+            /*justify-content: flex-end;      /* 所有元素堆叠在主轴结束位置 */
+            /*justify-content: center;        /* 所有元素堆叠在主轴中间位置 */
+            /*justify-content: space-between; /* 所有空白填充两者之间（左右两个元素顶格） */
+            /*justify-content: space-around;  /* 所有空白环绕填充（中间空白比两边的空白多一半） */
+            /*justify-content: space-evenly;  /* 所有元素均分空白（所有空白间距相等）安卓不支持、IOS不支持 */
+
+            /* 侧轴方向排列方式（单行） */
+            /*align-items: flex-start;        /* 排列在侧轴开始位置 */
+            /*align-items: flex-end;          /* 排列在侧轴结束位置 */
+            /*align-items: center;            /* 排列在侧轴中间位置 */
+
+            /* 设置换行方式 */
+            /*flex-wrap:nowrap;             /* 不换行 */
+            /*flex-wrap:wrap;               /* 换行 */
+            /*flex-wrap:wrap-reverse;       /* 逆置换行 */
+
+            /* 侧轴方向元素排列方式（多行） */
+            /*align-content: flex-start;      /* 所有元素堆叠在侧轴开始位置 */
+            /*align-content: flex-end;        /* 所有元素堆叠在侧轴结束位置 */
+            /*align-content: center;          /* 所有元素堆叠在侧轴中间位置 */
+            /*align-content: space-between;   /* 侧轴上所有空白均分在每两个元素中间（上下两个元素顶格） */
+            /*align-content: space-around;    /* 侧轴上所有空白均分环绕每一个元素两边 */
+            /*align-content: space-evenly;    /* 侧轴上所有空白均分（所有空白间距相等）安卓不支持、IOS不支持 */
+
+            /* 元素绝对居中 */
+            justify-content: center;
+            align-items: center;
+        }
+        li{
+            background: pink;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        
+    </ul>
+</body>
+</html>

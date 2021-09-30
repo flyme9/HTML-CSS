@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        ul{
+            width: 100px;
+            height: 120px;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            float: left;
+            margin: 15px;
+
+            display: flex;
+        }
+        ul>li{
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: black;
+        }
+        ul:nth-child(1){
+            justify-content: center;
+            align-items: center;
+        }
+        ul:nth-child(1)>li{
+            width: 60px;
+            height: 60px;
+        }
+        ul:nth-child(2){
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+        ul:nth-child(2)>li{
+            width: 35px;
+            height: 35px;
+        }
+        ul:nth-child(3){
+            justify-content: space-between;
+            align-items: center;
+        }
+        ul:nth-child(3)>li{
+            width: 35px;
+            height: 35px;
+        }
+        ul:nth-child(3)>li:nth-child(1){
+            align-self: flex-start;
+        }
+        ul:nth-child(3)>li:nth-child(2){
+            align-self: flex-end;
+        }
+        ul:nth-child(4){
+            justify-content: space-between;
+            align-items: center;
+        }
+        ul:nth-child(4)>li:nth-child(1){
+            align-self: flex-end;
+        }
+        ul:nth-child(4)>li:nth-child(3){
+            align-self: flex-start;
+        }
+        ul:nth-child(5){
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+        ul:nth-child(5)>li{
+            margin: 0 12px;
+        }
+        ul:nth-child(6){
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-around;
+        }
+        ul:nth-child(6)>li:nth-child(2),
+        ul:nth-child(6)>li:nth-child(5){
+            margin-left:10px;
+        }
+        ul:nth-child(6)>li:nth-child(3){
+            margin:0 30px;
+        }
+        ul:nth-child(6)>li:nth-child(1),
+        ul:nth-child(6)>li:nth-child(4){
+            margin-right:10px;
+        }
+
+        ul:nth-child(7){
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-content: space-evenly;
+        }
+        ul:nth-child(7)>li{
+            margin: 0 10px;
+        }
+        ul:nth-child(7)>li:nth-child(-n + 2){
+            margin-bottom:15px;
+        }
+        ul:nth-child(8){
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        ul:nth-child(8)>li:nth-child(-n+3){
+            margin: 0 4px;
+        }
+        ul:nth-child(8)>li:nth-child(n+4){
+            margin: 0 5px;
+        }
+        
+        ul:nth-child(8)>li:nth-child(1){
+            align-self: flex-start;
+        }
+        ul:nth-child(8)>li:nth-child(3){
+            align-self: flex-end;
+        }
+
+        ul:nth-child(9){
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: space-between;
+        }
+        ul:nth-child(9)>li{
+            margin: 0 10px;
+        }
+        ul:nth-child(10){
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-between;
+        }
+        ul:nth-child(10)>li{
+            margin: 0 3px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
