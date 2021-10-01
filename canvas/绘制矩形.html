@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="300"></canvas>
+
+    <script>
+        const canvas=document.querySelector('canvas')
+
+        const ctx=canvas.getContext('2d')
+
+        // ctx.rect(50,50,300,200)
+        // ctx.stroke()
+        // // 直接绘制矩形
+        // ctx.strokeRect(100,100,200,100)
+        // // 直接绘制填充矩形
+        // ctx.fillRect(110,110,200,300)
+
+        ctx.fillStyle='red'
+        ctx.fillRect(100,100,100,100)
+        ctx.clearRect(75,75,75,75)
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas></canvas>
+
+    <script>
+        const canvas = document.querySelector('canvas')
+        const ctx = canvas.getContext('2d')
+        ctx.lineWidth = 10
+        for (let i = 0; i < 256; i++) {
+            ctx.beginPath()
+            ctx.moveTo(100 + i, 100)
+            ctx.lineTo(100 + i + 1, 100)
+            ctx.strokeStyle = `rgb(255,${255-i},${255-i})`
+            ctx.stroke()
+        }
+    </script>
+</body>
+
+</html>

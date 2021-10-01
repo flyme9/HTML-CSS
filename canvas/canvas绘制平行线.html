@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 10px 10px;
+            padding: 0;
+        }
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="600"></canvas>
+
+    <script>
+        const canvas=document.querySelector('canvas')
+        // 生成工具箱
+        let ctx = canvas.getContext('2d')
+        ctx.moveTo(100,100)
+        ctx.lineTo(200,100)
+        ctx.strokeStyle='red'
+        ctx.lineWidth=3
+        ctx.stroke()
+
+        ctx.beginPath()
+        ctx.moveTo(200,200)
+        ctx.lineTo(300,200)
+        ctx.strokeStyle='green'
+        ctx.lineWidth=3
+        ctx.stroke()
+
+        ctx.beginPath()
+        ctx.moveTo(100,100)
+        ctx.lineTo(200,200)
+        ctx.strokeStyle='#333'
+        ctx.lineWidth=3
+        ctx.stroke()
+
+        ctx.beginPath()
+        ctx.moveTo(200,100)
+        ctx.lineTo(300,200)
+        ctx.strokeStyle='blue'
+        ctx.lineWidth=3
+        ctx.stroke()
+    </script>
+</body>
+</html>

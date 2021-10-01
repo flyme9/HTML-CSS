@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            border: 1px solid red;
+            margin: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="300"></canvas>
+
+    <script>
+        // 获取元素
+        const canvas = document.querySelector('canvas')
+        // 获取工具箱
+        const ctx = canvas.getContext('2d')
+
+        // 准备一个数据
+        const data = [
+            { x: 100, y: 200 },
+            { x: 200, y: 200 },
+            { x: 200, y: 100 },
+            { x: 150, y: 220 }
+        ]
+        // 定义点的大小
+        const edge = 10
+
+        function point(data) {
+            ctx.moveTo(data.x - edge / 2, data.y - edge / 2)
+            ctx.lineTo(data.x + edge / 2, data.y - edge / 2)
+            ctx.lineTo(data.x + edge / 2, data.y + edge / 2)
+            ctx.lineTo(data.x - edge / 2, data.y + edge / 2)
+            ctx.closePath()
+            ctx.fill()
+        }
+        function points(data) {
+            data.forEach(item => {
+                point(item)
+            })
+        }
+        points(data)
+
+        // 设置空白位置大小
+        const space = 20
+        // 获取画布大小
+        const width = ctx.canvas.width
+        const height = ctx.canvas.height
+        // 确定原点坐标
+        const x = space
+        const y = height - space
+        // 绘制x轴
+        setAxisX()
+        function setAxisX() {
+            ctx.moveTo(x, y)
+            ctx.lineTo(width - space, y)
+            ctx.lineTo(width - space - 10, y + 5)
+            ctx.lineTo(width - space - 10, y - 5)
+            ctx.lineTo(width - space, y)
+            ctx.stroke()
+            ctx.fill()
+        }
+        // 绘制y轴
+        setAxisY()
+        function setAxisY() {
+            ctx.moveTo(x, y)
+            ctx.lineTo(x, space)
+            ctx.lineTo(x + 5, space + 10)
+            ctx.lineTo(x - 5, space + 10)
+            ctx.lineTo(x, space)
+            ctx.stroke()
+            ctx.fill()
+        }
+
+    </script>
+</body>
+
+</html>

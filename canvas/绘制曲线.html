@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            border: 1px solid #333;
+            margin: 50px;
+        }
+
+        span {
+            display: block;
+            position: absolute;
+            top: 201px;
+            left: 0;
+            width: 700px;
+            height: 1px;
+            background: red;
+        }
+
+        p {
+            width: 1px;
+            height: 400px;
+            position: absolute;
+            left: 351px;
+            top: 0;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <span>
+    </span>
+    <p></p>
+    <canvas width="600" height="300"></canvas>
+
+    <script>
+        const canvas = document.querySelector('canvas')
+        const ctx = canvas.getContext('2d')
+
+        // 确定圆心
+        const width = ctx.canvas.width
+        const height = ctx.canvas.height
+        const x = width / 2
+        const y = height / 2
+        ctx.moveTo(x,y)
+        // 确定半径
+        const r = 100
+        // 开始弧度与终点弧度
+        const startArc = Math.PI / 180 * -30
+        const endArc = Math.PI / 180 * 120
+        // 生成弧线
+        ctx.arc(x, y, r, startArc, endArc, false)
+        ctx.closePath()
+        ctx.stroke()
+        ctx.fill()
+    </script>
+</body>
+
+</html>

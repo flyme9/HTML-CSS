@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            border: 1px solid #333;
+            margin: 50px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="300"></canvas>
+
+    <script>
+        const canvas = document.querySelector('canvas')
+        const ctx = canvas.getContext('2d')
+
+        const text = 'hello world'
+        ctx.font = '30px 楷体'
+        ctx.textBaseline = 'middle'
+        ctx.textAlign='left'
+        ctx.strokeText(text, 50, 50)
+        ctx.fillText(text, 50, 100)
+    </script>
+</body>
+
+</html>

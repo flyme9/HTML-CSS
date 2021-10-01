@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas style="border: 1px solid red;" width="600" height="600"></canvas>
+    <script>
+        const canvas = document.querySelector('canvas')
+        const ctx = canvas.getContext('2d')
+        const width = ctx.canvas.width
+        const height = ctx.canvas.height
+
+        const x = width / 2
+        const y = height / 2
+
+        ctx.moveTo(x - 100, y - 100)
+        ctx.lineTo(x + 100, y - 100)
+        ctx.lineTo(x + 100, y + 100)
+        ctx.lineTo(x - 100, y + 100)
+        ctx.closePath()
+        
+        // ctx.beginPath()
+        ctx.moveTo(x - 50, y - 50)
+        ctx.lineTo(x - 50, y + 50)
+        ctx.lineTo(x + 50, y + 50)
+        ctx.lineTo(x + 50, y - 50)
+        ctx.closePath()
+        ctx.fillStyle='red'
+        ctx.fill()
+        
+        ctx.setLineDash([10,20,15])
+        ctx.stroke()
+    </script>
+</body>
+
+</html>

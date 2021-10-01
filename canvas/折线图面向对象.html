@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            border: 1px solid red;
+            margin: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="300"></canvas>
+
+    <script>
+        // // 获取元素
+        // const canvas = document.querySelector('canvas')
+        // // 获取工具箱
+        // const ctx = canvas.getContext('2d')
+
+        class LineChart {
+            constructor(ele, data) {
+                // 获取元素
+                this.ele = document.querySelector(ele)
+                // 获取工具箱
+                this.ctx = this.ele.getContext('2d')
+                // 获取数据
+                this.data = data
+                // 设置间隙
+                this.space = 20
+                // 获取画布大小
+                this.width = this.ctx.canvas.width
+                this.height = this.ctx.canvas.height
+                // 计算原点坐标
+                this.x = this.space
+                this.y = this.height - this.space
+                // 准备一个新的数组进行渲染数据
+                this.canvasData = []
+                // 确定一个点的大小
+                this.edge = 10
+                // 调用启动函数
+                this.init()
+            }
+            init() {
+                this.transformData()
+                this.setAxis()
+                this.points(this.canvasData)
+                this.line(this.canvasData)
+            }
+            // 转换数据
+            transformData() {
+                this.data.forEach(item => {
+                    this.canvasData.push({
+                        x: this.x + item.x,
+                        y: this.y - item.y
+                    })
+                    console.table(this.canvasData)
+                })
+            }
+
+            // 绘制坐标轴
+            setAxis() {
+                this.ctx.lineWidth = 2
+                this.setAxisX()
+                this.setAxisY()
+            }
+            setAxisX() {
+                this.ctx.moveTo(this.x, this.y)
+                this.ctx.lineTo(this.width - this.space, this.y)
+                this.ctx.lineTo(this.width - this.space - 10, this.y + 5)
+                this.ctx.lineTo(this.width - this.space - 10, this.y - 5)
+                this.ctx.lineTo(this.width - this.space, this.y)
+                this.ctx.stroke()
+                this.ctx.fill()
+            }
+            setAxisY() {
+                this.ctx.moveTo(this.x, this.y)
+                this.ctx.lineTo(this.x, this.space)
+                this.ctx.lineTo(this.x + 5, this.space + 10)
+                this.ctx.lineTo(this.x - 5, this.space + 10)
+                this.ctx.lineTo(this.x, this.space)
+                this.ctx.stroke()
+                this.ctx.fill()
+            }
+
+            // 画点
+            point(data) {
+                this.ctx.beginPath()
+                this.ctx.moveTo(data.x - this.edge / 2, data.y - this.edge / 2)
+                this.ctx.lineTo(data.x + this.edge / 2, data.y - this.edge / 2)
+                this.ctx.lineTo(data.x + this.edge / 2, data.y + this.edge / 2)
+                this.ctx.lineTo(data.x - this.edge / 2, data.y + this.edge / 2)
+                this.ctx.closePath()
+                this.ctx.fill()
+            }
+            points(data){
+                data.forEach(item=>{
+                    this.point(item)
+                })
+            }
+            
+            // 折线连接
+            line(data){
+                this.ctx.beginPath()
+                this.ctx.moveTo(this.x,this.y)
+                data.forEach(item=>{
+                    this.ctx.lineTo(item.x,item.y)
+                })
+                this.ctx.stroke()
+            }
+        }
+        const data = [
+            { x: 100, y: 80 },
+            { x: 200, y: 190 },
+            { x: 300, y: 220 },
+            { x: 400, y: 267 },
+            { x: 500, y: 200 }
+        ]
+        const lc = new LineChart('canvas', data)
+    </script>
+</body>
+
+</html>

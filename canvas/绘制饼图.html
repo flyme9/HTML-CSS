@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="1000" height="700"></canvas>
+
+    <script src="../tool/tools_2.js"></script>
+    <script>
+        const data = [
+            { title: '15~20岁', num: 30 },
+            { title: '20~25岁', num: 20 },
+            { title: '25~30岁', num: 25 },
+            { title: '30~35岁', num: 16 },
+            { title: '35~40岁', num: 16 },
+            { title: '40~45岁', num: 16 },
+            { title: '45~50岁', num: 16 },
+            { title: '50~55岁', num: 16 },
+            { title: '60~65岁', num: 16 }
+        ]
+        new PieChart('canvas',data)
+    </script>
+</body>
+
+</html>

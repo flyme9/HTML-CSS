@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            border: 1px solid #333;
+            margin: 50px;
+        }
+
+        span {
+            display: block;
+            position: absolute;
+            top: 201px;
+            left: 0;
+            width: 700px;
+            height: 1px;
+            background: red;
+        }
+
+        p {
+            width: 1px;
+            height: 400px;
+            position: absolute;
+            left: 351px;
+            top: 0;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <span></span>
+    <p></p> -->
+    <canvas width="600" height="300"></canvas>
+
+    <script src="../tool/tools_2.js"></script>
+    <script>
+        const canvas = document.querySelector('canvas')
+        const ctx = canvas.getContext('2d')
+
+        // 确定圆心
+        const width = ctx.canvas.width
+        const height = ctx.canvas.height
+        const x = width / 2
+        const y = height / 2
+        // 确定半径
+        const r = 100
+        // 确定等分圆份数
+        const n=10
+
+        let startArc=0
+        setInterval(() => {
+            for(let i=0;i<n;i++){
+            ctx.beginPath()
+            ctx.moveTo(x,y)
+            const endArc=startArc+Math.PI*2/n
+            ctx.arc(x,y,r,startArc,endArc)
+            ctx.fillStyle=randomColor(false)
+            ctx.fill()
+            startArc=endArc
+        }
+        }, 10);
+    </script>
+</body>
+</html>

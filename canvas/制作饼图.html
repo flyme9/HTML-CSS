@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            border: 1px solid #333;
+            margin: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="300"></canvas>
+
+    <script src="../tool/tools_2.js"></script>
+    <script>
+        const canvas = document.querySelector('canvas')
+        const ctx = canvas.getContext('2d')
+
+        // 确定圆心
+        const width = ctx.canvas.width
+        const height = ctx.canvas.height
+        const x = width / 2
+        const y = height / 2
+        // 确定半径
+        const r = 100
+
+        const data = [22, 18, 31, 17, 60]
+        // 计算所有数据的总数
+        const total = 22 + 18 + 31 + 17 + 60
+        let startArc = 0
+        data.forEach(item => {
+            ctx.beginPath()
+            ctx.moveTo(x, y)
+            // 画扇型
+            ctx.arc(x, y, r, startArc, Math.PI * 2 * item / total + startArc)
+            startArc = Math.PI * 2 * item / total + startArc
+            ctx.fillStyle = randomColor(true)
+            ctx.fill()
+        })
+    </script>
+</body>
+
+</html>
