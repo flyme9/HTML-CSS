@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style: none;
+        }
+
+        .banner {
+            width: 520px;
+            height: 280px;
+            margin: 50px auto;
+            perspective: 1000px;
+        }
+
+        ul {
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            float: left;
+            width: 20%;
+            transform: translateZ(-140px);
+        }
+
+        ul>li {
+            width: 101%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            backface-visibility: hidden;
+            
+        }
+
+        /* 设置ul下的li盒子 */
+        ul>li:nth-child(1) {
+            background: url(./banner\ \(1\).jpeg) no-repeat 0 0 / 520px 280px;
+            transform: rotateX(0deg) translateZ(140px);
+        }
+
+        ul>li:nth-child(2) {
+            background: url(./banner\ \(2\).jpeg) no-repeat 0 0 / 520px 280px;
+            transform: rotateX(90deg) translateZ(140px);
+        }
+
+        ul>li:nth-child(3) {
+            background: url(./banner\ \(3\).jpeg) no-repeat 0 0 / 520px 280px;
+            transform: rotateX(180deg) translateZ(140px);
+        }
+
+        ul>li:nth-child(4) {
+            background: url(./banner\ \(4\).jpeg) no-repeat 0 0 / 520px 280px;
+            transform: rotateX(270deg) translateZ(140px);
+        }
+
+
+        ul:nth-child(2)>li {
+            background-position: -104px 0;
+            
+        }
+
+        ul:nth-child(3)>li {
+            background-position: -208px 0;
+        }
+
+        ul:nth-child(4)>li {
+            background-position: -312px 0;
+        }
+
+        ul:nth-child(5)>li {
+            background-position: -416px 0;
+        }
+
+        ul:nth-child(1) {
+            z-index: 1;
+        }
+
+        ul:nth-child(2) {
+            z-index: 2;
+        }
+
+        ul:nth-child(3) {
+            z-index: 3;
+        }
+
+        ul:nth-child(4) {
+            z-index: 2;
+        }
+
+        ul:nth-child(5) {
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+
+    <script>
+        const uls = document.querySelectorAll('ul')
+        let num =0
+        setInterval(() => {
+            num++
+            uls.forEach((item, index) => {
+                // 给ul 设置样式
+                item.style.transition='all 1s ' + index * 0.2 +'s linear'
+                item.style.transform = 'translateZ(-140px) rotateX('+ num * 90 +'deg)'
+            })
+        }, 2000);
+    </script>
+</body>
+
+</html>
