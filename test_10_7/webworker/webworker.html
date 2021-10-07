@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            display: -webkit-box;    
+            -webkit-box-orient:vertical;
+            -webkit-line-clamp: 3;    
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <button>按钮</button>
+    
+    <script>
+        const button = document.querySelector('button')
+
+        console.time('1 号任务')
+        const w = new Worker('./webworker.js')
+        // 监听worker对象的message事件
+        w.onmessage = function (e) {
+            const res = e.data
+            button.onclick = function () {
+                console.log(res)
+            }
+        }
+
+        setTimeout(() => {
+
+            console.timeEnd('1 号任务')
+        }, 2000)
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="./login.php" method="POST">
+        <h3 style="display: none;">用户名密码错误</h3>
+        用户名：<input type="text" name="username" autocomplete="off"><br>
+        密码：<input type="password" name="password" autocomplete="off"><br>
+        <button>登录</button>
+    </form>
+
+
+    <script>
+        // 获取元素
+        const usernameInp = document.querySelector('input[name=username]')
+        const passwordInp = document.querySelector('input[name=password]')
+        const form = document.querySelector('form')
+        const h3 = document.querySelector('h3')
+        // 绑定事件
+        form.addEventListener('submit', e => {
+            e = e || e.event
+            // 阻止默认事件
+            e.preventDefault()
+            // 获取用户输入内容
+            const username = usernameInp.value
+            const password = passwordInp.value
+            // 非空验证
+            if (!username || !password) {
+                return alert('完整填写表单')
+            }
+
+            // 提交到后端
+            const xhr = new XMLHttpRequest()
+            xhr.open('POST', './login.php')
+            xhr.onload = function () {
+                const { message, code } = JSON.parse(xhr.responseText)
+                if (code === 1) {
+                    window.location.href = './index.html'
+                } else if (code === 2) {
+                    h3.style.display = 'block'
+                }
+
+            }
+            xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded')
+            xhr.send(`username=${username}&password=${password}`)
+        })
+    </script>
+
+
+    
+
+</body>
+
+</html>

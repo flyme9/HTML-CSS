@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label>
+            选择头像<input type="file" name="avatar">
+        </label>
+        <label>
+            选择头像<input type="text" name="username">
+        </label>
+        <button>上传</button>
+    </form>
+
+    <script>
+        const form=document.querySelector('form')
+        const inp=document.querySelector('input')
+        // form.onsubmit=function(e){
+        //     // 阻止表单默认提交
+        //     e.preventDefault()
+            
+        //     // 创建一个form data进行文件上传
+        //     const fd=new FormData()
+
+        //     //获取文件信息
+        //     const file=inp.files[0]
+            
+        //     // 添加到fd里面
+        //     fd.append('avatar',file)
+        //     fd.append('username','admin')
+        //     fd.append('password','admin')
+        //     // fd.delete('password')
+        // }
+
+
+        form.onsubmit=function(e){
+            // 阻止表单默认提交
+            e.preventDefault()
+            
+            // 创建一个form data进行文件上传
+            const fd=new FormData(form)
+
+            for(let v of fd){
+                console.log(v)
+            }
+        }
+    </script>
+</body>
+</html>
