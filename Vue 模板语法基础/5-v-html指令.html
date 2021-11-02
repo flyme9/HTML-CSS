@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-html</title>
+</head>
+
+<body>
+    <!-- 引入Vue -->
+    <script src="./lib/vue.js"></script>
+    <div id="box">
+        <div v-html="myText"></div>
+        <div v-html="myHtml"></div>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#box",
+            data: {
+                myText: "<b>加粗的</b>",
+                myHtml: `
+                    <div class="header">
+                        <div class="header-inner">
+                            <h1><a href="//www.maoyan.com" class="logo" data-act="icon-click">猫眼电影</a></h1>
+                            <div class="city-container" data-val="{currentcityid: }">
+                                <div class="city-selected">
+                                    <div class="city-name">
+                                        <span class="caret"></span>
+                                    </div>
+                                </div>
+                                <div class="city-list" data-val="{ localcityid: 221 }">
+                                    <div class="city-list-header">定位城市：<a class="js-geo-city" data-ci="221">上饶</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        })
+    </script>
+</body>
+
+</html>

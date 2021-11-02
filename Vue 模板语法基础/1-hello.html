@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 引入Vue -->
+    <script src="./lib/vue.js"></script>
+    <div id="box">
+        <!-- 变量发生变化时，页面数据也会随之变化 -->
+        {{ myName }}
+        <!-- 变量发生变化时，页面数据不会发生变化 -->
+        <span v-once>这个将不会改变: {{ myName }}</span>
+    </div>
+
+    <script>
+        // 
+        var vm = new Vue({
+            // 选中元素交给Vue管理
+            el:"#box",
+            // 插入到页面的数据
+            data:{
+                myName:"xiaogao" // 数据状态
+            }
+        })
+
+        vm.myName="Gao"
+    </script>
+</body>
+</html>
