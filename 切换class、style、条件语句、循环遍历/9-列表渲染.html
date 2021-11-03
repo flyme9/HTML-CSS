@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li v-for="(item,index) in dataList" :key="item">
+                <!-- item 是数组中每个元素，index是元素对应的下标 -->
+                {{index}} - {{item}}
+            </li>
+            <li v-for="(item,key) in obj" :class="">
+                <!-- item是对象的属性值，key是对象的属性名 -->
+                {{key}} - {{item}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#box",
+            data:{
+                dataList:["1111","2222","3333"],
+                obj:{
+                    id:1,
+                    name:'Gao',
+                    age:18,
+                    location:'jiangxi'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

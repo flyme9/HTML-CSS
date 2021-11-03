@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./lib/vue.next.js"></script>
+    <div id="box">
+        {{10+20}}
+        {{myName}}
+        <input type="text" v-model="myText">
+        {{myText}}
+        <div :class="classObj">动态切换class属性值——对象方法</div>
+        <div :class="classArr">动态切换class属性值——对象方法</div>
+        <button @click="handleAdd()">add</button>
+    </div>
+    <script>
+        var obj = {
+            // 定义变量以函数式进行定义
+            data(){
+                return {
+                    myName:'Gao',
+                    myText:'abc',
+                    classObj:{
+                        aa:true,
+                        bb:false
+                    },
+                    classArr:['aa','bb']
+                }
+            },
+            methods:{
+                handleAdd(){
+                    console.log(this.myText)
+                    this.classObj.dd=true
+                }
+            }
+        }
+        // Vue3 初始化语法
+        Vue.createApp(obj).mount("#box")
+    </script>
+</body>
+</html>

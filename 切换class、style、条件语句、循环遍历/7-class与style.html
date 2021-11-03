@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .aa{
+
+        }
+        .bb{
+
+        }
+        .cc{
+
+        }
+        .dd{
+
+        }
+    </style>
+    <script src="./lib/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <div :class="classObj">动态切换class属性值——对象方法</div>
+        <div :class="classArr">动态切换class属性值——数组方法</div>
+
+
+        <div :style="styleObj">动态切换style属性值——对象方法</div>
+        <div :style="styleArr">动态切换style属性值——数组方法</div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:"#box",
+            data:{
+                classObj:{
+                    aa:true,
+                    bb:true,
+                    cc:false
+                },
+                classArr:['aa','bb'],
+                styleObj:{
+                    backgroundColor:'red'
+                },
+                styleArr:[{backgroundColor:"blue"}]
+            }
+        })
+    </script>
+    
+</body>
+</html>
