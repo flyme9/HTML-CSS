@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+    <style>
+        li{
+            overflow:hidden;
+            list-style: none;
+            padding: 10px;
+        }
+        li img{
+            float: left;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <button @click="handleFetch">ajax-fetch</button>
+        <ul>
+            <li v-for="item in dataList" :key="item.filmId">
+                <img :src="item.poster" :alt="item.name" :title="item.name">
+                {{item.name}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#box',
+            data: {
+                dataList:[]
+            },
+            methods: {
+                handleFetch() {
+                    fetch('./json/maizuo.json')
+                        // 第一个then中拿到的是状态码、响应头，获取不到真正的数据
+                        // 使用return下一个then接收的就是真正的数据
+                        // 将数据转为JS对象格式
+                        .then(res => res.json())
+                        // 将数据转为JSON字符串格式
+                        // .then(res=>res.text())
+                        .then(res => {
+                            this.dataList = res.data.films
+                            console.log(this.dataList)
+                        })
+                        .catch(err => {
+                            console.log(err)
+                        })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

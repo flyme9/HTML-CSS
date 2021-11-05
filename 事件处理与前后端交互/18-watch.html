@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./lib/vue.js"></script>
+    <div id="box">
+        <input type="text" v-model="myText">
+        <ul>
+            <li v-for="item in dataList" :key="item">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#box",
+            data: {
+                myText: "",
+                dataList: ["aaa", "abb", "abc", "bbb", "bbc", "bcc", "ccc"],
+                originList: ["aaa", "abb", "abc", "bbb", "bbc", "bcc", "ccc"]
+            },
+            // 监听myText改变
+            watch:{
+                myText(){
+                    setTimeout(()=>{
+                        this.dataList = this.originList.filter(item => item.includes(this.myText))
+                    },1000)
+                }
+            },
+            methods: {
+                handleInput() {
+                    console.log(this.myText)
+                    // 使用原数组进行过滤，将过过滤后返回的新数组交给dataList，原数组始终不变
+                    setTimeout(()=>{
+                        this.dataList = this.originList.filter(item => item.includes(this.myText))
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

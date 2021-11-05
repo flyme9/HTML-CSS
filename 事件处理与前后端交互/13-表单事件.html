@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./lib/vue.js"></script>
+    <div id="box">
+        <textarea v-model='myText'></textarea>
+        {{myText}}
+        <div>
+            用户名：<input type="text" v-model='myText'>
+            <input type="checkbox" v-model='isChecked'>记住用户名
+            <button @click="handleLogin">登录</button>
+        </div>
+
+        <div>
+            <h2>注册页面——兴趣爱好</h2>
+            <!-- v-model 获取value值，并添加到数组checkedList中 -->
+            <input type="checkbox" v-model="checkedList" value="vue" >Vue
+            <input type="checkbox" v-model="checkedList" value="react" >react
+            <input type="checkbox" v-model="checkedList" value="xcx" >微信小程序
+        </div>
+        {{checkedList}}
+
+        <div>
+            <h2>性别选择</h2>
+            <input type="radio" v-model='select' value="man"> 男
+            <input type="radio" v-model='select' value="woman"> 女
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#box',
+            data:{
+                myText:localStorage.getItem("username"),
+                isChecked:false,
+                checkedList:[],
+                select:"man"
+            },
+            methods:{
+                handleLogin(){
+                    if(this.isChecked){
+                        localStorage.setItem("username",this.myText)
+                    }
+
+                    console.log(this.myText,this.checkedList,this.select)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <!-- 首字母大写 -->
+        <!-- 使用原生JS方法实现 -->
+        {{ myName.substring(0,1).toUpperCase()+myName.substring(1) }}
+
+        <!-- Vue函数调用 -->
+        {{myMethodName()}}
+
+        <!-- Vue计算属性调用 -->
+        {{myComputedName}}
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:'#box',
+            data:{
+                myName:'gao',
+            },
+            // 方法（一般用于事件绑定）：每次调用都会进行执行一遍代码，没有缓存
+            methods:{
+                myMethodName(){
+                    return  this.myName.substring(0,1).toUpperCase()+ this.myName.substring(1)
+                }
+            },
+            // 计算属性(防止模板过重，将复杂逻辑写在一个计算属性中)：计算第一次后，会有临时缓存，不修改数据不会再一次计算；修改数据后重新进行一次计算，并且有临时缓存
+            computed:{
+                // 以函数形式进行定义，必须需要返回值
+                myComputedName(){
+                    return  this.myName.substring(0,1).toUpperCase()+ this.myName.substring(1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

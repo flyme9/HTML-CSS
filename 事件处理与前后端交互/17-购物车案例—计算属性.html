@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+        }
+        li img {
+            width: 100px;
+        }
+    </style>
+    <script src="./lib/vue.next.js"></script>
+</head>
+<body>
+    <div id="box">
+        <input type="checkbox" @change="handleAllChecked" v-model="isAll">全选/全部选
+        <ul>
+            <li v-for="(item,index) in datalist" :key="item.id">
+                <input type="checkbox" v-model="checkedList" :value="item" @change="handleItemChecked">
+                <img :src="item.pic" :alt="item.name" :title="item.name">
+                <div>
+                    <div>{{item.name}}</div>
+                    <div style="color: red;">￥{{item.price}}</div>
+                </div>
+                <div>
+                    <button @click="item.number--" :disabled="item.number===1">-</button>
+                    <span>{{item.number}}</span>
+                    <button @click="item.number++" :disabled="item.number===item.limit">+</button>
+                </div>
+                <div>
+                    <button @click="handleDel(index,item.id)">删除</button>
+                </div>
+            </li>
+        </ul>
+        <div>总金额：￥{{ sum }}</div>
+        {{checkedList}}
+    </div>
+
+    <script type="text/javascript">
+        var obj = {
+            data() {
+                return {
+                    isAll: false,
+                    checkedList: [], //勾选购物车的数据
+                    datalist: [{
+                        name: "商品1",
+                        price: 10,
+                        number: 1,
+                        id: 1,
+                        limit: 5, //限购
+                        pic: "https://static.maizuo.com/pc/v5/usr/movie/44dc08914d508fc47c8267c6ca73f2d8.jpg"
+                    },
+                    {
+                        name: "商品2",
+                        price: 20,
+                        number: 2,
+                        id: 2,
+                        limit: 10, //限购
+                        pic: "https://static.maizuo.com/pc/v5/usr/movie/44dc08914d508fc47c8267c6ca73f2d8.jpg"
+                    },
+                    {
+                        name: "商品3",
+                        price: 30,
+                        number: 3,
+                        id: 3,
+                        limit: 15, //限购
+                        pic: "https://static.maizuo.com/pc/v5/usr/movie/44dc08914d508fc47c8267c6ca73f2d8.jpg"
+                    }
+                    ]
+                }
+            },
+            methods: {
+
+                handleDel(index, id) {
+                    // 删除datalist内容
+                    this.datalist.splice(index, 1)
+                    // 删除checkedList内容
+                    // 将等于删除商品的id过滤出去，不删除的商品存入到数组中
+                    this.checkedList = this.checkedList.filter(item => item.id != id)
+
+                    // 同步删除后的状态
+                    this.handleItemChecked()
+                },
+                // 全选
+                handleAllChecked() {
+                    // 全选给checkedList数组赋值
+                    if (this.isAll) {
+                        this.checkedList = this.datalist
+                    }
+                    // 不全选checkedList数组为空
+                    else {
+                        this.checkedList = []
+                    }
+                },
+                // 每个商品单选
+                handleItemChecked(){
+                    // 商品全部选中后，全选按钮自动选中
+                    if(this.checkedList.length === this.datalist.length){
+                        if(this.checkedList.length === 0){
+                            this.isAll=false
+                            return;
+                        }
+                        this.isAll=true
+                    }
+                    // 商品未全部选中，全选按钮取消选中
+                    else{
+                        this.isAll=false
+                    }
+                }
+            },
+            computed:{
+                sum() {
+                    var total = 0
+                    // 累加计算 checkedList 数组中每一项的价格
+                    this.checkedList.forEach(item => {
+                        total += item.number * item.price
+                    });
+                    return total
+                },
+            }
+        }
+        Vue.createApp(obj).mount("#box")
+    </script>
+</body>
+
+</html>
