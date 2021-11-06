@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/axios.js"></script>
+    <script src="./lib/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <button @click='handleAjax'>click-ajax</button>
+
+        <ul>
+            <li v-for="data in dataList" :key='data.id'>
+                <img :src="handleImg(data.img)" :alt="data.nm">
+                {{data.nm}}
+                
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#box',
+            data:{
+                dataList:[]
+            },
+            methods:{
+                handleAjax(){
+                    axios.get('./json/maoyan.json')
+                    .then(res=>{
+                        console.log(res.data.movieList)
+                        this.dataList = res.data.movieList
+                    })
+                },
+                handleImg(imgUrl){
+                    // 图片接口，需要进行处理
+                    return imgUrl.replace('w.h/','') + '@160w_220h_1e_1c'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            overflow:hidden;
+            list-style: none;
+            padding: 10px;
+        }
+        li img{
+            float: left;
+            width: 100px;
+        }
+    </style>
+    <script src="./lib/vue.js"></script>
+    <script src="./lib/axios.js"></script>
+
+</head>
+<body>
+    <div id="box">
+        <button @click="handleFetch">ajax-fetch</button>
+        <ul>
+            <li v-for="item in dataList" :key="item.filmId">
+                <img :src="item.poster" :alt="item.name" :title="item.name">
+                {{item.name}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#box',
+            data: {
+                dataList:[]
+            },
+            methods: {
+                handleFetch() {
+                    axios.get('./json/maizuo.json')
+                    .then(res=>this.dataList = res.data.data.films)
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>

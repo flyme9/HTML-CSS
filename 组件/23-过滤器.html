@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/axios.js"></script>
+    <script src="./lib/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <button @click='handleAjax'>click-ajax</button>
+        <ul>
+            <li v-for="data in dataList" :key='data.id'>
+                <!-- 将 data.img 送至 imgFilter 过滤器进行数据处理，可以进行链式过滤 -->
+                <img :src="data.img | imgFilter" :alt="data.nm">
+                {{data.nm}}
+
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // Vue.filter('imgFilter',(imgUrl)=>{
+        //     // return imgUrl.replace('w.h/','') + '@160w_220h_1e_1c'
+        // })
+
+        new Vue({
+            el: '#box',
+            data: {
+                dataList: []
+            },
+            methods: {
+                handleAjax() {
+                    axios.get('./json/maoyan.json')
+                        .then(res => {
+                            console.log(res.data.movieList)
+                            this.dataList = res.data.movieList
+                        })
+                }
+            },
+            filters: {
+                imgFilter: function (value) {
+                    if (!value) return ''
+                    value = value.toString()
+                    return value.replace('w.h/','') + '@160w_220h_1e_1c'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
