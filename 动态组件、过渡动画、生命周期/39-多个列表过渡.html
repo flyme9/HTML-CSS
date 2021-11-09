@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist</title>
+    <style>
+        /* 进场动画 */
+        .kerwin-enter-active {
+            animation: aaa 0.75s;
+        }
+
+        /* 出场动画 */
+        .kerwin-leave-active {
+            animation: aaa 0.75s reverse;
+        }
+
+        @keyframes aaa {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 引入Vue -->
+    <script src="./lib/vue.js"></script>
+    <div id="box">
+        <!-- 双向表单绑定 -->
+        <input type="text" v-model="myText">
+        <button @click="handleAdd()">Add</button>
+
+        <!-- 数据中有内容时显示，内容为空时隐藏 -->
+        <!-- 遍历数据，显示数据 -->
+        <transition-group name='kerwin' tag='ul' v-show="datalist.length">
+            <li v-for="(data,index) in datalist" :key='data'>
+                {{data}}
+                <button @click="handleDel(index)">del</button>
+            </li>
+        </transition-group>
+        <!-- 数据中有内容时隐藏，内容为空时显示 -->
+        <transition name='kerwin'>
+            <div v-show="!datalist.length">待办事项空空如也</div>
+        </transition>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#box",
+            data: {
+                datalist: ['aaa', 'bbb', 'ccc'],
+                myText: ""
+            },
+            methods: {
+                handleAdd() {
+                    this.datalist.push(this.myText)
+                    // 清空输入框内容
+                    this.myText = ""
+                },
+                handleDel(index) {
+                    this.datalist.splice(index, 1)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

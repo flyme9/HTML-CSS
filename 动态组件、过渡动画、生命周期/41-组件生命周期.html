@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        {{myname}}
+        {{globalName}}
+        <button @click='myname="xiaoming"'>Change</button>
+        <ul>
+            <li v-for='(data,index) in datalist' :key='index'>
+                {{data}}
+            </li>
+        </ul>
+
+        <child v-if='isCreated'></child>
+    </div>
+
+    <script>
+        Vue.component('child',{
+            data(){
+                return{
+                    time:1000
+                }
+            },
+            template:`
+            <div>
+                抢购倒计时
+                <div>{{time}}</div>
+            </div>
+            `,
+            created(){
+                this.id=null
+            }
+            ,
+            mounted(){
+                this.id = setInterval(() => {
+                    this.time--
+                    console.log('倒计时')
+                }, 1000);
+            },
+            beforeDestroy(){
+                console.log('beforeDestroy，清除定时器，事件解绑')
+                clearInterval(this.id)
+            },
+            destroyed(){
+
+                console.log('beforeDestroy，清除定时器，事件解绑')
+            }
+        })
+
+        var vm = new Vue({
+            el:'#box',
+            data:{
+                myname:"Gao",
+                datalist:[],
+                isCreated:true
+            },
+            // Vue实例创建之前：初始化事件与生命周期函数
+            beforeCreate(){
+                console.log('beforeCreate',this.myname)
+            },
+            // Vue实例创建之后：初始化状态，或挂载在当前实例的一些属性
+            created(){
+                this.myname=this.myname+'111' //被拦截的状态
+                console.log('created',this.myname)
+
+                this.globalName='this可以直接访问的属性值' // this下的属性
+            },
+            // 挂载节点之前：模板解析之前最后一次修改模板节点
+            beforeMount(){
+                console.log('beforeMount',document.getElementById('box'))
+            },
+            // 挂载节点之后：拿到真实的DOM节点
+            mounted(){
+                console.log('beforeMount',document.getElementById('box'))
+                // 对于需要依赖于DOM创建之后才能进行初始化工作的插件，如轮播图插件
+                // 订阅 bus.$on()
+                // 发Ajax请求
+                setTimeout(()=>{
+                    this.datalist=['111','222','333']
+                    // 期间虚拟DOM创建，diff对比 状态立即更新，DOM异步更新，无法立即获取最新的DOM
+                    // console.log(document.getElementsByTagName('li').length)
+                },2000)
+            },
+            // 以上四个函数执行一次，之后不在执行
+
+
+            // 更新之前：获取老的DOM一些状态，比如滚动条位置
+            beforeUpdate(){
+                console.log('更新之前',document.getElementById('box'))
+            },
+            // 更新之后：获取更新后最新的DOM，比如swiper工作的插件
+            updated(){
+                console.log('更新之后',document.getElementById('box'))
+                console.log(document.getElementsByTagName('li').length)
+            },
+            // 
+            
+        })
+    </script>
+</body>
+</html>
