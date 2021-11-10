@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue.next.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <navbar v-if='ifCreate'>
+            {{myName}}
+            <div>111</div>
+        </navbar>
+    </div>
+
+
+    <script>
+        var obj = {
+            data() {
+                return {
+                    myName: "Gao",
+                    ifCreate:true
+                };
+            },
+            methods() { },
+            computed() { },
+            // 生命周期
+            beforeCreate(){
+                console.log('beforeCreate')
+            },
+            created(){
+                console.log('created')
+            },
+            beforeMount(){
+                console.log('beforeMount')
+            },
+            mounted(){
+                console.log('mounted')
+            },
+            beforeUpdate(){
+                console.log('beforeUpdate')
+
+            },
+            updated(){
+                console.log('updated')
+            },
+            
+            // 生命周期中 beforeDestroy 替换成 beforeUnmount
+            // 生命周期中 destroy 替换成 unmount
+            beforeUnmount(){
+                console.log('beforeDestroy')
+            },
+            unmount(){
+                console.log('destroyed')
+            }
+        };
+        // 创建Vue根组件
+        var app = Vue.createApp(obj);
+        // 创建自定义组件
+        app.component('navbar', {
+            template: `
+                <div>
+                    navbar
+                    <slot></slot>
+                </div>
+                `,
+        })
+        // 最后挂载到 #box上
+        app.mount('#box')
+    </script>
+</body>
+
+</html>

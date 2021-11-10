@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <script src="./lib/vue.js"></script>
+    <script src="./lib/swiper/js/swiper.js"></script>
+    <style>
+        .swiper-container {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <!-- 异步加载，key值改变，会销毁重新创建 -->
+        <swiper :key='datalist.length' >
+            <swiper-item v-for="data in datalist" :key='data'>
+                <img :src="data" alt="">
+            </swiper-item>
+        </swiper>
+    </div>
+
+    <script>
+        Vue.component('swiperItem', {
+            template: `
+            <div class="swiper-slide">
+                <slot></slot>
+            </div>
+            `
+        })
+        Vue.component('swiper', {
+            template: `
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <slot></slot>
+                </div>
+                <!-- 分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+            `,
+            mounted() {
+                console.log('mounted')
+
+                new Swiper('.swiper-container', {
+                    loop: true, // 循环模式选项
+                    // 如果需要分页器
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+                    autoplay: {
+                        delay: 1000,
+                        stopOnLastSlide: false,
+                        disableOnInteraction: true,
+                    }
+                })
+            },
+            destroyed(){
+                console.log('destroyed')
+            }
+        })
+
+        new Vue({
+            el: '#box',
+            data: {
+                datalist: []
+            },
+            mounted() {
+                setTimeout(() => {
+                    this.datalist = ["https://static.maizuo.com/pc/v5/usr/movie/e856bdc65507b99800f22e47801fa781.jpg",
+                        "https://static.maizuo.com/pc/v5/usr/movie/47aa5a3ad2ebff403d073288e4365694.jpg",
+                        "https://static.maizuo.com/pc/v5/usr/movie/8b0755547313706883acc771bda7709d.jpg"
+                    ]
+                },1000)
+            }
+        })
+    </script>
+</body>
+
+</html>

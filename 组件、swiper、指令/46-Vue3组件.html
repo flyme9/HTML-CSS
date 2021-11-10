@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./lib/vue.next.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <navbar></navbar>
+    </div>
+    <script>
+        // var obj = {
+        //     data() {
+        //         return {
+        //             myName: "Gao",
+        //         };
+        //     },
+        //     methods() { },
+        //     computed() { },
+        // };
+
+        // Vue.createApp(obj)
+        //     // Vue3中定义组件
+        //     .component("navbar", {
+        //         template: `
+        //         <div>
+        //             navbar
+        //             <slot></slot>
+        //         </div>
+        //         `,
+        //     })
+        //     .mount("#box");
+
+
+        var obj = {
+            data() {
+                return {
+                    myName: "Gao",
+                };
+            },
+            methods() { },
+            computed() { },
+        };
+        
+        // 创建Vue根组件
+        var app = Vue.createApp(obj);
+        // 创建自定义组件
+        app.component('navbar',{
+            template: `
+                <div>
+                    navbar
+                    <slot></slot>
+                </div>
+                `,
+        })
+        // 挂载到 #box上
+        app.mount('#box')
+    </script>
+</body>
+
+</html>

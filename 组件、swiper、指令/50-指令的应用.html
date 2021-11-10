@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/swiper/js/swiper.js"></script>
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <script src="./lib/vue.js"></script>
+    <style>
+        /* img{} */
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <header>导航-{{myname}}</header>
+
+        <div class="swiper-container kerwin">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" v-for="(data,index) in datalist" :key="data" v-swiper='{index:index,length:datalist.length}'>
+                    <img :src="data" />
+                </div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+
+        </div>
+
+        <footer>底部内容</footer>
+    </div>
+    <script>
+        Vue.directive('swiper',{
+            inserted(el,binding){
+                console.log(binding.value)
+                let {index,length} = binding.value
+                if(index===length-1){
+                    new Swiper(".kerwin", {
+                        // direction:"vertical", //垂直
+                        // 如果需要分页器
+                        pagination: {
+                            el: '.swiper-pagination',
+                        },
+                        loop: true,
+                        autoplay: {
+                            delay: 2500,
+                            disableOnInteraction: false,
+                        }
+                    })
+                }
+            }
+        })
+
+        new Vue({
+            el: "#box",
+            data: {
+                datalist: [],
+                myname: "kerwin"
+            },
+            mounted() {
+                //ajax
+                setTimeout(() => {
+                    this.datalist = [
+                        "https://static.maizuo.com/pc/v5/usr/movie/e856bdc65507b99800f22e47801fa781.jpg",
+                        "https://static.maizuo.com/pc/v5/usr/movie/47aa5a3ad2ebff403d073288e4365694.jpg",
+                        "https://static.maizuo.com/pc/v5/usr/movie/8b0755547313706883acc771bda7709d.jpg"
+                    ]
+                }, 2000)
+            }
+        })
+
+        /*
+            1. 无法复用
+            2. 如果当前页面 状态不止datalist一个，其他状态更新， update重新运行，new Swiper 执行多次， 出bug
+        
+        */
+    </script>
+</body>
+
+</html>

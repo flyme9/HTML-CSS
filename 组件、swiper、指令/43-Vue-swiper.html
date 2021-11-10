@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <script src="./lib/vue.js"></script>
+    <script src="./lib/swiper/js/swiper.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <header>头部</header>
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" v-for="data in datalist" :key='data'>
+                    <img :src="data" alt="">
+                </div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <footer>底部</footer>
+    </div>
+
+    <script>
+
+        new Vue({
+            el: '#box',
+            data: {
+                datalist: []
+            },
+            // 
+            mounted() {
+                setTimeout(() => {
+                    this.datalist = ["https://static.maizuo.com/pc/v5/usr/movie/e856bdc65507b99800f22e47801fa781.jpg",
+                        "https://static.maizuo.com/pc/v5/usr/movie/47aa5a3ad2ebff403d073288e4365694.jpg",
+                        "https://static.maizuo.com/pc/v5/usr/movie/8b0755547313706883acc771bda7709d.jpg"
+                    ]
+                    //过早
+                }, 2000)
+            },
+            updated(){
+                new Swiper('.swiper-container', {
+                    loop: true, // 循环模式选项
+                    // 如果需要分页器
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+                    autoplay: {
+                        delay: 1000,
+                        stopOnLastSlide: false,
+                        disableOnInteraction: true,
+                    }
+                })
+            }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <script src="./lib/swiper/js/swiper.js"></script>
+    <style>
+        .swiper-container {
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>网页头部</header>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- 如果需要滚动条 -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+
+    <footer>网页底部</footer>
+
+    <script>
+        setTimeout(()=>{
+            var list=['aaa','bbb','ccc']
+            var newList=list.map(item=>`<div class="swiper-slide">${item}</div>`)
+            document.querySelector('.swiper-wrapper').innerHTML=newList.join('')
+
+            init()
+        },1000)
+
+        function init(){
+            var mySwiper = new Swiper('.swiper-container', {
+            // direction: 'vertical', // 垂直切换选项
+            loop: true, // 循环模式选项
+
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 1000,
+                stopOnLastSlide: false,
+                disableOnInteraction: true,
+            },
+
+            // 如果需要滚动条
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        })
+        }
+    </script>
+</body>
+
+</html>
