@@ -1,0 +1,53 @@
+<template>
+    <div>
+        <!-- <ul> -->
+            <!-- Vue router 声明式导航 -->
+
+            <!-- active-class 对router-link-active 进行自定义类名 -->
+            <!-- <router-link to="/films" active-class='Gaoactive'>电影</router-link> -->
+
+            <!-- tag老写法 -->
+            <!-- <router-link to="/cinemas" tag="li">影院</router-link> -->
+
+            <!-- <router-link to="/center" custom v-slot="{navigate,isActive}"> -->
+                <!-- tag新写法 navigate跳转的目标 isActive 是否选中-->
+                <!-- <li @click="navigate" :class="isActive?'Gaoactive':''">我的--{{navigate}}</li> -->
+            <!-- </router-link> -->
+        <!-- </ul> -->
+        <!-- 路由容器 -->
+
+        <router-view> </router-view>
+        <ul>
+            <router-link to="/films" custom v-slot="{navigate,isActive}">
+                <!-- tag新写法 navigate跳转的目标 isActive 是否选中-->
+                <li @click="navigate" :class="isActive?'Gaoactive':''">电影</li>
+            </router-link>
+
+            <router-link to="/cinemas" custom v-slot="{navigate,isActive}">
+                <!-- tag新写法 navigate跳转的目标 isActive 是否选中-->
+                <li @click="navigate" :class="isActive?'Gaoactive':''">影院</li>
+            </router-link>
+
+            <router-link to="/center" custom v-slot="{navigate,isActive}">
+                <!-- tag新写法 navigate跳转的目标 isActive 是否选中-->
+                <li @click="navigate" :class="isActive?'Gaoactive':''">我的</li>
+            </router-link>
+        </ul>
+
+    </div>
+</template>
+
+<style lang="scss" scoped>
+    .router-link-active,.Gaoactive{
+        color: red;
+    }
+    li{
+        list-style: none;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+export default {}
+
+</script>

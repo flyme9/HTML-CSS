@@ -1,0 +1,262 @@
+{
+    "chiefBonus": {},
+    "coming": [],
+    "movieIds": [
+        1222234,
+        343568,
+        672203,
+        345006,
+        1336427,
+        1229308,
+        1338984,
+        248836,
+        1197625,
+        1322057,
+        341051,
+        1285582
+    ],
+    "stid": "576591972453269000",
+    "stids": [
+        {
+            "movieId": 1222234,
+            "stid": "576591972453269000_a1222234_c0"
+        },
+        {
+            "movieId": 343568,
+            "stid": "576591972453269000_a343568_c1"
+        },
+        {
+            "movieId": 672203,
+            "stid": "576591972453269000_a672203_c2"
+        },
+        {
+            "movieId": 345006,
+            "stid": "576591972453269000_a345006_c3"
+        },
+        {
+            "movieId": 1336427,
+            "stid": "576591972453269000_a1336427_c4"
+        },
+        {
+            "movieId": 1229308,
+            "stid": "576591972453269000_a1229308_c5"
+        },
+        {
+            "movieId": 1338984,
+            "stid": "576591972453269000_a1338984_c6"
+        },
+        {
+            "movieId": 248836,
+            "stid": "576591972453269000_a248836_c7"
+        },
+        {
+            "movieId": 1197625,
+            "stid": "576591972453269000_a1197625_c8"
+        },
+        {
+            "movieId": 1322057,
+            "stid": "576591972453269000_a1322057_c9"
+        },
+        {
+            "movieId": 341051,
+            "stid": "576591972453269000_a341051_c10"
+        },
+        {
+            "movieId": 1285582,
+            "stid": "576591972453269000_a1285582_c11"
+        }
+    ],
+    "total": 12,
+    "movieList": [
+        {
+            "id": 1222234,
+            "haspromotionTag": false,
+            "img": "http://p0.meituan.net/w.h/movie/e2ecb7beb8dadc9f07f2fad9820459f92275588.jpg",
+            "version": "",
+            "nm": "我的姐姐",
+            "preShow": false,
+            "sc": 8.9,
+            "globalReleased": true,
+            "wish": 482535,
+            "star": "张子枫,肖央,朱媛媛",
+            "rt": "2021-04-02",
+            "showInfo": "今天3家影院放映23场",
+            "showst": 3,
+            "wishst": 0
+        },
+        {
+            "id": 343568,
+            "haspromotionTag": false,
+            "img": "http://p0.meituan.net/w.h/moviemachine/58732574fbc2f64c04c3e825c058da7f16742753.jpg",
+            "version": "v3d imax",
+            "nm": "哥斯拉大战金刚",
+            "preShow": false,
+            "sc": 8.9,
+            "globalReleased": true,
+            "wish": 506799,
+            "star": "哥斯拉,金刚,亚历山大·斯卡斯加德",
+            "rt": "2021-03-26",
+            "showInfo": "今天3家影院放映13场",
+            "showst": 3,
+            "wishst": 0
+        },
+        {
+            "id": 672203,
+            "haspromotionTag": false,
+            "img": "http://p0.meituan.net/w.h/movie/81141b5b22506a06b585347eb5d90aff2828703.jpg",
+            "version": "",
+            "nm": "超级的我",
+            "preShow": false,
+            "sc": 0,
+            "globalReleased": true,
+            "wish": 41815,
+            "star": "王大陆,宋佳,曹炳琨",
+            "rt": "2021-04-09",
+            "showInfo": "今天3家影院放映10场",
+            "showst": 3,
+            "wishst": 0
+        },
+        {
+            "id": 345006,
+            "haspromotionTag": false,
+            "img": "http://p0.meituan.net/w.h/movie/d6e3e1dc75fd4fbcd3ebc7fb7c09f1d72989216.jpg",
+            "version": "",
+            "nm": "西游记之再世妖王",
+            "preShow": false,
+            "sc": 8.3,
+            "globalReleased": true,
+            "wish": 242702,
+            "star": "边江,张磊,蔡海婷",
+            "rt": "2021-04-02",
+            "showInfo": "今天3家影院放映8场",
+            "showst": 3,
+            "wishst": 0
+        },
+        {
+            "id": 1336427,
+            "haspromotionTag": false,
+            "img": "http://p1.meituan.net/w.h/movie/20dc4e981a012c9afc2b9d6e859a6af74794370.jpg",
+            "version": "",
+            "nm": "工作细胞：细胞大作战",
+            "preShow": false,
+            "sc": 0,
+            "globalReleased": true,
+            "wish": 37411,
+            "star": "花泽香菜,前野智昭,小野大辅",
+            "rt": "2021-04-09",
+            "showInfo": "今天3家影院放映9场",
+            "showst": 3,
+            "wishst": 0
+        },
+        {
+            "id": 1229308,
+            "haspromotionTag": false,
+            "img": "http://p0.meituan.net/w.h/movie/c5c0f985b2f85e3920eb2ecd80d58d331466056.jpg",
+            "version": "",
+            "nm": "第十一回",
+            "preShow": false,
+            "sc": 8,
+            "globalReleased": true,
+            "wish": 150547,
+            "star": "陈建斌,周迅,大鹏",
+            "rt": "2021-04-02",
+            "showInfo": "今天2家影院放映2场",
+            "showst": 3,
+            "wishst": 0
+        },
+        {
+            "id": 1338984,
+            "haspromotionTag": false,
+            "img": "http://p1.meituan.net/w.h/movie/8731860a10919d7519a9371768087c681937233.jpg",
+            "version": "v3d",
+            "nm": "小美人鱼的奇幻冒险",
+            "preShow": true,
+            "sc": 0,
+            "globalReleased": false,
+            "wish": 40062,
+            "rt": "2021-04-17",
+            "showInfo": "2021-04-17 下周六上映",
+            "showst": 4,
+            "wishst": 0
+        },
+        {
+            "id": 248836,
+            "haspromotionTag": false,
+            "img": "http://p0.meituan.net/w.h/movie/056d4f1a658e3e35c9f9e6c44c2aa3fe1831930.jpg",
+            "version": "",
+            "nm": "八月未央",
+            "preShow": false,
+            "sc": 0,
+            "globalReleased": false,
+            "wish": 157419,
+            "star": "钟楚曦,罗晋,谭松韵",
+            "rt": "2021-04-16",
+            "showInfo": "2021-04-16 下周五上映",
+            "showst": 4,
+            "wishst": 0
+        },
+        {
+            "id": 1197625,
+            "haspromotionTag": false,
+            "img": "http://p0.meituan.net/w.h/moviemachine/1546a648697c6d7b94eaa6eab40d55b52054003.jpg",
+            "version": "",
+            "nm": "血战湘江",
+            "preShow": false,
+            "sc": 9.1,
+            "globalReleased": true,
+            "wish": 5548,
+            "star": "王霙,保剑锋,董勇",
+            "rt": "2017-06-30",
+            "showInfo": "今天1家影院放映1场",
+            "showst": 3,
+            "wishst": 0
+        },
+        {
+            "id": 1322057,
+            "haspromotionTag": false,
+            "img": "http://p0.meituan.net/w.h/movie/7f73fd63f27f8a952c484ac3773505ac202519.jpg",
+            "version": "",
+            "nm": "明天会好的",
+            "preShow": false,
+            "sc": 6.7,
+            "globalReleased": true,
+            "wish": 155466,
+            "star": "papi酱,张超,许歌",
+            "rt": "2021-04-02",
+            "showInfo": "今天1家影院放映1场",
+            "showst": 3,
+            "wishst": 0
+        },
+        {
+            "id": 341051,
+            "haspromotionTag": false,
+            "img": "http://p1.meituan.net/w.h/moviemachine/cdeb4c44ed395f19c07c8778e283f86a2221119.jpg",
+            "version": "",
+            "nm": "百团大战",
+            "preShow": false,
+            "sc": 8.5,
+            "globalReleased": true,
+            "wish": 18351,
+            "star": "唐国强,王伍福,陶泽如",
+            "rt": "2021-04-01",
+            "showInfo": "今天暂无场次",
+            "showst": 3,
+            "wishst": 0
+        },
+        {
+            "id": 1285582,
+            "haspromotionTag": false,
+            "img": "http://p0.meituan.net/w.h/movie/8a34fa62ca44469de54bccd2c9511c102267399.jpg",
+            "version": "",
+            "nm": "奇异世界历险记",
+            "preShow": false,
+            "sc": 0,
+            "globalReleased": true,
+            "wish": 12166,
+            "rt": "2021-04-03",
+            "showInfo": "今天暂无场次",
+            "showst": 3,
+            "wishst": 0
+        }
+    ]
+}
