@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="file">
+    <img src="" alt="">
+
+
+    <script>
+        const inp=document.querySelector('input')
+        const img=document.querySelector('img')
+
+        inp.onchange=function(){
+            // 获取文件信息
+            const file=this.files[0]
+            // 准备一个FileReader
+            const fr=new FileReader()
+            // 使用 fr 解析文件内容
+            fr.readAsDataURL(file)
+            // 给fr绑定一个解析完毕的事件
+            fr.onload=function(){
+                // fr.result 就是解析结果
+                console.log(fr.result)
+
+                img.src=fr.result
+            }
+        }
+    </script>
+</body>
+</html>

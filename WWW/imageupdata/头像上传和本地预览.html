@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        label{
+            width: 200px;
+            height: 200px;
+            display: block;
+            margin: 20px auto;
+            cursor: pointer;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        form{
+            display: block;
+        }
+        form>input{
+            display: none;
+        }
+        form>button{
+            width: 200px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <label for="avatar">
+        <img src="" alt="">
+    </label>
+    <form>
+        <input type="file" name="avatar" id="avatar">
+        <button>上传头像</button>
+    </form>
+
+
+    <script>
+        const inp=document.querySelector('input')
+        const img=document.querySelector('img')
+
+        // 接收文件信息变量
+        let current =null
+
+        // inp绑定change 事件
+        inp.addEventListener('change',function(){
+            // 获取文件信息
+            const file=this.files[0]
+
+            // 判度是否有内容(空内容直接返回)
+            if(!file) return;
+            
+            // 判度上传的文件内容
+            if(!file.type.startsWith('image')) return window.alert('请选择一张图片！')
+
+            // 解析图片 
+            const fd = new FileReader()
+            fd.readAsDataURL(file)
+            fd.onload=function(){
+                img.src=fd.result
+
+                current=file
+            }
+        })
+        // 文件上传
+        // form 提交事件
+        const form=document.querySelector('form')
+        form.addEventListener('submit',function(e){
+            e.preventDefault()
+            const fd=new FormData()
+
+            // 判断全局变量
+            if(!current) return window.alert('您还没有选择图片')
+            // 将文件信息手动添加到fd里
+            fd.append('avatar',current)
+
+            // 上传至服务器
+            const xhr = new XMLHttpRequest()
+            xhr.open('POST','./uploadtest.php')
+            xhr.send(fd)
+            xhr.onload=function(){
+                console.log(xhr.responseTex)
+                // const res=JSON.parse(xhr.responseTex)
+            }
+        })
+
+    </script>
+</body>
+</html>
